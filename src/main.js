@@ -10,4 +10,6 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'bootstrap-vue/dist/bootstrap-vue-icons.css'
 import './assets/custom.css'
 
+
+
 createApp(App).use(store).use(router).mount('#app')
