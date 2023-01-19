@@ -28,6 +28,10 @@ let isLogged= () =>{
 	return !! token
 }
 
+let getAllUser=()=>{
+	return Axios.get('/api/auth/allUsers')
+}
+
 
 export const accountService = {
 	signup,
@@ -35,5 +39,6 @@ export const accountService = {
 	logout,
 	getToken,
 	saveToken,
-	isLogged
+	isLogged,
+	getAllUser
 }

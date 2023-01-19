@@ -4,7 +4,7 @@
 
     <p class="decode-result">Last result: <b> <a href="this.result" >{{ result }}</a>   </b></p>
 
-    <qrcode-stream @decode="onDecode" @init="onInit" />
+    <qrcode-stream @decode="onDecode" @init="onInit" size="size" />
   </div>
 </template>
 
@@ -26,7 +26,10 @@ export default {
   methods: {
     onDecode (result) {
       this.result = result
-window.location.replace(result)
+//window.location.replace(result)
+
+      this.$router.push( {name:'updatething',params:{id:result}})
+
 
     },
 

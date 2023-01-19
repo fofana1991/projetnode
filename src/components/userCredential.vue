@@ -65,6 +65,7 @@ accountService.logout()
       console.log(res.data)
     accountService.saveToken(res.data.token)
  this.$router.push( '/info' )
+
     }).catch(err=> {
     console.log(err)
     

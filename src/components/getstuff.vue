@@ -9,14 +9,27 @@
 <form @submit.prevent='modifyThing'>
 
 
-  <div class='form-roup'>
+  <div class='form-group'>
 <img :src='thing.imageUrl' width="300" height="300">
 </div>
 
 
-  <div class='form-group'>
-<label for='thing.id'>id:</label><input class="form-control form-control-lg" type='texte' v-model='thing._id'>
+
+<div class='form-group'>
+
+ <qrcode-vue v-if='id' :value="id" :size="size" level="H" />
+<input class="form-control form-control-lg" type='texte' v-model='thing._id' hidden>
+
 </div>
+
+
+
+
+
+
+
+
+  
   
 <div class='form-group'>
 <label for='title'>title:</label><input class="form-control form-control-lg" type='texte' v-model='thing.title'>
@@ -64,20 +77,26 @@
 </template>
 
 <script>
-
+  import QrcodeVue from 'qrcode.vue'
   import {stuffService} from '@/_services'
   
    
   export default {
   
   name: 'getStuf',
+
+
   data(){
     return{
 
-      id:'',
+      id: null,
       thing:{}
     }
   },
+
+   components: {
+      QrcodeVue,
+    },
   
 methods:{
 

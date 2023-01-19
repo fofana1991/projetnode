@@ -14,6 +14,8 @@ let addImage=(image)=>{
 } 
 
 
+
+
 let getAllstuff= ()=>{
 	return Axios.get('/api/stuff')
 }
@@ -39,7 +41,7 @@ export const stuffService = {
 	modifyThing,
 	addThing,
 	addImage,
-	deleteThing
-
+	deleteThing,
+	
 
 }

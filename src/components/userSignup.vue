@@ -72,7 +72,7 @@ accountService.logout()
     accountService.signup(this.user).then(res=> {
       console.log(res.data)
     accountService.saveToken(res.data.token)
- this.$router.push( '/info' )
+ this.$router.push( '/users' )
     }).catch(err=> {
     console.log(err)
     

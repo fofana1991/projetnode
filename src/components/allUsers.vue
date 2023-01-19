@@ -17,33 +17,29 @@
   
 <div class='container'>
     <div  class='row align-items-center' id="lessonList">
-
-        <div  class='col-sm-1 col-md-3 col-lg-3  p-3 mx-4 ' v-for='(thing) in things' :key=thing._id >
-            <div class="card  border bg-light" style="width: 18rem;" >
-                <img :src="thing.imageUrl" class="card-img-top" @click='goEdit(thing._id)' alt="..." height='300'/>
-                 <div class="card-body">
-                     <h5 class="card-title"> titre:{{thing.title}}</h5>
-                      <p class="card-text">description:{{thing.description}}</p>
-                      <p class="card-text">prix:{{thing.price}}</p>
+<table class="table table-bordered table-dark">
+  <thead>
+    <tr>
+      <th scope="col">index</th>
+      
+      <th scope="col">email</th>
+      
+      <th scope="col">userID</th>
+    </tr>
+  </thead>
+  <tbody v-for='(user,index) in users' :key=user._id >
+    <tr>
+      <td>{{index + 1}}</td>
+       <td>{{user.email}}</td>
+      
+      <td>{{user._id}}</td>
      
-                       <p class="card-text">
+      
+    </tr>
 
-                           <div class='form-group'>
-
-                                    <qrcode-vue v-if='thing._id' :value="thing._id" :size="size" level="H" />
-
-                                     <input class="form-control form-control-lg" type='text' v-model='thing._id' hidden="true">
-
-
-                            </div>
-
-
-                      </p>
-
-                    </div>
-              </div>
-          </div>
-    </div>
+  </tbody>
+</table>
+           </div>
   </div>
 
 
@@ -53,18 +49,13 @@
 
 <script>
 
-
-
-   
-  import QrcodeVue from 'qrcode.vue'
-
   //import {stuffService} from '@/_services'
-  import {stuffService} from '@/_services'
+  import {accountService} from '@/_services'
   
    
   export default {
   
-  name: 'stuffFetch',
+  name: 'allUsers',
 
 
   
@@ -73,64 +64,64 @@
 
     return {
         
-             things:[]
+             users:[]
 
-           }
+    }
   },
 
   components: {
-
-      QrcodeVue,
-
-              },
+  
+    },
 
    methods:{
 
 
 
 
-            refresh(){
+refresh(){
 
-
-stuffService.Allstuff().then(res=>{
+ 
+        accountService.getAllUser()
+                                .then(res=>{
 
                                   console.log(res.data)
 
-                                  this.things=res.data
+                                  this.users=res.data
                                   
 
-                                   }).catch(err=>{console.log(err)})
+                                }).catch(err=>{console.log(err)})
+    },
 
 
-                      },
 
 
-           goEdit(uid){
+
+goEdit(uid){
 
   console.log(uid)
  // this.$router.push( '/updatething/'+id)
 this.$router.push( {name:'updatething',params:{id:uid}})
 
-                     }
+}
 
 
 
-           },
+    },
         
 //recuperation de toutes les chose et pacer dans le data
      mounted() {
 
       // stuffService.getAllstuff()
-        stuffService.getAllstuff()
+        accountService.getAllUser()
                                 .then(res=>{
 
                                   console.log(res.data)
 
-                                  this.things=res.data
+                                  this.users=res.data
                                   
 
                                 }).catch(err=>{console.log(err)})
-    },
+    }
 
 
 }
