@@ -24,7 +24,7 @@ Axios.interceptors.response.use(
    
      router.push('/about');
 
-     	prompt('unautharize')
+     
 
 
 

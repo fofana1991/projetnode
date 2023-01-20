@@ -89,7 +89,7 @@
   data(){
     return{
 
-      id: null,
+      id:'',
       thing:{}
     }
   },
