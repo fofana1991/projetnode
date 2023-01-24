@@ -14,10 +14,12 @@ let addImage=(image)=>{
 } 
 
 
-
+//let getAllstuff= ()=>{
+//return Axios.get('/api/openai/')
+//}
 
 let getAllstuff= ()=>{
-	return Axios.get('/api/stuff')
+return Axios.get('/api/stuff')
 }
 
 

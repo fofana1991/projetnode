@@ -52,6 +52,18 @@ const routes = [
 
 
 
+
+  {
+    path: '/carte',
+    name: 'carte',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/carte.vue')
+  },
+
+
+
 ]
 
 const router = createRouter({

@@ -53,6 +53,7 @@
 <div class='form-group'>
 <label for='price'>price:</label><input class="form-control form-control-lg" type='number' v-model='thing.price'>
 </div>
+
 <div>
 
 <button  @click='submit'> modifier</button>
@@ -63,7 +64,8 @@
 </form>
 
 
-<div>
+
+<div class='col'>
 
 <button  @click='deleteThing()'> deleteThing</button>
 
@@ -73,6 +75,7 @@
 </div>
 </div>
 </div>
+
 
 </template>
 

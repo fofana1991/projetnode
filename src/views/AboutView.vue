@@ -1,19 +1,28 @@
-<template>
-<h1> merci les gares</h1>
-
-<div class="home">
-   
-    <QRCodeVue3 width='100' height='100'/>
-  </div>
+<template >
 
 
+<nav class="nav w-100 navbar-expand navbar-expand-lg  bg-secondary navbar-dark text-center" >
+  
+   <ul>
+ <li class="nav-item">
+ <router-link class="nav-link badge text-bg-info"  to="/carte"> scaner sa carte</router-link>
+  </li>
 
+    </ul>
+   </nav>
+  
+<div class=" container home m-auto border border-danger border-5" >
+  
 
-<div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
+<h1>Se connecter a son compte </h1>
+
+<div class="home m-auto p-4 " >
+    <img alt="Vue logo" src="../assets/logo2.png" >
     <userLogin/>
     
   </div>
+
+   </div>
 </template>
 
 
@@ -22,12 +31,11 @@
 // @ is an alias to /src
 
 import userLogin from '@/components/userCredential.vue'
-import QRCodeVue3 from '@/components/qrCode.vue'
 export default {
   name: 'HomeView',
   components: {
     userLogin,
-    QRCodeVue3
+    
 
   }
 }

@@ -1,10 +1,15 @@
 <template class="bg-secondary">
-{{user.email}}
-<form  @submit.prevent='login'>
 
-<input type="email" v-model='user.email'><br>
+<form  @submit.prevent='login' class="border border-primary">
 
-<input type="password" v-model='user.password'><br>
+<div v-if='error' class="hello bg-danger  m-3 p-3" >
+    {{error}}
+  </div>
+
+
+<input type="email" v-model='user.email' class='m-2' placeholder="Email"><br>
+
+<input type="password" v-model='user.password' class='m-2' placeholder="Password"><br>
 
 <button  type="submit">
 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-apple" viewBox="0 0 16 16">
@@ -15,9 +20,7 @@
       
 </form>
 
-  <div class="hello">
-    {{error}}
-  </div>
+  
   
 </template>
 

@@ -1,29 +1,34 @@
 <template class="bg-danger">
   
 
-<div class="jumbotron">
-   <h1>inscrivez vous</h1>
-</div>
 
-<form  @submit.prevent='signup' class='bg-primary '>
 
- <div v-if='error' class="hello bg-danger w- m-5 p-4 text-center">
+<div class="container">
+  <div class="row">
+
+<div class="col">
+<form  @submit.prevent='signup' class="m-auto p-4 border border-primary border-5" >
+
+ <div v-if='error' class="hello bg-danger  m-2 p-3 text-center">
 {{error}}
   </div>
 
-<div class="form-group">
+<div class="form-group m-auto">
 
-<input type="email" v-model='user.email'><br>
+<input type="email" v-model='user.email' class="m-2" placeholder='Email'><br>
 </div >
 
-<div class="form-group">
-<input type="password" v-model='user.password'><br>
+<div class="form-group m-auto">
+<input type="password" v-model='user.password' class=" m-2 " placeholder='Password'><br>
 </div>
 
 <button  type="submit">
 signup
 </button>
 </form>
+</div>
+</div>
+</div>
  
  
 </template>
