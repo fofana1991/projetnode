@@ -3,7 +3,7 @@
 
  
 
-  <div class="home bg-danger col-12">
+  <div class="home col-12">
     
 <getStuf/>
 

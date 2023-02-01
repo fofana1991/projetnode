@@ -11,13 +11,23 @@
   <div class='form-group'>
 <input class="form-control form-control-lg" type='hidden' v-model='thing.id'>
 </div>
+<div class='form-group'>
+ 
   
+ <div> 
+  
+ <input id="wc-input"   type="color" v-model='thing.color' /><br />
+  
+   </div> 
+  </div>
+  
+
 <div class='form-group'>
 <label for='title'>title:</label><input class="form-control form-control-lg"  type='texte'  id='title' v-model='thing.title'>
 </div>
 
 <div class='form-roup'>
-<label for='description'>image</label><img :src='thing.imageUrl' width="100" height="100">
+<label for='description'>image</label><img width="100" :src='FILE' height="100" id='blash'/>
 </div>
 
 
@@ -31,7 +41,8 @@
 
 
 <div class='form-group'>
-<label for='image'>file</label><input class="form-control form-control-lg"  type='file' @change='onFileUpload' name='file' id="file">
+
+<label for='image'>file</label><input class="form-control form-control-lg" type='file' @change='onFileUpload' name='file' id="file">
 </div>
 <div>
 <input class="form-control form-control-lg"  type='hidden'  v-model='thing.imageUrl'>
@@ -56,7 +67,7 @@
 </template>
 
 <script>
-
+  import $ from 'jquery'
   import {stuffService} from '@/_services'
   
    
@@ -73,13 +84,16 @@ thing:{
 
       title:'',
 
+     color:'',
+
       description:'',
 
       userId:'',
 
       imageUrl:'',
 
-      price:''
+      price:'',
+    
 
        },
 
@@ -91,12 +105,18 @@ FILE:null,
        },
   
   methods:{
+             
+color(color){
+
+this.color=color
+
+},
 
 onFileUpload (event) {
 
 
 
-          this.FILE = event.target.files[0]
+         this.FILE = event.target.files[0]
 
 
 
@@ -136,7 +156,28 @@ postData() {
               console.log(err)
             })
     }
-}         
+},
+
+mounted() {
+
+$(function() {
+
+ 
+ prompt('hello');
+
+$("#wc1").wColorPicker({
+            initColor: '#ccf',
+            onSelect:
+             function(color){
+            
+              $('.corp,body').css('background', color);
+              $('#wc-input').val(color);
+              
+            },
+        });
+
+})
+},        
 }         
 
         

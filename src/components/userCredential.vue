@@ -1,13 +1,13 @@
 <template class="bg-secondary">
 
-<form  @submit.prevent='login' class="border border-primary">
+<form  @submit.prevent='login' class="border border-primar">
 
 <div v-if='error' class="hello bg-danger  m-3 p-3" >
     {{error}}
   </div>
 
 
-<input type="email" v-model='user.email' class='m-2' placeholder="Email"><br>
+<input type="email" v-model='user.email' class='m-2' placeholder="Email" ><br>
 
 <input type="password" v-model='user.password' class='m-2' placeholder="Password"><br>
 

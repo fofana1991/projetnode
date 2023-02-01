@@ -21,14 +21,38 @@
 <div class="form-group m-auto">
 <input type="password" v-model='user.password' class=" m-2 " placeholder='Password'><br>
 </div>
+<div class="form-group m-auto">
+<input type="text" v-model='user.name' class=" m-2 " placeholder='name'><br>
+</div>
 
+<div class="form-group m-auto">
+<input type="text" v-model='user.forename' class=" m-2 " placeholder='forname'><br>
+</div>
+
+<div class="form-group m-auto">
+<label for='image'>birthday</label><input type="date" v-model='user.birthday' class=" m-2 " placeholder='birthday'><br>
+</div>
+
+<div class="form-group m-auto">
+<input type="text" v-model='user.city' class=" m-2 " placeholder='city'><br>
+</div>
+<div class="form-group m-auto">
+<input type="number" v-model='user.number' class=" m-2 " placeholder='telephone'><br>
+</div>
+<div class='form-group'>
+<input type='file' @change='onFileUpload' name='file' id="file">
+</div>
+
+<div class='form-group'>
 <button  type="submit">
 signup
 </button>
+</div>
 </form>
 </div>
 </div>
 </div>
+
  
  
 </template>
@@ -48,8 +72,23 @@ import {accountService} from '@/_services'
           user :{
                   email:'',
 
-                  password:''
+                  password:'',
+
+                  name:'',
+
+                  forename:'',
+                  
+                  birthday:'',
+
+                  city:'',
+                  number:'',
+                  
+                  imageUrl:''
+
                 },
+
+                FILE:'',
+
              error:''    
    
              }
@@ -58,6 +97,23 @@ import {accountService} from '@/_services'
 
 
      methods:  {
+
+
+onFileUpload (event) {
+
+
+
+         this.FILE = event.target.files[0]
+
+
+
+        },
+
+
+
+
+
+      
 logout(){
   
 accountService.logout()
@@ -65,10 +121,26 @@ accountService.logout()
 
 },
 
+
+
+
        
    signup(){ 
 
-    accountService.signup(this.user).then(res=> {
+
+
+var formData = new FormData();
+           
+            const user= JSON.stringify(this.user)
+           
+            var blob= new Blob([this.FILE,this.FILE.name], {type : "image/PNG"})
+        
+            formData.append('user',user)
+            formData.append('image',blob)
+            
+
+    accountService.signup(formData,{
+          }).then(res=> {
       console.log(res.data)
     accountService.saveToken(res.data.token)
  this.$router.push( '/users' )

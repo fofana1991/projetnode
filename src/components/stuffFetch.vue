@@ -1,45 +1,38 @@
-<template class="bg-secondary z-0" >
+/* eslint-disable */
 
-<div class='bg-success'>
+<template class="bg-secondary" >
 
-<div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong> {{resultat}}
-    </strong> 
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+
+<div class="row mb-3">
+   <div class="col">
+      <input class="form-control" id="searchInput" type="text" placeholder="Search..">
+   </div>
+</div>    
+
+
+<div id="wcp1" hidden>
+      <input id="wcp-input" class=''  type="text"/><br />
+    </div>
+
+
+<div class='bg-success color'>
+    
+  {{resultat}}
+  
 </div>
-
- 
-</div>
-
-
-
-
-<div class='container' v-if='things'>
-
-
-
-                            
-    <button type="button" class="btn btn-primary manche" @click='refresh()' >
-
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi  bi-arrow-repeat" viewBox="0 0 16 16">
-            <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/>
-            <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/>
-        </svg>
-
-    </button>
-
- </div>
-  
   
 
-  
-<div class='container d-flex  align-items-stretch '>
-    <div  class='row align-items-center '>
 
-        <div class='col-sm-1 col-md-3 col-lg-3  p-3 mx-4 overflow-y-hidden z-0 ' v-for='(thing) in things' :key=thing._id >
-            <div class="card  border bg-light switch" style="width: 18rem;" >
-                <img :src="thing.imageUrl" class="card-img-top" @click='goEdit(thing._id)' alt="carte" height='250'/>
-                 <div class="card-body">
+<div class='container d-flex  align-items-inline' id='lessonList'>
+
+
+    <div  class='row align-items-center ' id="fatou" >
+
+        <div class=' col-sm-1 col-md-3 col-lg-3  p-3 mx-4 m-lg-4 overflow-y-hidden' v-for='(thing) in things' :key=thing._id id='lessonList'>
+            <div class="card corp border bg-light " style="width: 18rem;">
+                <img :src="thing.imageUrl" class="card-img-top avatar" rounded="circle "  @click='goEdit(thing._id)' alt="carte" height='250'/>
+                 <div class="card-body corp" >
                      <h5 class="card-title"> titre:{{thing.title}}</h5>
                       <p class="card-text">description:{{thing.description}}</p>
                       <p class="card-text">prix:{{thing.price}}</p>
@@ -71,7 +64,7 @@
 
 <script>
 
-
+  import $ from 'jquery'
   import QrcodeVue from 'qrcode.vue'
 
   //import {stuffService} from '@/_services'
@@ -112,6 +105,13 @@ resultat:null
        
       
 
+ 
+
+
+
+
+
+
             refresh(){
 
 
@@ -120,6 +120,8 @@ stuffService.getAllstuff().then(res=>{
 if (res.status===200) {
 
           this.resultat = "mis a jour effectuée avec success"
+
+          alert(this.resultat)
 
         } 
                                   console.log(res.data)
@@ -148,6 +150,9 @@ this.$router.push( {name:'updatething',params:{id:uid}})
 
            },
         
+
+
+
 //recuperation de toutes les chose et pacer dans le data
      
      mounted() {
@@ -161,7 +166,13 @@ this.$router.push( {name:'updatething',params:{id:uid}})
                                   console.log(res.data)
 
                                   this.things=res.data
-                                
+
+    if (res.status===200) {
+
+          this.resultat = "voici l'ensemble des carte"
+
+        } 
+                      
 
                                 }).catch(error=>{
 
@@ -177,9 +188,79 @@ if (error.message=== 'Network Error') {
  
                                 })
 
+$(function() {
 
+ $("#heure").css("position",'absolute').css("top","10").css("left",'0').css("border-size","2em").css("border-style","dotted").css('border-radius','2em').css('background-color','yellow');
+       
+        $("#wcp1").wColorPicker({
+            initColor: '#ccf',
+            onSelect:
+             function(color){
+              $('.corp,body').css('background', color);
+             
+            },
+            onMouseover: function(color){
+              $('#wcp-input').css('background', color).val(color);
+            }
+        });
+
+
+
+      $('#cache').mouseover(function(){
+        $('color').animate({left:'-=100'},{queue:false, duration:2000})
+        .animate({top:'+=50'},2000,);
+
+      });
+
+
+       function horloge(){
+        var date = new Date();
+        var h = date.getHours() + ":" + date.getMinutes()+ ":" + date.getSeconds();
+        $("#heure").text(h);
+       }
+       setInterval(horloge,1000);
+
+
+       $(document).ready(function(){
+      $("#searchInput").on("keyup", function() {
+         var value = $(this).val().toLowerCase();
+         $("#lessonList").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+         });
+      });
+   });
                                 
-    }
+    });
+
+
+},
+
+
+updated(){
+
+
+
+stuffService.getAllstuff().then(res=>{
+if (res.status===200) {
+
+          this.resultat = "mis a jour effectuée avec success"
+
+        } 
+                                  this.things=res.data
+    
+
+
+                                   }).catch(error=>{
+
+                                    console.log(error)})
+
+
+                      },
+             
+        
+
+
+
 
 
 }
@@ -187,9 +268,13 @@ if (error.message=== 'Network Error') {
           
            
             
-             
-        
+
           
+
+
+
+
+
 
 
         
@@ -230,6 +315,8 @@ a {
     animation: switch 6000ms 150ms alternate infinite ease-in-out paused forwards;
 
 }
+
+
 #ball{
     
     animation:lumiere_animation 200ms 6000ms alternate infinite ease-in-out ;
@@ -263,22 +350,22 @@ a {
  @keyframes switch {
     0%{
         
-        
+        top:+2px;
     }
     40%{
 
 
-        height:300px;
+        height:+2px;
         
        
     }
 60%{
-    height: 350px;
+    height: +2px;
 
     
 }
 90%,100%{
-      height:400 px;
+      height:+2px;
       
    
 }

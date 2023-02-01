@@ -1,6 +1,7 @@
 <template>
 
-  <nav class="nav w-100 navbar-expand navbar-expand-lg  bg-light navbar-light text-center height='25px' " >
+<div>
+  <nav class=" nav w-100 navbar-expand navbar-expand-lg  bg-light navbar-light text-center height='25px' position-fixed " >
   
   
      <a class="navbar-brand" href="#"><img src="./assets/logo2.png" width='50' hight='50'/></a>
@@ -38,6 +39,13 @@
 
   
   </nav>
+
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+
+</div>
+  
   <div class="overflow-y-visible" >
 
   <router-view/>
@@ -85,6 +93,11 @@ this.$router.push( '/about')
    }
 }         
        
+
+
+
+
+
 
         
 </script>
@@ -135,7 +148,10 @@ nav {
     &.router-link-exact-active {
       color: #42b983;
     }
-    }
-    }
+    
+}
+
+}
+
   
 </style>

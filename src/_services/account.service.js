@@ -6,9 +6,9 @@ let login= (credentials)=>{
 	return Axios.post('/api/auth/login',credentials) 
 }
 
-let signup= (credentials)=>{
+let signup= (formData)=>{
 
-	return Axios.post('/api/auth/signup',credentials) 
+	return Axios.post('/api/auth/signup',formData ) 
 }
 
 let logout=()=>{
@@ -32,6 +32,10 @@ let getAllUser=()=>{
 	return Axios.get('/api/auth/allUsers')
 }
 
+let getuser=(id)=>{
+	return Axios.get('/api/auth/user/'+id)
+}
+
 
 export const accountService = {
 	signup,
@@ -40,5 +44,6 @@ export const accountService = {
 	getToken,
 	saveToken,
 	isLogged,
-	getAllUser
+	getAllUser,
+	getuser
 }

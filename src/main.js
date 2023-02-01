@@ -13,5 +13,8 @@ import '../node_modules/popper.js/dist/popper.js'
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
 import '../node_modules/bootstrap-vue/dist/bootstrap-vue-icons.css'
 import './assets/custom.css'
+import './assets/wColorPicker.min.css'
+import './assets/wColorPicker.min.js'
+
 
 createApp(App).use(store).use(router).mount('#app')

@@ -1,7 +1,9 @@
 <template class="bg-secondary">
 
-<div class='container'>
 
+
+<div class='container'>
+<button id="cache" onclick='window.print()'>cache</button>
 <div class='row'>
 
 <div class='col-12 col-lg-12 '>
@@ -9,7 +11,7 @@
 <form @submit.prevent='modifyThing'>
 
 
-  <div class='form-group'>
+  <div class='form-group avatar'>
 <img :src='thing.imageUrl' width="300" height="300">
 </div>
 
@@ -24,7 +26,14 @@
 
 
 
-
+<div class='form-group'>
+ 
+  <div id="wc1" >
+      <input id="wc-input"   type="texte" v-model ='thing.color' /><br />
+    </div>
+  
+   
+  </div>
 
 
 
@@ -80,6 +89,7 @@
 </template>
 
 <script>
+import $ from 'jquery'
   import QrcodeVue from 'qrcode.vue'
   import {stuffService} from '@/_services'
   
@@ -141,7 +151,22 @@ stuffService.getStuff(this.id).then(res=>{
   console.log(res)
   this.thing=res.data
 
-}).catch(err=>(console.log(err)))
+}).catch(err=>(console.log(err)));
+
+
+$(function() {
+
+$("#wc1").wColorPicker({
+            initColor: '#ccf',
+            onSelect: function(color){
+              $('.corp,body').css('background', color);
+            },
+            onMouseover: function(color){
+              $('#wc-input').css('background', color).val(color);
+            }
+        });
+
+})
 
 
       
@@ -163,6 +188,11 @@ stuffService.getStuff(this.id).then(res=>{
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped >
+
+
+
+
+
 h3 {
   margin: 40px 0 0;
 }

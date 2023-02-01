@@ -1,6 +1,6 @@
 <template>
 
-<div class="home bg-warning col-12">
+<div class="home  col-12">
     
 
 <div class='bg-danger'>

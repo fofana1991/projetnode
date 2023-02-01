@@ -41,6 +41,17 @@ const routes = [
   },
 
 
+{
+    path: '/messageEdit/:id',
+    name: 'messageEdit',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/messageEdit.vue')
+  },
+
+
+
   {
     path: '/users',
     name: 'users',
@@ -51,7 +62,14 @@ const routes = [
   },
 
 
-
+{
+    path: '/updateUser/:id',
+    name: 'updateUser',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/getuser.vue'),props:true
+  },
 
   {
     path: '/carte',

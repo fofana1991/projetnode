@@ -1,5 +1,5 @@
 <template>
-  <div class="home bg-danger">
+  <div class="home ">
     <allUsers/>
   </div>
 
