@@ -170,7 +170,7 @@ $("#wc1").wColorPicker({
     updated(){
 
 
-messageService.getMessage().then(res=> {
+messageService.getAllMessage().then(res=> {
   console.log(res.data);
   this.messages=res.data
 

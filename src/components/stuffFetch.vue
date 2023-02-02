@@ -30,7 +30,7 @@
     <div  class='row align-items-center ' id="fatou" >
 
         <div class=' col-sm-1 col-md-3 col-lg-3  p-3 mx-4 m-lg-4 overflow-y-hidden' v-for='(thing) in things' :key=thing._id id='lessonList'>
-            <div class="card corp border bg-light " style="width: 18rem;">
+            <div class="corp border bg-light " style="width: 18rem;">
                 <img :src="thing.imageUrl" class="card-img-top avatar" rounded="circle "  @click='goEdit(thing._id)' alt="carte" height='250'/>
                  <div class="card-body corp" >
                      <h5 class="card-title"> titre:{{thing.title}}</h5>

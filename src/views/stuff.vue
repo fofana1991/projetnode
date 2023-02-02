@@ -1,6 +1,7 @@
 <template>
   <div class="home bg-danger overflow-y-hidden">
-<nav class="nav w-100 navbar-expand navbar-expand-lg text-dark  bg-secondary navbar-dark text-center">
+
+  <nav class="nav w-100 navbar-expand navbar-expand-lg text-dark  bg-secondary navbar-dark text-center z-1 position-fixed">
   
 <li class="nav-item">
      <router-link class="nav-link  badge"  to="/updadething/:id">updatething</router-link> 
@@ -12,11 +13,12 @@
     
  </li>
 
-    </nav>
-  
+    </nav>    
+
+    <stuffFetch  class='z-0'/>
 
 
-    <stuffFetch />
+
   </div>
 
 
