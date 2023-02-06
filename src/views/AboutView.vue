@@ -1,6 +1,5 @@
 <template >
 
-
 <div class=" container home m-auto border border-danger border-5" >
  
  
@@ -46,3 +45,13 @@ export default {
 </script>
 
 
+<style>
+
+.container {
+
+background-color:#00FF00;
+
+}  
+
+
+</style>

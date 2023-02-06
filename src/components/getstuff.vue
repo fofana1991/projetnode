@@ -1,13 +1,14 @@
-<template class="bg-secondary">
+<template class="bg-secondary ">
 
 
 
-<div class='container p-3 m-3'>
+<div class='container p-3 m-3 '>
 
-<div class='row'>*
+
+
+<div class='row d-flex d-inline-sm  d-block-lg p-4 '>
   
-
-<div class='col-12 col-lg-12 '>
+<div class='col-12 col-lg-6 '>
 
 <form @submit.prevent='modifyThing'>
 
@@ -90,13 +91,61 @@
 
 
 <div class='col d-flex d-inline'>
-<button id="cache" class='p-3 m-3' onclick='window.print()'>imprimer</button>
 <button  @click='deleteThing()'> deleteThing</button>
 
 </div>
 
 
 </div>
+
+
+
+
+
+<div  class='col-lg-6  p-3 d-block fixed-right' id="fatou" >
+
+            <div class="corp border bg-light " style="width: 18rem;" >
+                <img :src="thing.imageUrl" class="card-img-top avatar" rounded="circle "   alt="carte" height='250' width='300'/>
+                 <div class="" >
+                     <h5 class=""> <strong >Nom:</strong >{{thing.title}}</h5>
+                      <p class=""><strong >Prenom:</strong >{{thing.description}}</p>
+                      <p class=""><strong >Profession:</strong >{{thing.profession}}</p>
+                      <p class=""><strong >Sexe:</strong >{{thing.sexe}}</p>
+                      <p class=""><strong >Entreprise:</strong >{{thing.price}}</p>
+     
+                       <p class="card-text">
+
+                           <div class='form-group'>
+
+                                    <qrcode-vue v-if='thing._id' :value="thing._id" :size="size" level="H" />
+
+                                     <input class="form-control form-control-lg" type='text' v-model='thing._id' hidden="true">
+
+
+                            </div>
+
+
+
+                      </p>
+
+                    </div>
+              </div>
+
+
+               <div>
+
+              <button id="cache" class='p-3 m-3' onclick='window.print()'>imprimer</button>
+
+
+                </div>
+    </div>
+
+
+
+
+
+
+
 </div>
 </div>
 

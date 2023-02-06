@@ -7,11 +7,11 @@
      <a class="navbar-brand" href="#"><img src="./assets/logo2.png" width='50' hight='50'/></a>
 
 
-     <li class="nav-item">
+     <li class="nav-item ">
  <router-link class="nav-link text-body-emphasis"  to="/signup">signup</router-link>
   </li>
  <li class="nav-item">
-  <router-link class="nav-link  text-body-emphasis"  to="/about">login</router-link>
+  <router-link class="nav-link  text-body-emphasis nav-link active"  to="/about">login</router-link>
    </li>
 
     <li class="nav-item">

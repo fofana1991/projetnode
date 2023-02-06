@@ -110,10 +110,6 @@ $("#wc1").wColorPicker({
 <style scoped >
 
 
-.message {
-border-bottom: 5px;
-
-}
 
 
 h3 {

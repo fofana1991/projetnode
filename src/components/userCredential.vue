@@ -1,5 +1,5 @@
 <template class="bg-secondary">
-
+<div class="bg">
 <form  @submit.prevent='login' class="border border-primar">
 
 <div v-if='error' class="hello bg-danger  m-3 p-3" >
@@ -21,7 +21,7 @@
 </form>
 
   
-  
+  </div>
 </template>
 
 <script>
@@ -78,6 +78,8 @@ import {accountService} from '@/_services'
 error.response.data.error.message
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped >
+
+
 h3 {
   margin: 40px 0 0;
 }
