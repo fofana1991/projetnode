@@ -1,18 +1,9 @@
 <template >
 
 
-<nav class="nav w-100 navbar-expand navbar-expand-lg  bg-secondary navbar-dark text-center" >
-  
-   <ul>
- <li class="nav-item">
- <router-link class="nav-link badge text-bg-info"  to="/carte"> scaner sa carte</router-link>
-  </li>
-
-    </ul>
-   </nav>
-  
 <div class=" container home m-auto border border-danger border-5" >
-  
+ 
+ 
 
 <h1>Se connecter a son compte </h1>
 
@@ -21,8 +12,20 @@
     <userLogin/>
     
   </div>
-
    </div>
+
+
+
+<div class="row P-3 m-3" > 
+ <ul >
+ <li class="nav-item P-3 m-3">
+ <router-link class="nav-link badge text-bg-primary"  to="/carte"> scaner sa carte</router-link>
+  </li>
+
+    </ul>
+ </div>    
+
+   
 </template>
 
 

@@ -22,7 +22,7 @@
   
 
        <div class='form-group p-3 m-3'>
-           <input class="form-control form-control-lg"  type='texte'  id='title' v-model='thing.title' placeholder="title">
+           <input class="form-control form-control-lg"  type='texte'  id='title' v-model='thing.title' placeholder="nom">
       </div>
 
        <div class='form-group p-3 m-3'>
@@ -31,8 +31,35 @@
 
 
       <div class='form-group p-3 m-3'>
-          <input class="form-control form-control-lg"  type='texte'  v-model='thing.description' placeholder="description">
+          <input class="form-control form-control-lg"  type='texte'  v-model='thing.description' placeholder="prenom">
       </div>
+
+     <div class='form-group p-3 m-3'>
+          <input class="form-control form-control-lg"  type='texte'  v-model='thing.profession' placeholder="profession">
+      </div>
+
+
+
+ <div class='form-group p-3 m-3'>
+          <input class="form-control form-control-lg"  type='texte'  v-model='thing.filename' placeholder="filename">
+      </div>
+
+
+
+
+
+       <div class='form-group p-3 m-3'>
+          <label for='description'>sexe:</label>
+          <select v-model='thing.sexe' class="form-control form-control-lg">
+            <option value="feminin">F</option>
+             <option value="masculin">M</option>
+          </select>
+      </div>
+
+
+
+
+
 
       <div class='form-group p-3 m-3'>
           <input class="form-control form-control-lg"  type='texte' id='filename' name='filename' v-model='thing.description' placeholder="filname" >
@@ -52,7 +79,7 @@
        </div>
 
         <div class='form-group p-3 m-3'>
-            <input class="form-control form-control-lg"  type='number' name='price' v-model='thing.price' placeholder="price" >
+            <input class="form-control form-control-lg"  type='text' name='price' v-model='thing.price' placeholder="entrprise" >
        </div>
 
        <div class='form-group p-3 m-3'>
@@ -89,12 +116,14 @@ thing:{
      color:'',
 
       description:'',
+      profession:'',
 
       userId:'',
 
       imageUrl:'',
 
-      price:'',
+      filename:'',
+      sexe:'',
     
 
        },
@@ -164,8 +193,6 @@ mounted() {
 
 $(function() {
 
- 
- prompt('hello');
 
 $("#wc1").wColorPicker({
             initColor: '#ccf',

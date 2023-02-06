@@ -19,7 +19,7 @@
 
 
 
-    <div class='row d-flex d-inline m-3 p-3 ' v-for='(message) in messages' :key='message._id'>
+    <div class='row d-flex d-inline m-3 p-3 message' v-for='(message) in messages' :key='message._id'>
        <div class='col-8 lessonList bg-primary ' @click='gomessageEdit(message._id)'>
         <strong>{{message.name}}</strong><br/>
        {{message.message}}
@@ -40,7 +40,7 @@
         
 
          <div class='form-group d-flex d-inline mt-3'>
-  <input class="form-control  " type='text' v-model='message.message' placeholder='message'> <button  @click='submit'> envoyer</button>
+  <input class="form-control  " type='text' v-model='message.message' placeholder='message' id='chat'> <button  @click='submit'> envoyer</button>
 
           </div>
           
@@ -158,13 +158,9 @@ $("#wc1").wColorPicker({
       });
    });
 
-})
-
-
-      
-   
     
-    },
+    })
+},
 
 
     updated(){
@@ -179,7 +175,7 @@ messageService.getAllMessage().then(res=> {
     console.log(error)});
 
     
-                      },
+                      }
    
    
  }
@@ -195,6 +191,10 @@ messageService.getAllMessage().then(res=> {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped >
+
+
+
+
 
 
 .avatar {

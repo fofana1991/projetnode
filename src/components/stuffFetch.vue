@@ -27,15 +27,17 @@
 <div class='container d-flex  align-items-inline' id='lessonList'>
 
 
-    <div  class='row align-items-center ' id="fatou" >
+    <div  class='row align-items-center p-3 ' id="fatou" >
 
-        <div class=' col-sm-1 col-md-3 col-lg-3  p-3 mx-4 m-lg-4 overflow-y-hidden' v-for='(thing) in things' :key=thing._id id='lessonList'>
-            <div class="corp border bg-light " style="width: 18rem;">
-                <img :src="thing.imageUrl" class="card-img-top avatar" rounded="circle "  @click='goEdit(thing._id)' alt="carte" height='250'/>
-                 <div class="card-body corp" >
-                     <h5 class="card-title"> titre:{{thing.title}}</h5>
-                      <p class="card-text">description:{{thing.description}}</p>
-                      <p class="card-text">prix:{{thing.price}}</p>
+        <div class=' col-sm-1 col-md-3 col-lg-3  p-3 m-auto m-lg-4 overflow-y-hidden d-flex d-block' v-for='(thing) in things ' :key=thing._id id='lessonList'>
+            <div class="corp border bg-light " style="width: 18rem;" >
+                <img :src="thing.imageUrl" class="card-img-top avatar" rounded="circle "  @click='goEdit(thing._id)' alt="carte" height='250' width='300'/>
+                 <div class="" >
+                     <h5 class=""> <strong >Nom:</strong >{{thing.title}}</h5>
+                      <p class=""><strong >Prenom:</strong >{{thing.description}}</p>
+                      <p class=""><strong >Profession:</strong >{{thing.profession}}</p>
+                      <p class=""><strong >Sexe:</strong >{{thing.sexe}}</p>
+                      <p class=""><strong >Entreprise:</strong >{{thing.price}}</p>
      
                        <p class="card-text">
 
@@ -121,7 +123,6 @@ if (res.status===200) {
 
           this.resultat = "mis a jour effectuée avec success"
 
-          alert(this.resultat)
 
         } 
                                   console.log(res.data)
@@ -156,6 +157,8 @@ this.$router.push( {name:'updatething',params:{id:uid}})
 //recuperation de toutes les chose et pacer dans le data
      
      mounted() {
+
+         /* eslint-disable */ 
 
        // openiaService.getopenai()
       stuffService.getAllstuff()
@@ -284,6 +287,15 @@ if (res.status===200) {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped >
+
+
+
+  .card {
+
+display:inline-flex;
+
+
+  }
 
 
 h3 {

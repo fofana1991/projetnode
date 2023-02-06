@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="p-3 m-4">
     <p class="error" v-if='error'> {{ error }} </p>
 
     <p class="decode-result">Last result: <b> <a href="this.result" >{{ result }}</a>   </b></p>

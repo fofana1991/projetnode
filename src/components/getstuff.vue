@@ -2,9 +2,10 @@
 
 
 
-<div class='container'>
-<button id="cache" onclick='window.print()'>cache</button>
-<div class='row'>
+<div class='container p-3 m-3'>
+
+<div class='row'>*
+  
 
 <div class='col-12 col-lg-12 '>
 
@@ -28,7 +29,7 @@
 
 <div class='form-group'>
  
-  <div id="wc1" >
+  <div id="wc1">
       <input id="wc-input"   type="texte" v-model ='thing.color' /><br />
     </div>
   
@@ -41,16 +42,30 @@
   
   
 <div class='form-group'>
-<label for='title'>title:</label><input class="form-control form-control-lg" type='texte' v-model='thing.title'>
+<label for='title'>Nom:</label><input class="form-control form-control-lg" type='texte' v-model='thing.title'>
 </div>
 
 <div class='form-group'>
-<label for='description'>description:</label><input class="form-control form-control-lg" type='texte' v-model='thing.description'>
+<label for='description'>Prenom:</label><input class="form-control form-control-lg" type='texte' v-model='thing.description'>
 </div>
-
+<div class='form-group'>
+<label for='description'>Profession:</label><input class="form-control form-control-lg" type='texte' v-model='thing.profession'>
+</div>
+<div class='form-group'>
+<label for='description'>Entreprise:</label><input class="form-control form-control-lg" type='texte' v-model='thing.entreprise'>
+</div>
 <div class='form-group'>
 
+<label for='description'>sexe:</label><select v-model=thing.sexe>
+    <option value="feminin">F</option>
+    <option value="masculin">M</option>
+</select>
 
+</div>
+
+
+
+<div class='form-group'>
 
 <label for='imageUrl'>imageUrl:</label><input id='imageUrl' class="form-control form-control-lg" type='texte' v-model="thing.imageUrl">
 </div>
@@ -74,8 +89,8 @@
 
 
 
-<div class='col'>
-
+<div class='col d-flex d-inline'>
+<button id="cache" class='p-3 m-3' onclick='window.print()'>imprimer</button>
 <button  @click='deleteThing()'> deleteThing</button>
 
 </div>
