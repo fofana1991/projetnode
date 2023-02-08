@@ -2,6 +2,20 @@
 
 <div class='col'>
 
+
+<div class='row d-flex d-inline m-3 p-3 '>
+       <div class='col-8 lessonList bg-primary '>
+        <strong>{{message.name}}</strong><br/>
+       {{message.message}}
+       </div>
+        <div class='col-2'>
+            <img :src='message.userimageUrl'  class='avatar  mt-3' >
+          </div>
+     </div>
+
+
+
+
 <button  @click='deleteMessage()'> deleteThing</button>
 
 </div>
@@ -110,7 +124,12 @@ $("#wc1").wColorPicker({
 <style scoped >
 
 
-
+.avatar {
+  vertical-align: middle;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
 
 h3 {
   margin: 40px 0 0;

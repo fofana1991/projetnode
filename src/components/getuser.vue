@@ -39,8 +39,11 @@
  <form @submit.prevent='postMessage' class='fixed-bottom position-fixed ' >
         
 
-         <div class='form-group d-flex d-inline mt-3'>
-  <input class="form-control  " type='text' v-model='message.message' placeholder='message' id='chat'> <button  @click='submit'> envoyer</button>
+         <div class='form-group d-flex d-inline mt-3'> 
+
+          <textarea class="form-control  " type='text' v-model='message.message' placeholder='message' id='chat'> </textarea>
+
+  <button  @click='submit'> envoyer</button>
 
           </div>
           

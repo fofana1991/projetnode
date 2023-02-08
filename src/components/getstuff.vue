@@ -8,7 +8,7 @@
 
 <div class='row d-flex d-inline-sm  d-block-lg p-4 '>
   
-<div class='col-12 col-lg-6 '>
+<div class='col-12 col-lg-6 modifier'  >
 
 <form @submit.prevent='modifyThing'>
 
@@ -102,7 +102,7 @@
 
 
 
-<div  class='col-lg-6  p-3 d-block fixed-right' id="fatou" >
+<div  class="col-lg-6  p-3 d-block fixed-right "  id="fatou cache" >
 
             <div class="corp border bg-light " style="width: 18rem;" >
                 <img :src="thing.imageUrl" class="card-img-top avatar" rounded="circle "   alt="carte" height='250' width='300'/>
@@ -229,6 +229,19 @@ $("#wc1").wColorPicker({
               $('#wc-input').css('background', color).val(color);
             }
         });
+
+
+
+ $('#cache').click(function(){
+      $('.modifier').slideDown(1000,'swing');
+    
+});
+$('#montrer').click(function(){
+      $('.modifier').slideUp(1000,'swing');
+    
+});
+
+
 
 })
 

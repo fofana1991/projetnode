@@ -1,28 +1,25 @@
 <template >
 
+ 
 
-<nav class="nav w-100 navbar-expand navbar-expand-lg  bg-secondary navbar-dark text-center" >
+
+
+<div class=" container home m-auto border border-danger border-5 text-align-center" >
+
+<div width='250' height='50'  class=' row bg-primary'>
+
+
+
+ </div>
+
   
-   <ul>
- <li class="nav-item">
- <router-link class="nav-link badge text-bg-info"  to="/carte"> scaner sa carte</router-link>
-  </li>
-
-    </ul>
-   </nav>
-  
-<div class=" container home m-auto border border-danger border-5" >
-  
-
-<h1>Se connecter a son compte </h1>
-
-<div class="home m-auto p-4 " >
-    <img alt="Vue logo" src="../assets/logo2.png" >
+  <div class="home m-4 p-4 fixed-bottom" >
     <messageEdit/>
     
   </div>
 
-   </div>
+
+</div>
 </template>
 
 

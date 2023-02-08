@@ -1,7 +1,7 @@
 <template>
 
 <div>
-  <nav class=" nav w-100 navbar-expand navbar-expand-lg  bg-light navbar-light text-center height='25px' position-fixed " >
+  <nav class=" nav  navbar-expand navbar-expand-lg  bg-light navbar-light text-center  position-fixed " >
   
   
      <a class="navbar-brand" href="#"><img src="./assets/logo2.png" width='50' hight='50'/></a>
@@ -152,6 +152,11 @@ nav {
 }
 
 }
+
+
+
+
+
 
   
 </style>
