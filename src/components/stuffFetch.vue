@@ -27,9 +27,11 @@
 <div class='container d-flex  align-items-inline' id='lessonList'>
 
 
-    <div  class='row align-items-center p-3 ' id="fatou" >
+    <div  class='row align-items-center p-3 ' id="fatou " >
 
-        <div class=' col-sm-1 col-md-3 col-lg-3  p-3 m-auto m-lg-4 overflow-y-hidden d-flex d-block' v-for='(thing) in things ' :key=thing._id id='lessonList'>
+    
+
+        <div class=' col-sm-1 col-md-3 col-lg-3  p-3 m-auto m-lg-4 overflow-y-hidden d-flex d-block switch' v-for='(thing) in things ' :key=thing._id >
             <div class="corp border bg-light " style="width: 18rem;" >
                 <img :src="thing.imageUrl" class="card-img-top avatar" rounded="circle "  @click='goEdit(thing._id)' alt="carte" height='250' width='300'/>
                  <div class="" >
@@ -362,22 +364,22 @@ a {
  @keyframes switch {
     0%{
         
-        top:+2px;
+        opacity:1;
     }
     40%{
 
 
-        height:+2px;
+        margin-left:-350px;
         
        
     }
 60%{
-    height: +2px;
+    left: -2px;
 
     
 }
 90%,100%{
-      height:+2px;
+      left:-2px;
       
    
 }

@@ -19,7 +19,11 @@
 
 
 
-    <div class='row d-flex d-inline m-3 p-3 message' v-for='(message) in messages' :key='message._id'>
+    <div class='row d-flex d-block m-3 p-3 message' v-for='(message) in messages' :key='message._id'>
+        <div class="col-8 m-2 p-2 b-warning">
+           {{ message.date}}
+        </div>
+      <div class="d-flex d-inline">
        <div class='col-8 lessonList bg-primary ' @click='gomessageEdit(message._id)'>
         <strong>{{message.name}}</strong><br/>
        {{message.message}}
@@ -27,6 +31,7 @@
         <div class='col-2'>
             <img :src='message.userimageUrl'  class='avatar  mt-3' >
           </div>
+      </div>  
      </div>
 
 
@@ -223,7 +228,9 @@ a {
 }
 
 
-
+.message{
+  margin-bottom: +100px;
+}
 
  body, html {
   height: 100%;

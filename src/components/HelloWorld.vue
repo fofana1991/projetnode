@@ -48,7 +48,7 @@
 
 
 
-       <div class='form-group p-3 m-3'>
+       <div class="form-select form-select-sm p-3 m-3 " aria-label=".form-select-sm">
           <label for='description'>sexe:</label>
           <select v-model='thing.sexe' class="form-control form-control-lg">
             <option value="feminin">F</option>
