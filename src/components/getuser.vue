@@ -1,6 +1,6 @@
 <template class="bg-secondary">
 
-<div class="row mb-3">
+<div class="row m-3 p-4">
    <div class="col">
       <input class="form-control fixed-top" id="searchInput" type="text" placeholder="Search..">
    </div>

@@ -3,7 +3,7 @@
 <div class="home  col-12">
     
 
-<div class='bg-danger'>
+<div class=''>
 
 </div>
     

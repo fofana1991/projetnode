@@ -1,7 +1,7 @@
 <template>
-  <div class="home bg-danger overflow-y-hidden">
+  <div class="home overflow-y-hidden ">
 
-  <nav class="nav w-100 navbar-expand navbar-expand-lg text-dark  bg-secondary navbar-dark text-center z-1 position-fixed">
+  <nav class="nav w-100 navbar-expand navbar-expand-lg text-dark  bg-secondary navbar-dark text-center z-1 position-fixed fixed-bottom">
   
 <li class="nav-item">
      <router-link class="nav-link  badge"  to="/updadething/:id">updatething</router-link> 

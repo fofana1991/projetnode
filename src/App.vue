@@ -1,65 +1,43 @@
 <template>
 
-<div>
+<div >
+  <nav class="position-fixed fixed-top" >
+
+     
+ <router-link    to="/signup">signup</router-link>|
+
+ 
+  <router-link   to="/about">login</router-link>|
+   
 
 
-  <nav class=" width='25' hight='25' nav  navbar-expand navbar-expand-lg  bg-light navbar-light text-center  position-fixed" >
-  
-  
-     <a class="navbar-brand" href="#"><img src="./assets/logo2.png" width='25' hight='25'/></a>
+  <router-link to="/info">thingtable</router-link>|
 
-
-     <li class="nav-item ">
- <router-link class="nav-link text-body-emphasis "   to="/signup">signup</router-link>
-  </li>
- <li class="nav-item">
-  <router-link class="nav-link  text-body-emphasis nav-link active lumiere"  to="/about">login</router-link>
-   </li>
-
-    <li class="nav-item">
-  <router-link class="nav-link active text-body-emphasis"  to="/info">thingtable</router-link>
-   </li>
        
-      <li class="nav-item">
-     <router-link class="nav-link text-body-emphasis "  to="/users">Users</router-link> 
+      
+     <router-link  to="/users"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-dots-fill" viewBox="0 0 16 16">
+  <path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+</svg></router-link> |
 
-      </li>
+    
 
-<li class="nav-item">
 
-<span @click='logout()' class="nav-link  " >
+
+<span @click='logout()'  >
 
 Deconexion
 </span>
-  
-
-
-</li>
-
- <button class="menu">menu</button>
-  
   </nav>
 
-
-
-
-
-
-
-
-
-
-  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    <i class="fa fa-bars"></i>
-  </a>
-
-</div>
   
   <div class="overflow-y-visible" >
 
   <router-view/>
 
 </div>
+
+</div>
+
 
 </template>
 
@@ -145,13 +123,10 @@ this.$router.push( '/about')
 
 nav {
 
-  padding: 30px;
+
 
   
-  animation: switch 6000ms 150ms alternate infinite ease-in-out paused backwards;
-  word-wrap: hidden;
-  opacity: 0;
-    
+     
     
 
 
@@ -167,99 +142,6 @@ nav {
 }
 
 }
-
-
-
-.manche:hover + .lumiere{
-    animation-play-state: running;
-}
-
-
-
-
-.lumiere{
-    
-    animation: lumiere_animation 500ms 500ms alternate infinite ease-in-out backwards paused;
-}
-
-
-
-.switch{
-
-    animation: switch 6000ms 150ms alternate infinite ease-in-out paused forwards;
-
-}
-
-
-#ball{
-    
-    animation:lumiere_animation 200ms 6000ms alternate infinite ease-in-out ;
-    
-}
-
-
-
-
- .switch:hover {
-
-    animation-play-state: running;
-
-}
-
-
-@keyframes lumiere_animation {
-    
-    0%{
-    
-        
-    }
-
-    40%{
-    transform: rotate(-45deg); 
-    
-    
-    }
-
-
-    60%{
-    transform:skew(45deg,-45deg); 
-    }
-    80%,100%{
-        position: absolute;
-    }
- }
-
- 
-
- @keyframes switch {
-
-    0%{
-        
-        opacity:1;
-    }
-
-    40%{
-
-
-    margin-left:+10px;
-        
-       
-    }
-
-60%{
-    
-    margin-left:+10px;
-
-    
-}
-90%,100%{
-      
-    margin-left:+10px;
-      
-   
-}
- }
-
 
 
 

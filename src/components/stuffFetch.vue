@@ -4,7 +4,7 @@
 
 
 
-<div class="row mb-3">
+<div class="row m-3 p-4">
    <div class="col">
       <input class="form-control" id="searchInput" type="text" placeholder="Search..">
    </div>
@@ -16,11 +16,6 @@
     </div>
 
 
-<div class='bg-success color'>
-    
-  {{resultat}}
-  
-</div>
   
 
 

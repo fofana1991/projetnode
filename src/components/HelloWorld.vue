@@ -2,7 +2,7 @@
 
 <template class="bg-secondary">
 
-<div class="container bg-primary ">
+<div class="container ">
   <div class="row">
     <div class=" col-md-6 col-lg-12">
       

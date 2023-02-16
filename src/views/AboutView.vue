@@ -2,10 +2,6 @@
 
 <div class=" container home m-auto border border-danger border-5" >
  
- 
-
-<h1>Se connecter a son compte </h1>
-
 <div class="home m-auto p-4 " >
     <img alt="Vue logo" src="../assets/logo2.png" >
     <userLogin/>
