@@ -1,4 +1,5 @@
-/* eslint-disable */
+
+              /* eslint-disable */
 
 <template class="bg-secondary" >
 
@@ -26,23 +27,24 @@
 
     
 
-        <div class=' col-sm-1 col-md-3 col-lg-3  p-3 m-auto m-lg-4 overflow-y-hidden d-flex d-block switch' v-for='(thing) in things ' :key=thing._id id='lessonList'>
+        <div class=' col-sm-1 col-md-3 col-lg-3  p-3 m-auto m-lg-4 overflow-y-hidden d-flex d-block switch' v-for='(recu,index) in recus ' :key=recu._id id='lessonList'>
             <div class="corp border bg-light " style="width: 18rem;" >
-                <img :src="thing.imageUrl" class="card-img-top avatar" rounded="circle "  @click='goEdit(thing._id)' alt="carte" height='250' width='300'/>
+                <p class=""><strong >recu Numero </strong >{{index+1}}</p>
+                <img :src="recu.imageUrl" class="card-img-top avatar" rounded="circle "  @click='goEdit(recu._id)' alt="carte" height='250' width='300'/>
                  <div class="" >
-                     <h5 class=""> <strong >Nom:</strong >{{thing.title}}</h5>
-                      <p class=""><strong >Prenom:</strong >{{thing.description}}</p>
-                      <p class=""><strong >Profession:</strong >{{thing.profession}}</p>
-                      <p class=""><strong >Sexe:</strong >{{thing.sexe}}</p>
-                      <p class=""><strong >Entreprise:</strong >{{thing.price}}</p>
+                     <p class=""> <strong >Nom:</strong >{{recu.nom}}</p>
+                      <p class=""><strong >Prenom:</strong >{{recu.prenom}}</p>
+                      <p class=""><strong >sommes en letre:</strong >{{recu.sommesEnletre}}</p>
+                      <p class=""><strong >Sexe:</strong >{{recu.sexe}}</p>
+                      <p class=""><strong >sommes en chiffre:</strong >{{recu.sommes}}</p>
      
                        <p class="card-text">
 
                            <div class='form-group'>
 
-                                    <qrcode-vue v-if='thing._id' :value="thing._id" :size="size" level="H" />
+                                    <qrcode-vue v-if='recu._id' :value="recu._id" :size="size" level="H" />
 
-                                     <input class="form-control form-control-lg" type='text' v-model='thing._id' hidden="true">
+                                     <input class="form-control form-control-lg" type='text' v-model='recu._id' hidden="true">
 
 
                             </div>
@@ -57,6 +59,26 @@
   </div>
 
 
+   <div class="d-flex d-block m-3 p-3">
+                <div>
+
+               <svg onclick='window.print()' xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-printer-fill" viewBox="0 0 16 16">
+               <path d="M5 1a2 2 0 0 0-2 2v1h10V3a2 2 0 0 0-2-2H5zm6 8H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1z"/>
+                <path d="M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2V7zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+               </svg> 
+               </div>
+               
+              <div >
+               <svg @click='deleteThing()' xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-trash3-fill mx-4 " viewBox="0 0 16 16">
+               <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
+               </svg>
+
+               </div>
+
+
+                </div>
+
+
 
 
 </template>
@@ -67,12 +89,12 @@
   import QrcodeVue from 'qrcode.vue'
 
   //import {stuffService} from '@/_services'
-  import {stuffService} from '@/_services'
+  import {recuService} from '@/_services'
   //import {openiaService} from  '@/_services'
    
   export default {
   
-  name: 'stuffFetch',
+  name: 'getAllrecu',
 
 
   
@@ -81,11 +103,9 @@
 
     return {
         
-             things:[]
+             recus:[]
 
            }
-
-resultat:null
            
   },
 
@@ -115,13 +135,8 @@ resultat:null
 
 
 
-stuffService.getAllstuff().then(res=>{
-if (res.status===200) {
+recuService.getAllRecu().then(res=>{
 
-          this.resultat = "mis a jour effectuée avec success"
-
-
-        } 
                                   console.log(res.data)
 
                                   this.things=res.data
@@ -140,7 +155,7 @@ if (res.status===200) {
 
   console.log(uid)
  // this.$router.push( '/updatething/'+id)
-this.$router.push( {name:'updatething',params:{id:uid}})
+this.$router.push( {name:'updateRecu',params:{id:uid}})
 
                      }
 
@@ -158,20 +173,14 @@ this.$router.push( {name:'updatething',params:{id:uid}})
          /* eslint-disable */ 
 
        // openiaService.getopenai()
-      stuffService.getAllstuff()
+      recuService.getAllrecu()
       
         //stuffService.getAllstuff()
                                 .then(res=>{
 
                                   console.log(res.data)
 
-                                  this.things=res.data
-
-    if (res.status===200) {
-
-          this.resultat = "voici l'ensemble des carte"
-
-        } 
+                                  this.recus=res.data
                       
 
                                 }).catch(error=>{
@@ -240,17 +249,14 @@ updated(){
 
 
 
-stuffService.getAllstuff().then(res=>{
-if (res.status===200) {
+recuService.getAllrecu().then(res=>{
 
-          this.resultat = "mis a jour effectuée avec success"
-
-        } 
+    
                                   this.things=res.data
     
 
 
-                                   }).catch(error=>{
+                              }).catch(error=>{
 
                                     console.log(error)})
 

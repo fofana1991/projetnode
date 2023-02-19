@@ -13,6 +13,16 @@
     
  </li>
 
+<li class="nav-item">
+  <router-link class="nav-link text-body-emphasis badge"  to="/recu">addrecu</router-link>
+    
+ </li>
+
+
+ <li class="nav-item">
+  <router-link class="nav-link text-body-emphasis badge"  to="/recus">recus</router-link>
+    
+ </li>
     </nav>    
 
   
