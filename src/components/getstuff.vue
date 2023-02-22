@@ -39,7 +39,6 @@
 
 
 
-
   
   
 <div class='form-group'>
@@ -107,14 +106,11 @@
      
                        <p class="card-text">
 
-                           <div class='form-group'>
+                           
 
                                     <qrcode-vue v-if='thing._id' :value="thing._id" :size="size" level="H" />
 
                                      <input class="form-control form-control-lg" type='text' v-model='thing._id' hidden="true">
-
-
-                            </div>
 
 
 
@@ -157,11 +153,12 @@
 </template>
 
 <script>
+
 import $ from 'jquery'
   import QrcodeVue from 'qrcode.vue'
   import {stuffService} from '@/_services'
   
-   
+  
   export default {
   
   name: 'getStuf',

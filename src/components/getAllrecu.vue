@@ -40,14 +40,14 @@
      
                        <p class="card-text">
 
-                           <div class='form-group'>
+                           
 
                                     <qrcode-vue v-if='recu._id' :value="recu._id" :size="size" level="H" />
 
                                      <input class="form-control form-control-lg" type='text' v-model='recu._id' hidden="true">
 
 
-                            </div>
+                        
 
 
                       </p>

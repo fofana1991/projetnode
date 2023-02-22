@@ -21,14 +21,13 @@
 
 <div class='container d-flex  align-items-inline' >
 
-
-    <div  class='row align-items-center p-3 ' id="fatou " >
+<div  class='row align-items-center p-3 ' id="fatou " >
 
     
-
-        <div class=' col-sm-1 col-md-3 col-lg-3  p-3 m-auto m-lg-4 overflow-y-hidden d-flex d-block switch' v-for='(thing) in things ' :key=thing._id id='lessonList'>
-            <div class="corp border bg-light " style="width: 18rem;" >
-                <img :src="thing.imageUrl" class="card-img-top avatar" rounded="circle "  @click='goEdit(thing._id)' alt="carte" height='250' width='300'/>
+      <div class=' col-sm-1 col-md-3 col-lg-3  p-3 m-auto m-lg-4 overflow-y-hidden d-flex d-block switch' v-for='(thing) in things ' :key=thing._id id='lessonList'>
+            <div class="corp border bg-light" style="width: 18rem;" >
+                
+             <img :src="thing.imageUrl" class="card-img-top avatar" rounded="circle "  @click='goEdit(thing._id)' alt="carte" height='250' width='300'>
                  <div class="" >
                      <h5 class=""> <strong >Nom:</strong >{{thing.title}}</h5>
                       <p class=""><strong >Prenom:</strong >{{thing.description}}</p>
@@ -38,14 +37,14 @@
      
                        <p class="card-text">
 
-                           <div class='form-group'>
+                           
 
-                                    <qrcode-vue v-if='thing._id' :value="thing._id" :size="size" level="H" />
+                                    <qrcode-vue v-if='thing._id' :value="thing._id" :size="size" level="H"/>
 
                                      <input class="form-control form-control-lg" type='text' v-model='thing._id' hidden="true">
 
 
-                            </div>
+                    
 
 
                       </p>
@@ -53,9 +52,14 @@
                     </div>
               </div>
           </div>
-    </div>
+    </div>    
+
+
+ 
   </div>
 
+
+   
 
 
 
@@ -85,7 +89,6 @@
 
            }
 
-resultat:null
            
   },
 
@@ -116,12 +119,7 @@ resultat:null
 
 
 stuffService.getAllstuff().then(res=>{
-if (res.status===200) {
 
-          this.resultat = "mis a jour effectuée avec success"
-
-
-        } 
                                   console.log(res.data)
 
                                   this.things=res.data
@@ -190,8 +188,7 @@ if (error.message=== 'Network Error') {
 
 $(function() {
 
- $("#heure").css("position",'absolute').css("top","10").css("left",'0').css("border-size","2em").css("border-style","dotted").css('border-radius','2em').css('background-color','yellow');
-       
+ 
         $("#wcp1").wColorPicker({
             initColor: '#ccf',
             onSelect:
@@ -203,23 +200,6 @@ $(function() {
               $('#wcp-input').css('background', color).val(color);
             }
         });
-
-
-
-      $('#cache').mouseover(function(){
-        $('color').animate({left:'-=100'},{queue:false, duration:2000})
-        .animate({top:'+=50'},2000,);
-
-      });
-
-
-       function horloge(){
-        var date = new Date();
-        var h = date.getHours() + ":" + date.getMinutes()+ ":" + date.getSeconds();
-        $("#heure").text(h);
-       }
-       setInterval(horloge,1000);
-
 
        $(document).ready(function(){
       $("#searchInput").on("keyup", function() {
