@@ -3,7 +3,10 @@ import axios from 'axios'
 import {accountService} from '@/_services'
 import router from '@/router'
 const Axios = axios.create({
- baseURL:'http://44.211.80.88:3000',
+
+//baseURL:'https://d2z0h5sp2tk4x9.cloudfront.net'
+
+ baseURL:'http://44.211.80.88',
 //baseURL:'http://localhost:3000',
 
 //baseURL:'http://192.168.43.245:3000'

@@ -4,9 +4,14 @@
 
 <div class='container p-3 m-3 '>
 
+<div v-if='avertissement' class='bg-danger m-4 p-3' height='250'>
+<img src="../assets/danger.jpeg" width="50" height="50">
+
+{{avertissement}}
+</div>
 
 
-<div class='row d-flex d-inline-sm  d-block-lg p-4 '>
+<div class='row d-flex d-inline-sm  d-block-lg p-4 ' v-if='thing'>
   
 <div class='col-12 col-lg-6 modifier'  >
 
@@ -168,7 +173,8 @@ import $ from 'jquery'
     return{
 
       id:'',
-      thing:{}
+      thing:{},
+      avertissement:'',
     }
   },
 
@@ -215,8 +221,22 @@ this.id = this.$route.params.id
 stuffService.getStuff(this.id).then(res=>{
   console.log(res)
   this.thing=res.data
+if(this.thing==null) {
 
-}).catch(err=>(console.log(err)));
+this.avertissement='Produit Frauduleux'
+
+}
+}).catch(err=>{
+
+  if(err.response.status==404){
+    
+    this.avertissement='Produit Frauduleux'
+
+
+  }
+}
+
+);
 
 
 $(function() {
