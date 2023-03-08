@@ -36,6 +36,10 @@ let getuser=(id)=>{
 	return Axios.get('/api/auth/user/'+id)
 }
 
+let deleteUser=(user)=>{
+	return Axios.delete('/api/auth/'+user._id,user)
+}
+
 
 export const accountService = {
 	signup,
@@ -45,5 +49,6 @@ export const accountService = {
 	saveToken,
 	isLogged,
 	getAllUser,
-	getuser
+	getuser,
+	deleteUser
 }

@@ -12,6 +12,11 @@
 
 
 <div class="row P-3 m-3" > 
+  <div> 
+
+{{Salutation}}
+
+ </div>  
  <ul >
  <li class="nav-item P-3 m-3">
  <router-link class="nav-link badge text-bg-primary"  to="/carte"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-qr-code-scan" viewBox="0 0 16 16">
@@ -33,15 +38,20 @@
 <script>
 
 // @ is an alias to /src
-
 import userLogin from '@/components/userCredential.vue'
+
+
 export default {
   name: 'HomeView',
   components: {
     userLogin,
     
 
-  }
+  },
+
+
+
+
 }
 
 </script>

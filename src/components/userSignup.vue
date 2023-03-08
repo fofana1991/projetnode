@@ -30,6 +30,11 @@
 </div>
 
 <div class="form-group m-auto">
+<input type="text" v-model='user.role' class=" m-2 " placeholder='Poste occupé'><br>
+</div>
+
+
+<div class="form-group m-auto">
 <label for='image'>birthday</label><input type="date" v-model='user.birthday' class=" m-2 " placeholder='birthday'><br>
 </div>
 
@@ -77,6 +82,8 @@ import {accountService} from '@/_services'
                   name:'',
 
                   forename:'',
+
+                  role:'',
                   
                   birthday:'',
 

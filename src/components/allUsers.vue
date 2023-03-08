@@ -4,15 +4,21 @@
    <div class="col">
       <input class="form-control" id="searchInput" type="text" placeholder="Search..">
    </div>
-</div>    
+</div>
+
+
+
+
+
  
 <div class='container' id="lessonList" >
      
-    <div  class='row align-items-inline ml-0 p-3' v-for='(user) in users' :key=user._id @click='goEdit(user._id)'>
-      <img :src='user.imageUrl' class="avatar mr-2 " >
+    <div  class='row align-items-inline ml-0 p-3' v-for='(user) in users' :key=user._id >
+      <img :src='user.imageUrl' class="avatar mr-2 " @click='goEdit(user._id)' >
       {{user.name}}
       {{user.number}}
-
+    
+      
     </div>
 
   </div>
@@ -69,8 +75,6 @@ refresh(){
 
 
 
-
-
 goEdit(uid){
 
   console.log(uid)
@@ -95,7 +99,19 @@ this.$router.push( {name:'updateUser',params:{id:uid}})
                                   this.users=res.data
                                   
 
-                                }).catch(err=>{console.log(err)})
+                                }).catch(err=>{
+
+if(err.response.status===403){
+           
+     this.$router.push( '/carte' )
+
+      console.log(err)
+
+         
+         }
+                                 
+
+                                })
     
 $(function() {
  $(document).ready(function(){
@@ -130,7 +146,7 @@ accountService.getAllUser()
 
                                 }).catch(err=>{console.log(err)})
 
-                      },
+                      },              
              
 
 

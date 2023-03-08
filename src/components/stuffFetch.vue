@@ -19,7 +19,7 @@
   
 
 
-<div class='container d-flex  align-items-inline' >
+<div class='container d-flex  align-items-inline' v-if='things'>
 
 <div  class='row align-items-center p-3 ' id="fatou " >
 
@@ -157,22 +157,17 @@ this.$router.push( {name:'updatething',params:{id:uid}})
 
        // openiaService.getopenai()
       stuffService.getAllstuff()
-      
-        //stuffService.getAllstuff()
                                 .then(res=>{
-
-                                  console.log(res.data)
-
-                                  this.things=res.data
-
-    if (res.status===200) {
-
-          this.resultat = "voici l'ensemble des carte"
-
-        } 
-                      
-
+    
+     this.things=res.data         
+    
                                 }).catch(error=>{
+
+
+                            if(error.response.status===403){           
+    
+     this.$router.push( '/carte' )
+         }
 
                                     console.log(error)
 
