@@ -11,7 +11,7 @@
 </div>    
 
 
-<div id="wcp1" hidden>
+<div id="wcp1">
       <input id="wcp-input" class=''  type="text"/><br />
     </div>
 
@@ -25,15 +25,15 @@
 
     
       <div class=' col-sm-1 col-md-3 col-lg-3  p-3 m-auto m-lg-4 overflow-y-hidden d-flex d-block switch' v-for='(thing) in things ' :key=thing._id id='lessonList'>
-            <div class="corp border bg-light" style="width: 18rem;" >
+            <div class=" border bg-light" style="width: 18rem;" >
                 
              <img :src="thing.imageUrl" class="card-img-top avatar" rounded="circle "  @click='goEdit(thing._id)' alt="carte" height='250' width='300'>
                  <div class="" >
-                     <h5 class=""> <strong >Nom:</strong >{{thing.title}}</h5>
+                     <h5 class="corp"> <strong >Nom:</strong >{{thing.title}}</h5>
                       <p class=""><strong >Prenom:</strong >{{thing.description}}</p>
-                      <p class=""><strong >Profession:</strong >{{thing.profession}}</p>
+                      <p class="corp"><strong >Profession:</strong >{{thing.profession}}</p>
                       <p class=""><strong >Sexe:</strong >{{thing.sexe}}</p>
-                      <p class=""><strong >Entreprise:</strong >{{thing.price}}</p>
+                      <p class="corp"><strong >Entreprise:</strong >{{thing.price}}</p>
      
                        <p class="card-text">
 
@@ -188,7 +188,7 @@ $(function() {
             initColor: '#ccf',
             onSelect:
              function(color){
-              $('.corp,body').css('background', color);
+              $('.corp').css('background', color);
              
             },
             onMouseover: function(color){

@@ -7,7 +7,10 @@
     <div class=" col-md-6 col-lg-12">
       
 <form id='form' @submit.prevent='postData' class="p-3 m-3">
-
+        <div class='form-group p-3 m-3 bg-warning' v-if=err>
+            {{err}}
+           
+        </div>
         <div class='form-group p-3 m-3 '>
            <input class="form-control form-control-lg" type='hidden' v-model='thing.id'>
        </div>
@@ -127,7 +130,7 @@ thing:{
     
 
        },
-
+err:'',
 FILE:null,
             }
 
@@ -184,7 +187,13 @@ postData() {
 
                 this.$router.push( '/info' )
             }).catch(err=> {
+
               console.log(err)
+              this.err =err.response.data.error.message
+
+
+
+
             })
     }
 },

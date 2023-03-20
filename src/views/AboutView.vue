@@ -1,9 +1,12 @@
 <template >
 
-<div class=" container home m-auto border border-danger border-5" >
+<div class=" container home m-auto border  pt-4 m-3"  >
+
+
+
  
-<div class="home m-auto p-4 " >
-    <img alt="Vue logo" src="../assets/logo2.png" >
+<div class="home mt-auto" id="login">
+    <img alt="Vue logo" src='../assets/logo2.png' >
     <userLogin/>
     
   </div>
@@ -11,12 +14,13 @@
 
 
 
-<div class="row P-3 m-3" > 
+<div class="row P-3 m-3"> 
   <div> 
 
 {{Salutation}}
 
  </div>  
+ 
  <ul >
  <li class="nav-item P-3 m-3">
  <router-link class="nav-link badge text-bg-primary"  to="/carte"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-qr-code-scan" viewBox="0 0 16 16">
@@ -29,7 +33,11 @@
   </li>
 
     </ul>
- </div>    
+
+  
+   
+ </div> 
+    
 
    
 </template>
@@ -59,9 +67,17 @@ export default {
 
 <style>
 
-.container {
 
-background-color:#00FF00;
+#login{
+  background-image: url('../assets/scan3.jpeg') ;
+
+  background-opacity:0,5; 
+}
+
+.container {
+ 
+
+background-color:;
 
 }  
 

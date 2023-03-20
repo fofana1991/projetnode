@@ -47,17 +47,17 @@
   
   
 <div class='form-group'>
-<label for='title'>Nom:</label><input class="form-control form-control-lg" type='texte' v-model='thing.title'>
+<label for='title'>Nom:</label><input class="form-control form-control-lg" type='texte' v-model='thing.title' placeholder="Inconnu">
 </div>
 
 <div class='form-group'>
-<label for='description'>Prenom:</label><input class="form-control form-control-lg" type='texte' v-model='thing.description'>
+<label for='description'>Prenom:</label><input class="form-control form-control-lg" type='texte' v-model='thing.description' placeholder="Inconnu">
 </div>
 <div class='form-group'>
-<label for='description'>Profession:</label><input class="form-control form-control-lg" type='texte' v-model='thing.profession'>
+<label for='description'>Profession:</label><input class="form-control form-control-lg" type='texte' v-model='thing.profession' placeholder="Inconnu">
 </div>
 <div class='form-group'>
-<label for='description'>Entreprise:</label><input class="form-control form-control-lg" type='texte' v-model='thing.entreprise'>
+<label for='description'>Entreprise:</label><input class="form-control form-control-lg" type='texte' v-model='thing.entreprise' placeholder="Inconnu">
 </div>
 <div class='form-group'>
 
@@ -72,7 +72,7 @@
 
 <div class='form-group'>
 
-<label for='imageUrl'>imageUrl:</label><input id='imageUrl' class="form-control form-control-lg" type='texte' v-model="thing.imageUrl">
+<label for='imageUrl'>imageUrl:</label><input id='imageUrl' class="form-control form-control-lg" type='texte' v-model="thing.imageUrl" placeholder="Inconnu">
 </div>
 
 <div class='form-group'>
@@ -80,7 +80,7 @@
 </div>
 
 <div class='form-group'>
-<label for='price'>price:</label><input class="form-control form-control-lg" type='number' v-model='thing.price'>
+<label for='price'>Entreprise:</label><input class="form-control form-control-lg" type='texte' v-model='thing.price' placeholder="Inconnu">
 </div>
 
 <div>

@@ -24,6 +24,80 @@
 
 
 
+
+
+<div class="row">
+
+<div class="col">
+<form  @submit.prevent='modifyUser' class="m-auto p-auto" >
+
+ <div v-if='error' class="hello bg-danger  m-2 p-3 text-center">
+{{error}}
+  </div>
+
+<div class="form-group m-auto">
+
+<input type="email" v-model='user.email' class="m-2" placeholder='Email'><br>
+</div >
+
+<div class="form-group m-auto">
+<input type="password" v-model='user.password' class=" m-2 " placeholder='Mot de passe'><br>
+</div>
+<div class="form-group m-auto">
+<input type="text" v-model='user.name' class=" m-2 " placeholder='Nom'><br>
+</div>
+
+<div class="form-group m-auto">
+<input type="text" v-model='user.forename' class=" m-2 " placeholder='Prenom'><br>
+</div>
+
+<div class="form-group m-auto">
+<input type="text" v-model='user.role' class=" m-2 " placeholder='Poste occupé'><br>
+</div>
+
+
+<div class="form-group m-auto">
+<input type="texte" v-model='user.birthday' class=" m-2 " placeholder='Date de naissance'><label for='image'>Naissance</label><br>
+</div>
+
+<div class="form-group m-auto">
+<input type="text" v-model='user.city' class=" m-2 " placeholder='Domicile'><br>
+</div>
+<div class="form-group m-auto">
+<input type="number" v-model='user.number' class=" m-2 " placeholder='telephone'><br>
+</div>
+<div class='form-group'>
+<input type='texte' v-model='user.imageUrl' name='file' id="file">
+</div>
+
+<div class='form-group'>
+<button  type="submit">
+Modifier
+</button>
+</div>
+</form>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div class='row d-flex d-block m-3 p-3 message' v-for='(message) in messages' :key='message._id'>
         <div class="col-8 m-2 p-2 b-warning">
            {{ message.date}}
@@ -106,6 +180,22 @@ import {accountService} from '@/_services'
     },
   
 methods:{
+
+modifyUser(){
+
+
+ accountService.modifyUser(this.user).then(res=>{
+
+console.log(res)
+  this.$router.push( '/users')
+ }).catch(err=>(console.log(err)))
+
+  
+
+
+
+  },
+
 
 postMessage(){ 
 this.message.ruserId=this.user._id

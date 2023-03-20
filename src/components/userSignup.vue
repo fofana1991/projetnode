@@ -7,7 +7,7 @@
   <div class="row">
 
 <div class="col">
-<form  @submit.prevent='signup' class="m-auto p-4 border border-primary border-5" >
+<form  @submit.prevent='signup' class="m-auto p-auto" >
 
  <div v-if='error' class="hello bg-danger  m-2 p-3 text-center">
 {{error}}
@@ -19,14 +19,14 @@
 </div >
 
 <div class="form-group m-auto">
-<input type="password" v-model='user.password' class=" m-2 " placeholder='Password'><br>
+<input type="password" v-model='user.password' class=" m-2 " placeholder='Mot de passe'><br>
 </div>
 <div class="form-group m-auto">
-<input type="text" v-model='user.name' class=" m-2 " placeholder='name'><br>
+<input type="text" v-model='user.name' class=" m-2 " placeholder='Nom'><br>
 </div>
 
 <div class="form-group m-auto">
-<input type="text" v-model='user.forename' class=" m-2 " placeholder='forname'><br>
+<input type="text" v-model='user.forename' class=" m-2 " placeholder='Prenom'><br>
 </div>
 
 <div class="form-group m-auto">
@@ -35,11 +35,11 @@
 
 
 <div class="form-group m-auto">
-<label for='image'>birthday</label><input type="date" v-model='user.birthday' class=" m-2 " placeholder='birthday'><br>
+<input type="date" v-model='user.birthday' class=" m-2 " placeholder='Date de naissance'><label for='image'>Naissance</label><br>
 </div>
 
 <div class="form-group m-auto">
-<input type="text" v-model='user.city' class=" m-2 " placeholder='city'><br>
+<input type="text" v-model='user.city' class=" m-2 " placeholder='Domicile'><br>
 </div>
 <div class="form-group m-auto">
 <input type="number" v-model='user.number' class=" m-2 " placeholder='telephone'><br>
@@ -50,7 +50,7 @@
 
 <div class='form-group'>
 <button  type="submit">
-signup
+Inscription
 </button>
 </div>
 </form>
@@ -181,6 +181,22 @@ var formData = new FormData();
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped >
+label{
+  font-weight: bold;
+  
+
+
+}
+
+
+
+
+input{
+border-color: black;
+color: black;
+
+}
+  
 h3 {
   margin: 40px 0 0;
 }
@@ -193,6 +209,6 @@ li {
   margin: 0 10px;
 }
 a {
-  color: #42b983;
+  color: red;
 }
 </style>
