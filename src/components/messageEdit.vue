@@ -49,11 +49,13 @@ methods:{
 
   modifyThing(){
 
- messageService.modifyThing(this.message).then(res=>{
+ messageService.modifyThing(this.message).then(
 
-console.log(res)
   this.$router.push( '/info')
- }).catch(err=>(console.log(err)))
+ ).catch(err=>(
+
+  console.log(err)
+  ))
 
   
 
@@ -63,9 +65,8 @@ console.log(res)
 
   async deleteMessage(){
 
- const res = await messageService.deleteMessage(this.message);
+ await messageService.deleteMessage(this.message);
 
-await  console.log(res);
 
 await  this.$router.push( '/updateUser/'+this.message.userId);
 
@@ -82,10 +83,10 @@ await  this.$router.push( '/updateUser/'+this.message.userId);
 
 this.id = this.$route.params.id
 messageService.getMessage(this.id).then(res=>{
-  console.log(res)
+
   this.message=res.data
 
-}).catch(err=>(console.log(err)));
+}).catch(err=>(console.log(err)) );
 
 
 $(function() {

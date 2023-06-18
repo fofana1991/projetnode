@@ -184,11 +184,9 @@ methods:{
 modifyUser(){
 
 
- accountService.modifyUser(this.user).then(res=>{
-
-console.log(res)
-  this.$router.push( '/users')
- }).catch(err=>(console.log(err)))
+ accountService.modifyUser(this.user).then(
+ this.$router.push( '/users')
+ ).catch(err=>(console.log(err)))
 
   
 
@@ -201,16 +199,16 @@ postMessage(){
 this.message.ruserId=this.user._id
 this.message.ruserNumber=this.user.number
 this.message.userId=this.user._id
-   messageService.addMessage(this.message).then(res=> {
-      console.log(res.data)
-    }).catch(error=> {
-    console.log(error)})
+   messageService.addMessage(this.message).catch(error=> {
+      console.log(error)
+    })
                 
            
             },
+            
  gomessageEdit(uid){
 
-  console.log(uid)
+  
  // this.$router.push( '/updatething/'+id)
 this.$router.push( {name:'messageEdit',params:{id:uid}})
 
@@ -218,9 +216,8 @@ this.$router.push( {name:'messageEdit',params:{id:uid}})
 
 async deleteUser(){
 
- const res = await accountService.deleteUser(this.user);
+await accountService.deleteUser(this.user);
 
-await  console.log(res);
 
 await  this.$router.push( '/users');
 
@@ -235,13 +232,15 @@ await  this.$router.push( '/users');
 
 this.id = this.$route.params.id
 accountService.getuser(this.id).then(res=>{
-  console.log(res)
+  
   this.user=res.data
 
-}).catch(err=>(console.log(err)));
+}).catch(err=>{
+  console.log(err)
+});
 
 messageService.getAllMessage().then(res=> {
-  console.log(res.data);
+  
   this.messages=res.data
 
       
@@ -249,9 +248,7 @@ messageService.getAllMessage().then(res=> {
 
 console.log(error)
 
-    
-
-  });
+    });
 
 
 
@@ -292,6 +289,7 @@ messageService.getAllMessage().then(res=> {
 
       
     }).catch(error=> {
+
     console.log(error)});
 
     

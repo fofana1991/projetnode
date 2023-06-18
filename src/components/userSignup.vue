@@ -148,12 +148,9 @@ var formData = new FormData();
 
     accountService.signup(formData,{
           }).then(res=> {
-      console.log(res.data)
     accountService.saveToken(res.data.token)
  this.$router.push( '/users' )
     }).catch(error=> {
-
-    console.log(error)
     
 
  if (error.response.data.error.message === 'User validation failed: email: Error, expected `email` to be unique. Value: `m@gmail.com`') {

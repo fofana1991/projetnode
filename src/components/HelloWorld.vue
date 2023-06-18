@@ -182,13 +182,12 @@ postData() {
          
             stuffService.addThing(formData,{
           })
-            .then(res => {
-                console.log(res)
-
+            .then(
+                
                 this.$router.push( '/info' )
-            }).catch(err=> {
+ ).catch(err=> {
 
-              console.log(err)
+            
               this.err =err.response.data.error.message
 
 

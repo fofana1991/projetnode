@@ -59,25 +59,10 @@
 
 
 
-refresh(){
-
- 
-        accountService.getAllUser()
-                                .then(res=>{
-
-                                  console.log(res.data)
-
-                                  this.users=res.data
-                                  
-
-                                }).catch(err=>{console.log(err)})
-    },
-
-
 
 goEdit(uid){
 
-  console.log(uid)
+
  // this.$router.push( '/updatething/'+id)
 this.$router.push( {name:'updateUser',params:{id:uid}})
 
@@ -94,7 +79,7 @@ this.$router.push( {name:'updateUser',params:{id:uid}})
         accountService.getAllUser()
                                 .then(res=>{
 
-                                  console.log(res.data)
+                                  
 
                                   this.users=res.data
                                   
@@ -105,7 +90,7 @@ if(err.response.status===403){
            
      this.$router.push( '/carte' )
 
-      console.log(err)
+    
 
          
          }
@@ -139,7 +124,7 @@ $(function() {
 accountService.getAllUser()
                                 .then(res=>{
 
-                                  console.log(res.data)
+                                
 
                                   this.users=res.data
                                   

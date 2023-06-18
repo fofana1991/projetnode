@@ -120,15 +120,15 @@
 
 stuffService.getAllstuff().then(res=>{
 
-                                  console.log(res.data)
+                                  
 
                                   this.things=res.data
     
 
 
                                    }).catch(error=>{
-
-                                    console.log(error)})
+                                    console.log(error)
+                                   })
 
 
                       },
@@ -136,9 +136,8 @@ stuffService.getAllstuff().then(res=>{
 
            goEdit(uid){
 
-  console.log(uid)
- // this.$router.push( '/updatething/'+id)
-this.$router.push( {name:'updatething',params:{id:uid}})
+ // this.$router.push( '/modifyStuff/'+id)
+this.$router.push( {name:'modifystuff',params:{id:uid}})
 
                      }
 
@@ -168,8 +167,6 @@ this.$router.push( {name:'updatething',params:{id:uid}})
     
      this.$router.push( '/carte' )
          }
-
-                                    console.log(error)
 
 
 if (error.message=== 'Network Error') {

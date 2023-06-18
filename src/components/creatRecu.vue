@@ -144,11 +144,11 @@ postData() {
          
             recuService.addRecu(formData,{
           })
-            .then(res => {
-                console.log(res)
+            .then(
+            
 
                 this.$router.push( '/recus' )
-            }).catch(err=> {
+            ).catch(err=> {
               console.log(err)
             })
     }

@@ -51,12 +51,10 @@ import {accountService} from '@/_services'
    login(){ 
 
     accountService.login(this.user).then(res=> {
-      console.log(res.data)
     accountService.saveToken(res.data.token)
  this.$router.push( '/info' )
 
     }).catch(error=> {
-    console.log(error)
 
   this.error=error.response.data.error
     

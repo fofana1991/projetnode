@@ -122,38 +122,11 @@
 
  
        
-      
-
- 
-
-
-
-
-
-
-            refresh(){
-
-
-
-recuService.getAllRecu().then(res=>{
-
-                                  console.log(res.data)
-
-                                  this.things=res.data
-    
-
-
-                                   }).catch(error=>{
-
-                                    console.log(error)})
-
-
-                      },
 
 
            goEdit(uid){
 
-  console.log(uid)
+  
  // this.$router.push( '/updatething/'+id)
 this.$router.push( {name:'updateRecu',params:{id:uid}})
 
@@ -178,14 +151,14 @@ this.$router.push( {name:'updateRecu',params:{id:uid}})
         //stuffService.getAllstuff()
                                 .then(res=>{
 
-                                  console.log(res.data)
+                                  
 
                                   this.recus=res.data
                       
 
                                 }).catch(error=>{
 
-                                    console.log(error)
+                                    
 
 
 if (error.message=== 'Network Error') {

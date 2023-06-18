@@ -4,11 +4,12 @@ import {accountService} from '@/_services'
 import router from '@/router'
 const Axios = axios.create({
 
- baseURL:'https://d2z0h5sp2tk4x9.cloudfront.net'
-  //baseURL:'http://192.168.43.245:3000'
+// baseURL:'http://3.219.90.184'
 
-  //baseURL:'http://192.168.1.104:3000'
- //baseURL:'http://44.211.80.88',
+ //baseURL:'https://d27w5waeb0s141.cloudfront.net'
+baseURL:'http://192.168.43.245:3000'
+// baseURL:'http://192.168.1.104:3000'
+//baseURL:'http://44.211.80.88',
 // baseURL:'http://localhost:3000',
 
 
@@ -39,7 +40,6 @@ Axios.interceptors.response.use(
 
 Axios.interceptors.request.use(request =>{
 	
-	console.log(request)
 	
 	let token= accountService.getToken()
 	
