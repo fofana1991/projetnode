@@ -4,36 +4,19 @@
 <template class="bg-secondary" >
 
 
-
-<div class="row m-3 p-4">
-   <div class="col">
-      <input class="form-control" id="searchInput" type="text" placeholder="Search..">
-   </div>
-</div>    
-
-
-<div id="wcp1" hidden>
-      <input id="wcp-input" class=''  type="text"/><br />
-    </div>
-
-
-  
-
-
 <div class='container d-flex  align-items-inline' >
 
 
     <div  class='row align-items-center p-3 ' id="fatou " >
 
     
+        <div class=' col-sm-12 col-md-12  col-lg-12  p-3 m-auto m-lg-4 overflow-y-hidden d-flex d-block switch' v-for='(recu,index) in recus ' :key=recu._id id='lessonList' >
 
-        <div class=' col-sm-1 col-md-3 col-lg-3  p-3 m-auto m-lg-4 overflow-y-hidden d-flex d-block switch' v-for='(recu,index) in recus ' :key=recu._id id='lessonList'>
-            <div class="corp border bg-light " style="width: 18rem;" >
-                <p class=""><strong >recu Numero </strong >{{index+1}}</p>
-                <img :src="recu.imageUrl" class="card-img-top avatar" rounded="circle "  @click='goEdit(recu._id)' alt="carte" height='250' width='300'/>
+            <div class="corp border bg-light w-100" style="width: 18rem;" >
+                <p class=""><strong >Numero </strong >{{index+1}}</p>
                  <div class="" >
-                     <p class=""> <strong >Nom:</strong >{{recu.nom}}</p>
-                      <p class=""><strong >Prenom:</strong >{{recu.prenom}}</p>
+                      <img :src="recu.imageUrl" class="avatar" rounded="circle "  @click='goEdit(thing._id)' alt="carte" height='100' width='100'>               
+                     <p class="d-flex d-inline"> recu de:<strong >{{recu.nom}} {{recu.prenom}} </strong ></p>
                       <p class=""><strong >sommes en letre:</strong >{{recu.sommesEnletre}}</p>
                       <p class=""><strong >Sexe:</strong >{{recu.sexe}}</p>
                       <p class=""><strong >sommes en chiffre:</strong >{{recu.sommes}}</p>

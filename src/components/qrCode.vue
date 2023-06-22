@@ -4,7 +4,8 @@
 
     <p class="decode-result">Last result: <b> <a href="this.result" >{{ result }}</a>   </b></p>
 
-    <qrcode-stream @decode="onDecode" @init="onInit" size="size" />
+    <qrcode-stream :camera="camera" @decode="onDecode" @init="onInit" size="size" class='border'/>
+
   </div>
 </template>
 
@@ -18,13 +19,18 @@ export default {
 
   data () {
     return {
+
+      
       result: '',
-      error: ''
+      error: '',
+
+
     }
   },
 
   methods: {
     onDecode (result) {
+
       this.result = result
 //window.location.replace(result)
 

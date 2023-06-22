@@ -6,8 +6,8 @@ const Axios = axios.create({
 
 // baseURL:'http://3.219.90.184'
 
- //baseURL:'https://d27w5waeb0s141.cloudfront.net'
-baseURL:'http://192.168.43.245:3000'
+ // baseURL:'https://d27w5waeb0s141.cloudfront.net'
+  baseURL:'http://192.168.43.245:3000'
 // baseURL:'http://192.168.1.104:3000'
 //baseURL:'http://44.211.80.88',
 // baseURL:'http://localhost:3000',

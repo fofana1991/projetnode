@@ -5,6 +5,12 @@
     <div class=" col-md-6 col-lg-12">
       
 <form id='form' @submit.prevent='postData' class="p-3 m-3">
+
+  <div class='form-group p-3 m-3 bg-warning' v-if="err">
+            {{err}}
+           
+        </div>
+
   
        <div class='form-group p-3 m-3'>
            <input class="form-control form-control-lg"  type='texte'  id='title' v-model='recu.nom' placeholder="nom">
@@ -97,7 +103,9 @@ recu:{
        },
 
 FILE:null,
+err:'',
             }
+
 
 
 
@@ -144,12 +152,16 @@ postData() {
          
             recuService.addRecu(formData,{
           })
-            .then(
-            
+            .then(res=>{
 
-                this.$router.push( '/recus' )
-            ).catch(err=> {
-              console.log(err)
+                if (res.status===201) {
+        
+this.$router.push( '/recus' )
+
+                }
+  }).catch(err=> {
+               
+              this.err =err.response.data.error.message
             })
     }
 },

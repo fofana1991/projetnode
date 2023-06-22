@@ -7,10 +7,12 @@
     <div class=" col-md-6 col-lg-12">
       
 <form id='form' @submit.prevent='postData' class="p-3 m-3">
-        <div class='form-group p-3 m-3 bg-warning' v-if=err>
+       
+        <div class='form-group p-3 m-3 bg-warning' v-if="err">
             {{err}}
            
         </div>
+
         <div class='form-group p-3 m-3 '>
            <input class="form-control form-control-lg" type='hidden' v-model='thing.id'>
        </div>
@@ -182,10 +184,17 @@ postData() {
          
             stuffService.addThing(formData,{
           })
-            .then(
+            .then(res=>{
+
+                if (res.status===201) {
+        
+this.$router.push( '/info' )
+
+                }
+        
                 
-                this.$router.push( '/info' )
- ).catch(err=> {
+
+  }).catch(err=> {
 
             
               this.err =err.response.data.error.message
