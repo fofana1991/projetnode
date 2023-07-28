@@ -7,6 +7,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon3.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
+   
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
      <!-- Meta Pixel Code -->
 <script>
@@ -21,6 +27,7 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 fbq('init', '119384464356478');
 fbq('track', 'PageView');
 </script>
+
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=119384464356478&ev=PageView&noscript=1"
 /></noscript>
@@ -28,11 +35,18 @@ src="https://www.facebook.com/tr?id=119384464356478&ev=PageView&noscript=1"
 
   </head>
 
-  <body>
+  <body class="bg-warning border">
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="app"></div>
+    <div id="app" style="z-index:1;"></div>
+
+    <span class="position-fixed fixed-bottom bg-warning" style="z-index:2;">
+
+votre beauté est la priorité majeur
+     </span>
+
     <!-- built files will be auto injected -->
+
   </body>
 </html>

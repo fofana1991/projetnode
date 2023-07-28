@@ -14,20 +14,20 @@
         </div>
 
         <div class='form-group p-3 m-3 '>
-           <input class="form-control form-control-lg" type='hidden' v-model='thing.id'>
+           <input class="form-control form-control-lg" type='hidden' v-model='thing.id' required>
        </div>
        <div class='form-group p-3 m-3'>
   
            <div> 
   
-          <input id="wc-input"   type="color" v-model='thing.color' /><br />
+          <input id="wc-input"   type="color" v-model='thing.color' required/><br />
   
            </div> 
        </div>
   
 
        <div class='form-group p-3 m-3'>
-           <input class="form-control form-control-lg"  type='texte'  id='title' v-model='thing.title' placeholder="nom">
+           <input class="form-control form-control-lg"  type='texte'  id='title' v-model='thing.title' placeholder="nom du Produit" required>
       </div>
 
        <div class='form-group p-3 m-3'>
@@ -36,17 +36,17 @@
 
 
       <div class='form-group p-3 m-3'>
-          <input class="form-control form-control-lg"  type='texte'  v-model='thing.description' placeholder="prenom">
+          <textarea class="form-control form-control-lg"  type='texte'  v-model='thing.description' placeholder="Description du produit " required></textarea>
       </div>
 
      <div class='form-group p-3 m-3'>
-          <input class="form-control form-control-lg"  type='texte'  v-model='thing.profession' placeholder="profession">
+          <input class="form-control form-control-lg"  type='texte'  v-model='thing.profession' placeholder="Mode d'action du produit" required>
       </div>
 
 
 
  <div class='form-group p-3 m-3'>
-          <input class="form-control form-control-lg"  type='texte'  v-model='thing.filename' placeholder="filename">
+          <input class="form-control form-control-lg"  type='texte'  v-model='thing.filename' placeholder="filename" required>
       </div>
 
 
@@ -55,7 +55,7 @@
 
        <div class="form-select form-select-sm p-3 m-3 " aria-label=".form-select-sm">
           <label for='description'>sexe:</label>
-          <select v-model='thing.sexe' class="form-control form-control-lg">
+          <select v-model='thing.sexe' class="form-control form-control-lg" required>
             <option value="feminin">F</option>
              <option value="masculin">M</option>
           </select>
@@ -67,16 +67,16 @@
 
 
       <div class='form-group p-3 m-3'>
-          <input class="form-control form-control-lg"  type='texte' id='filename' name='filename' v-model='thing.description' placeholder="filname" >
+          <input class="form-control form-control-lg"  type='hidden' id='filename' name='filename' v-model='thing.description' placeholder="filname" required >
       </div>
 
 
        <div class='form-group p-3 m-3'>
 
-          <input class="form-control form-control-lg" type='file' @change='onFileUpload' name='file' id="file">
+          <input class="form-control form-control-lg" type='file' @change='onFileUpload' name='file' id="file" required>
        </div>
        <div>
-           <input class="form-control form-control-lg"  type='hidden'  v-model='thing.imageUrl'>
+           <input class="form-control form-control-lg"  type='hidden'  v-model='thing.imageUrl' required>
        </div>
 
        <div class='form-group p-3 m-3'>
@@ -84,7 +84,7 @@
        </div>
 
         <div class='form-group p-3 m-3'>
-            <input class="form-control form-control-lg"  type='text' name='price' v-model='thing.price' placeholder="entrprise" >
+            <input class="form-control form-control-lg"  type='text' name='price' v-model='thing.price' placeholder="Prix du produit" required >
        </div>
 
        <div class='form-group p-3 m-3'>

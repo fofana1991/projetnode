@@ -7,9 +7,9 @@
   </div>
 
 
-<input type="email" v-model='user.email' class='m-2' placeholder="Email" ><br>
+<input type="email" v-model='user.email' class='m-2' placeholder="Email" required><br>
 
-<input type="password" v-model='user.password' class='m-2' placeholder="Password"><br>
+<input type="password" v-model='user.password' class='m-2' placeholder="Password" required><br>
 
 <button  type="submit">
 Connexion

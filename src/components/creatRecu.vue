@@ -13,22 +13,22 @@
 
   
        <div class='form-group p-3 m-3'>
-           <input class="form-control form-control-lg"  type='texte'  id='title' v-model='recu.nom' placeholder="nom">
+           <input class="form-control form-control-lg"  type='texte'  id='title' v-model='recu.nom' placeholder="nom" required>
       </div>
 
 
       <div class='form-group p-3 m-3'>
-          <input class="form-control form-control-lg"  type='texte'  v-model='recu.prenom' placeholder="prenom">
+          <input class="form-control form-control-lg"  type='texte'  v-model='recu.prenom' placeholder="prenom" required>
       </div>
 
      <div class='form-group p-3 m-3'>
-          <input class="form-control form-control-lg"  type='texte'  v-model='recu.sommesEnletre' placeholder="sommes en lettre">
+          <input class="form-control form-control-lg"  type='texte'  v-model='recu.sommesEnletre' placeholder="sommes en lettre" required>
       </div>
 
 
 
  <div class='form-group p-3 m-3'>
-          <input class="form-control form-control-lg"  type='texte'  v-model='recu.Prescription' placeholder="prescription">
+          <input class="form-control form-control-lg"  type='texte'  v-model='recu.Prescription' placeholder="prescription" required>
       </div>
 
 
@@ -37,7 +37,7 @@
 
        <div class="form-select form-select-sm p-3 m-3 " aria-label=".form-select-sm">
           <label for='description'>sexe:</label>
-          <select v-model='recu.sexe' class="form-control form-control-lg">
+          <select v-model='recu.sexe' class="form-control form-control-lg" required>
             <option value="feminin">F</option>
              <option value="masculin">M</option>
           </select>
@@ -48,10 +48,10 @@
 
        <div class='form-group p-3 m-3'>
 
-          <input class="form-control form-control-lg" type='file' @change='onFileUpload' name='file' id="file">
+          <input class="form-control form-control-lg" type='file' @change='onFileUpload' name='file' id="file" required>
        </div>
        <div>
-           <input class="form-control form-control-lg"  type='hidden'  v-model='recu.imageUrl'>
+           <input class="form-control form-control-lg"  type='hidden'  v-model='recu.imageUrl' required>
        </div>
 
        <div class='form-group p-3 m-3'>
@@ -59,7 +59,7 @@
        </div>
 
         <div class='form-group p-3 m-3'>
-            <input class="form-control form-control-lg"  type='number' name='sommes' v-model='recu.sommes' placeholder="sommes" >
+            <input class="form-control form-control-lg"  type='number' name='sommes' v-model='recu.sommes' placeholder="sommes" required>
        </div>
 
        <div class='form-group p-3 m-3'>

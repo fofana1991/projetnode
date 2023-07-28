@@ -2,21 +2,24 @@
 
 <template class="bg-secondary" >
 
+<div class="row m-3 p-4" v-if='things'>
 
+    {{result}}
 
+ </div>    
+
+   
 <div class="row m-3 p-4">
+
    <div class="col">
       <input class="form-control" id="searchInput" type="text" placeholder="Search..">
    </div>
-</div>    
-
-
-<div id="wcp1">
-      <input id="wcp-input" class=''  type="text"/><br />
-    </div>
-
+</div>  
 
   
+
+
+
 
 
 <div class='container d-flex  align-items-inline' v-if='things'>
@@ -24,30 +27,32 @@
 <div  class='row align-items-center p-3 ' id="fatou " >
 
     
-      <div class=' col-sm-1 col-md-3 col-lg-3  p-3 m-auto m-lg-4 overflow-y-hidden d-flex d-block switch' v-for='(thing) in things ' :key=thing._id id='lessonList'>
+      <div class=' col-sm-1 col-md-3 col-lg-3  p-3 m-auto m-lg-4 overflow-y-hidden d-flex d-block switch' v-for='(thing) in things ' :key=thing._id id='lessonList draggable'>
+       
+        
             <div class=" border bg-light" style="width: 18rem;" >
                 
              <img :src="thing.imageUrl" class="card-img-top avatar" rounded="circle "  @click='goEdit(thing._id)' alt="carte" height='250' width='300'>
                  <div class="" >
+                
                      <h5 class="corp"> <strong >Nom:</strong >{{thing.title}}</h5>
+
                       <p class=""><strong >Prenom:</strong >{{thing.description}}</p>
                       <p class="corp"><strong >Profession:</strong >{{thing.profession}}</p>
                       <p class=""><strong >Sexe:</strong >{{thing.sexe}}</p>
                       <p class="corp"><strong >Entreprise:</strong >{{thing.price}}</p>
      
-                       <p class="card-text">
+                       
 
-                           
+<figure class="qrcode">
+    <p class="card-text">
+                        <qrcode-vue v-if='thing._id' :value="thing._id" :size="size" level="H" tag="svg"></qrcode-vue>
+                       <img class="qrcode__image" src="../assets/logo2.png" alt="Chen Fengyuan" />
 
-                                    <qrcode-vue v-if='thing._id' :value="thing._id" :size="size" level="H"/>
-
-                                     <input class="form-control form-control-lg" type='text' v-model='thing._id' hidden="true">
-
-
-                    
-
-
-                      </p>
+        <input class="form-control form-control-lg" type='text' v-model='thing._id' hidden="true">
+ </p>
+</figure>
+                     
 
                     </div>
               </div>
@@ -85,7 +90,8 @@
 
     return {
         
-             things:[]
+             things:[],
+             result:''
 
            }
 
@@ -162,10 +168,10 @@ this.$router.push( {name:'modifystuff',params:{id:uid}})
     
                                 }).catch(error=>{
 
-
-                            if(error.response.status===403){           
+         if(error.response.status===403){           
     
      this.$router.push( '/carte' )
+        
          }
 
 
@@ -192,6 +198,7 @@ $(function() {
               $('#wcp-input').css('background', color).val(color);
             }
         });
+
 
        $(document).ready(function(){
       $("#searchInput").on("keyup", function() {
@@ -257,9 +264,38 @@ if (res.status===200) {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped >
 
+qrcode-vue{
+    z-index:1;
+}
+
+
+.qrcode {
+  display: inline-block;
+  font-size: 0;
+  margin-bottom: 0;
+  position: relative;
+}
+
+.qrcode__image {
+    color: blue;
+     background-color: #fff;
+  border: 0.25rem solid #fff;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.25);
+  height: 25%;
+  left: 50%;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+}
+
+
 
 
   .card {
+
 
 display:inline-flex;
 

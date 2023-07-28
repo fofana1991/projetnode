@@ -6,10 +6,9 @@
 <div class=''>
 
 </div>
+
     
-<HelloWorld/>
-
-
+<HelloWorld :is="activeComponent"/>
 
  </div>
      

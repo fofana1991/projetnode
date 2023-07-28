@@ -24,26 +24,26 @@ return Axios.get('/api/recu')
 
 
 
-let getStuff=(id)=>{
-	return Axios.get('/api/stuff/'+id)
+let getRecu=(id)=>{
+	return Axios.get('/api/recu/'+id)
 }
 
 
 
-let modifyThing=(thing)=>{
-	return Axios.put('/api/stuff/'+thing._id,thing)
+let modifyRecu=(thing)=>{
+	return Axios.put('/api/recu/'+thing._id,thing)
 }
 
-let deleteThing=(thing)=>{
-	return Axios.delete('/api/stuff/'+thing._id,thing)
+let deleteRecu=(thing)=>{
+	return Axios.delete('/api/recu/'+thing._id,thing)
 }
 export const recuService = {
 	getAllrecu,
-	getStuff,
-	modifyThing,
+	getRecu,
+	modifyRecu,
 	addRecu,
 	addImage,
-	deleteThing,
+	deleteRecu,
 	
 
 }

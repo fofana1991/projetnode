@@ -10,6 +10,8 @@
 </template>
 
 <script>
+
+ import isUrl from 'is-url'; 
 import { QrcodeStream } from 'vue-qrcode-reader/src'
 
 export default {
@@ -34,8 +36,15 @@ export default {
       this.result = result
 //window.location.replace(result)
 
-      this.$router.push( {name:'updatething',params:{id:result}})
+      if (isUrl(result)) {
+        result='63f15c8d669593706a3a3eb7'
+        this.$router.push( {name:'updatething',params:{id:result}})
+    }else{
 
+        this.$router.push( {name:'updatething',params:{id:result}})
+}
+
+      
 
     },
 

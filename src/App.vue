@@ -1,7 +1,7 @@
 <template>
 
 <div >
-  <nav class="position-fixed fixed-top" >
+  <nav class="position-fixed fixed-top bg-warning" >
 
      
  <router-link    to="/signup">signup</router-link>|
@@ -25,7 +25,7 @@
 
 <span @click='logout()'  >  
 Logout
-</span>|
+</span>
 
 
 
@@ -35,6 +35,7 @@ Logout
   <div class="overflow-y-visible" >
 
   <router-view/>
+
 
 </div>
 
@@ -52,6 +53,7 @@ Logout
 <script>
 
   import {accountService} from '@/_services'
+  
   
    
   export default {
@@ -126,16 +128,15 @@ this.$router.push( '/about')
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background-color:#66CCFF ;
+  background-color:#CC9933;
+}
+
+body{
+ 
+
 }
 
 nav {
-
-
-
-  
-     
-    
 
 
   a {

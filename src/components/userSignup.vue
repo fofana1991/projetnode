@@ -15,37 +15,37 @@
 
 <div class="form-group m-auto">
 
-<input type="email" v-model='user.email' class="m-2" placeholder='Email'><br>
+<input type="email" v-model='user.email' class="m-2" placeholder='Email' required><br>
 </div >
 
 <div class="form-group m-auto">
-<input type="password" v-model='user.password' class=" m-2 " placeholder='Mot de passe'><br>
+<input type="password" v-model='user.password' class=" m-2 " placeholder='Mot de passe' required><br>
 </div>
 <div class="form-group m-auto">
-<input type="text" v-model='user.name' class=" m-2 " placeholder='Nom'><br>
-</div>
-
-<div class="form-group m-auto">
-<input type="text" v-model='user.forename' class=" m-2 " placeholder='Prenom'><br>
+<input type="text" v-model='user.name' class=" m-2 " placeholder='Nom' required><br>
 </div>
 
 <div class="form-group m-auto">
-<input type="text" v-model='user.role' class=" m-2 " placeholder='Poste occupé'><br>
+<input type="text" v-model='user.forename' class=" m-2 " placeholder='Prenom' required><br>
+</div>
+
+<div class="form-group m-auto">
+<input type="text" v-model='user.role' class=" m-2 " placeholder='Poste occupé' required><br>
 </div>
 
 
 <div class="form-group m-auto">
-<input type="date" v-model='user.birthday' class=" m-2 " placeholder='Date de naissance'><label for='image'>Naissance</label><br>
+<input type="date" v-model='user.birthday' class=" m-2 " placeholder='Date de naissance' required><label for='image'>Naissance</label><br>
 </div>
 
 <div class="form-group m-auto">
-<input type="text" v-model='user.city' class=" m-2 " placeholder='Domicile'><br>
+<input type="text" v-model='user.city' class=" m-2 " placeholder='Domicile' required><br>
 </div>
 <div class="form-group m-auto">
-<input type="number" v-model='user.number' class=" m-2 " placeholder='telephone'><br>
+<input type="number" v-model='user.number' class=" m-2 " placeholder='telephone' required><br>
 </div>
 <div class='form-group'>
-<input type='file' @change='onFileUpload' name='file' id="file">
+<input type='file' @change='onFileUpload' name='file' id="file" required>
 </div>
 
 <div class='form-group'>

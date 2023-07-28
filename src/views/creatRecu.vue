@@ -5,8 +5,9 @@
  
 
   <div class="home col-12">
-    
+  
 <creatRecu/>
+
 
   </div>
 </template>
