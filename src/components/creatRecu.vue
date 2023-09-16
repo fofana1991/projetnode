@@ -13,38 +13,35 @@
 
   
        <div class='form-group p-3 m-3'>
-           <input class="form-control form-control-lg"  type='texte'  id='title' v-model='recu.nom' placeholder="nom" required>
+           <input class="form-control form-control-lg"  type='texte'  id='title' v-model='recu.type' placeholder="type de maison" required>
       </div>
 
 
       <div class='form-group p-3 m-3'>
-          <input class="form-control form-control-lg"  type='texte'  v-model='recu.prenom' placeholder="prenom" required>
+          <input class="form-control form-control-lg"  type='number'  v-model='recu.nombreDeChambre' placeholder="Nombre de chambre" required>
       </div>
 
      <div class='form-group p-3 m-3'>
-          <input class="form-control form-control-lg"  type='texte'  v-model='recu.sommesEnletre' placeholder="sommes en lettre" required>
+          <input class="form-control form-control-lg"  type='number'  v-model='recu.loyer' placeholder="Loyer" required>
       </div>
 
 
 
  <div class='form-group p-3 m-3'>
-          <input class="form-control form-control-lg"  type='texte'  v-model='recu.Prescription' placeholder="prescription" required>
+          <input class="form-control form-control-lg"  type='number'  v-model='recu.caution' placeholder="caution" required>
       </div>
 
-
-
-
-
-       <div class="form-select form-select-sm p-3 m-3 " aria-label=".form-select-sm">
-          <label for='description'>sexe:</label>
-          <select v-model='recu.sexe' class="form-control form-control-lg" required>
-            <option value="feminin">F</option>
-             <option value="masculin">M</option>
-          </select>
+  <div class='form-group p-3 m-3'>
+          <input class="form-control form-control-lg"  type='texte'  v-model='recu.ville' placeholder="Ville" required>
       </div>
 
+<div class='form-group p-3 m-3'>
+          <input class="form-control form-control-lg"  type='texte'  v-model='recu.quartier' placeholder="quartier" required>
+      </div>
 
-
+<div class='form-group p-3 m-3'>
+          <input class="form-control form-control-lg"  type='texte'  v-model='recu.geolocation' placeholder="Géolocation" >
+      </div>
 
        <div class='form-group p-3 m-3'>
 
@@ -54,13 +51,15 @@
            <input class="form-control form-control-lg"  type='hidden'  v-model='recu.imageUrl' required>
        </div>
 
+ <div class='form-group p-3 m-3'>
+          <input class="form-control form-control-lg"  type='number'  v-model='recu.numero' placeholder="Numero" required>
+      </div>
+
+
        <div class='form-group p-3 m-3'>
            <input type='hidden'  v-model='recu.userId' >
        </div>
 
-        <div class='form-group p-3 m-3'>
-            <input class="form-control form-control-lg"  type='number' name='sommes' v-model='recu.sommes' placeholder="sommes" required>
-       </div>
 
        <div class='form-group p-3 m-3'>
              <button  @click='(e)'> Ajouter</button>
@@ -91,14 +90,16 @@
 
 recu:{
 
-  nom:"",
-  prenom: "",
-  sommesEnletre:"",
-  Prescription:"",
-  sexe:"",
+  type:"",
+  nombreDeChambre: "",
+  loyer:"",
+  caution:"",
+  ville:"",
+  quartier:"",
+  geolocation:"",
   imageUrl:"",
   userId:"",
-  sommes:"",
+  numero:"",
     
        },
 

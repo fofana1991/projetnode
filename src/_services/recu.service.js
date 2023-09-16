@@ -30,12 +30,12 @@ let getRecu=(id)=>{
 
 
 
-let modifyRecu=(thing)=>{
-	return Axios.put('/api/recu/'+thing._id,thing)
+let modifyRecu=(recu)=>{
+	return Axios.put('/api/recu/'+recu._id,recu)
 }
 
-let deleteRecu=(thing)=>{
-	return Axios.delete('/api/recu/'+thing._id,thing)
+let deleteRecu=(recu)=>{
+	return Axios.delete('/api/recu/'+recu._id,recu)
 }
 export const recuService = {
 	getAllrecu,

@@ -10,16 +10,24 @@
     <div  class='row align-items-center p-3 ' id="fatou " >
 
     
-        <div class=' col-sm-12 col-md-12  col-lg-12  p-3 m-auto m-lg-4 overflow-y-hidden d-flex d-block switch' v-for='(recu,index) in recus ' :key=recu._id id='lessonList' >
-
+        <div class=' col-sm-12 col-md-12  col-lg-12  p-3 m-auto m-lg-4 overflow-y-hidden d-flex d-block switch' v-for='(recu,index) in recus ' :key=recu.ville id='lessonList' >
+            
+         <div class="col-12">
+            <p class=""><strong >Ville:</strong >{{recu.ville}}</p><br/>
+             <p class=""><strong >Publié le:</strong >{{recu.date}}</p><br/>
             <div class="corp border bg-light w-100" style="width: 18rem;" >
+
                 <p class=""><strong >Numero </strong >{{index+1}}</p>
                  <div class="" >
-                      <img :src="recu.imageUrl" class="avatar" rounded="circle "  @click='goEdit(thing._id)' alt="carte" height='100' width='100'>               
-                     <p class="d-flex d-inline"> recu de:<strong >{{recu.nom}} {{recu.prenom}} </strong ></p>
-                      <p class=""><strong >sommes en letre:</strong >{{recu.sommesEnletre}}</p>
-                      <p class=""><strong >Sexe:</strong >{{recu.sexe}}</p>
-                      <p class=""><strong >sommes en chiffre:</strong >{{recu.sommes}}</p>
+                      <img :src="recu.imageUrl" class="avatar w-75" rounded="circle "  @click='goEdit(recu._id)' alt="carte" height='250' >               
+                    
+                      <p class=""><strong >Type de maison:</strong >{{recu.type}}</p>
+                      <p class=""><strong >Nombre de chambre:</strong >{{recu.nombreDeChambre}}</p>
+                      <p class=""><strong >Loyer:</strong >{{recu.loyer}}</p>
+                      <p class=""><strong >Caution:</strong >{{recu.caution}}</p>
+                      <p class=""><strong >Ville:</strong >{{recu.ville}}</p>
+                      <p class=""><strong >Quartier:</strong >{{recu.quartier}}</p>
+                      <p class=""><strong >Numero:</strong > 0{{recu.numero}}</p>
      
                        <p class="card-text">
 
@@ -36,33 +44,14 @@
                       </p>
 
                     </div>
+                </div>
               </div>
           </div>
     </div>
   </div>
 
 
-   <div class="d-flex d-block m-3 p-3">
-                <div>
-
-               <svg onclick='window.print()' xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-printer-fill" viewBox="0 0 16 16">
-               <path d="M5 1a2 2 0 0 0-2 2v1h10V3a2 2 0 0 0-2-2H5zm6 8H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1z"/>
-                <path d="M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2V7zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
-               </svg> 
-               </div>
-               
-              <div >
-               <svg @click='deleteThing()' xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-trash3-fill mx-4 " viewBox="0 0 16 16">
-               <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
-               </svg>
-
-               </div>
-
-
-                </div>
-
-
-
+   
 
 </template>
 
