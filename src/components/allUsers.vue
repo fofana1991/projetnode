@@ -12,11 +12,11 @@
 
 
  
-<div class='container' id="lessonList" >
+<div class='container'>
 
 
 
-    <div  class='row align-items-inline ml-0 p-3' v-for='(user) in users' :key=user._id   >
+    <div  class='row align-items-inline ml-0 p-3 lessonList' v-for='(user) in users' :key=user._id    >
       <img :src='user.imageUrl' class="avatar mr-2 " @click='goEdit(user._id)' >
       {{user.name}}
       {{user.number}}
@@ -119,7 +119,7 @@ $(function() {
  $(document).ready(function(){
       $("#searchInput").on("keyup", function() {
          var value = $(this).val().toLowerCase();
-         $("#lessonList").filter(function() {
+         $(".lessonList").filter(function() {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
          });
       });

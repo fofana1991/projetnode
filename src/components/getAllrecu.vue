@@ -3,6 +3,12 @@
 
 <template class="bg-secondary" >
 
+<div class="row m-3 p-4" >
+   <div class="col">
+      <input class="form-control" id="searchInput" type="text" placeholder="Search..">
+   </div>
+</div>
+
 
 
 <div class='container d-flex  align-items-inline'>
@@ -11,9 +17,9 @@
     <div  class='row align-items-center p-3 ' id="fatou " >
 
     
-        <div class=' col-sm-12 col-md-12  col-lg-12  p-3 m-auto m-lg-4 overflow-y-hidden d-flex d-block switch' v-for='(recu,index) in recus ' :key=recu.ville id='lessonList' >
+        <div class=' col-sm-12 col-md-12  col-lg-12  p-3 m-auto m-lg-4 overflow-y-hidden d-flex d-block switch' v-for='(recu,index) in recus ' :key=recu.ville  >
             
-         <div class="col-12">
+         <div class="col-12 lessonList">
             <p class=""><strong >Ville:</strong >{{recu.ville}}</p><br/>
              <p class=""><strong >Publié le:</strong >{{recu.date}}</p><br/>
             <div class="corp border bg-light w-100" style="width: 18rem;" >
@@ -179,8 +185,8 @@ $(function() {
        $(document).ready(function(){
       $("#searchInput").on("keyup", function() {
          var value = $(this).val().toLowerCase();
-         $("#lessonList").filter(function() {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+         $(".lessonList").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) >-1)
          });
       });
    });
