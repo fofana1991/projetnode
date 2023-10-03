@@ -1,13 +1,24 @@
 <template>
- <div class="hello messageBox">
-   
+
+<svg @click="show2=!show2" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-grid-3x3-gap-fill my-5" viewBox="0 0 16 16">
+  <path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+</svg>
+
+
+<Transition name="bounce">
  
 
-
-  <div class="position-fixed fixed-bottom  w-100 form p-auto">
+ <div v-if="show2" class="hello messageBox">
+  
+   
+   <div class="position-fixed fixed-bottom  w-100 form p-auto">
   <h1>Envoyez votre message</h1>
+
+  <div v-if="error" class="error">
+     {{error}}
+   </div> 
     
-    <textarea v-model="currentMessage.receiver" type="texte" placeholder="Receiver Number"> </textarea> 
+    <textarea v-model="currentMessage.receiver" type="tel" placeholder="Receiver Number"> </textarea> 
    
 
    <textarea v-model="currentMessage.sender" type="texte" placeholder=" Sender number or Name"> 
@@ -18,7 +29,7 @@
     <br/>
     <span>
     
-      <button @click="sendMessage()"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
+      <button @click="sendMessage()"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-telephone-forward" viewBox="0 0 16 16">
   <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
 </svg></button>
      </span> 
@@ -30,7 +41,65 @@
      <div :class="message.from=='user' ? 'messageFromUser' :'messageFromChatGpt'" :key="message" v-html="message.data"></div>
    </div>
    </div>
+ 
  </div>
+
+  
+ </Transition>
+
+<!-- Make call -->
+
+<svg @click="show3=!show3" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-grid-3x3-gap-fill my-5" viewBox="0 0 16 16">
+   <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zm10.762.135a.5.5 0 0 1 .708 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 0 1-.708-.708L14.293 4H9.5a.5.5 0 0 1 0-1h4.793l-1.647-1.646a.5.5 0 0 1 0-.708z"/>
+</svg>
+
+
+<Transition name="bounce">
+ 
+
+ <div v-if="show3" class="hello messageBox">
+  
+   
+   <div class="position-fixed fixed-bottom  w-100 form p-auto">
+  <h1>lancé un appelle</h1>
+
+  <div v-if="error" class="error">
+     {{error}}
+   </div> 
+    
+    <textarea v-model="currentCall.receiver" type="tel" placeholder="Receiver Number"> </textarea> 
+   
+
+   <textarea v-model="currentCall.sender" type="texte" placeholder=" Sender number or Name"> 
+   </textarea> 
+   
+   <textarea v-model="currentCall.message" type="texte" placeholder=" message to send "> </textarea> 
+    
+    <br/>
+    <span>
+    
+      <button @click="makeCall()"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
+   <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zm10.762.135a.5.5 0 0 1 .708 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 0 1-.708-.708L14.293 4H9.5a.5.5 0 0 1 0-1h4.793l-1.647-1.646a.5.5 0 0 1 0-.708z"/>
+</svg></button>
+     </span> 
+    </div>
+
+   
+   <div v-if="messages" class="messageBox">
+    <div v-for="message in callMessages" :key="message">
+     <div :class="message.from=='user' ? 'messageFromUser' :'messageFromChatGpt'" :key="message" v-html="message.data"></div>
+   </div>
+   </div>
+ 
+ </div>
+
+  
+ </Transition>
+
+
+
+
+
 </template>
 
 
@@ -42,28 +111,60 @@ export default {
  name: "postInfobip",
  data() {
    return {
-     messages: [],
+
+    callMessages:[],
+     
+     messages:[],
 
      currentMessage:{
           receiver:'',
           sender:' ',
           message:' '
                     }, 
-    
+
+    currentCall:{
+          receiver:'',
+          sender:' ',
+          message:' '
+                    }, 
+
+
+     error:' ',
+     show2:true,
+     show3:false,
    }
  },
 
  methods: {
+  
+// send message
    async sendMessage() {
      
-     infobipService.postInfobip(this.currentMessage)
-      // await axios.post('http://localhost:3000/api/openai', {
-       // message: message
-     // })
+     infobipService.postMessage(this.currentMessage)
      .then((response) => {
        this.messages.push(response.data)
+     }).catch(error=>{
+      this.error = error.response.data
+
      })
-   }
+   },
+
+// Make call 
+ async makeCall() {
+     
+      infobipService.postCall(this.currentCall)
+      .then((response) => {
+        this.callMessages.push(response.data)
+      }).catch(error=>{
+       this.error = error.response.data
+
+      })
+ }
+
+
+
+
+
  },
 
  mounted() {
@@ -138,6 +239,9 @@ color:white;
  margin-left: 50%;
 }
 
+.error{
+  color: orangered;
+}
 
 .messageFromChatGpt {
  text-align: left;
@@ -149,5 +253,45 @@ color:white;
  width: 100%;
  margin-right: 70%;
 }
+
+
+.bounce-enter-active {
+  animation: bounce-in 0.5s;
+}
+.bounce-leave-active {
+  animation: bounce-in 0.5s reverse;
+}
+
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}
+
+
+
+
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
 
 </style>

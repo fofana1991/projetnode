@@ -2,6 +2,12 @@
 <div class="bg">
 <form  @submit.prevent='login'>
 
+ <div v-if='voyant' class="hello bg-info m-3 p-3 w-75" >
+ 
+    {{voyant}}
+ 
+  </div> 
+
 <div v-if='error' class="hello bg-danger  m-3 p-3" >
     {{error}}
   </div>
@@ -38,7 +44,9 @@ import {accountService} from '@/_services'
 
                   password:''
                 },
-         error:''       
+         error:'',
+
+         voyant:''       
    
              }
         },
@@ -61,10 +69,26 @@ import {accountService} from '@/_services'
     })
                 
            
-            }
+            },
              
-         }
-         }
+         },
+
+
+mounted(){
+
+       
+       if(accountService.isLogged()==true){
+
+this.voyant='Vous etes connecté'
+
+       }else{
+this.voyant=''
+
+       }  
+
+   }        
+
+      }
           
 
 
@@ -73,6 +97,7 @@ import {accountService} from '@/_services'
 error.response.data.error.message
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped >
+
 input{
 border-color: black;
 color: black;
@@ -82,15 +107,19 @@ color: black;
 h3 {
   margin: 40px 0 0;
 }
+
 ul {
   list-style-type: none;
   padding: 0;
 }
+
 li {
   display: inline-block;
   margin: 0 10px;
 }
+
 a {
   color: #42b983;
 }
+
 </style>

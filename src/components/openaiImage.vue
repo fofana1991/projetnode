@@ -1,6 +1,6 @@
 <template>
  <div class="hello">
-   <h1>Ask to chatGpt</h1>
+   <h1>Quelle image voullez-vous générer</h1>
   
   <div class="position-fixed fixed-bottom d-flex d-sm-inline w-100 form">
 

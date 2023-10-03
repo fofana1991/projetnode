@@ -1,7 +1,7 @@
 <template>
 
 <div >
-  <nav class="position-fixed fixed-top bg-warning" >
+  <nav >
 
      
  <router-link    to="/signup">signup</router-link>|

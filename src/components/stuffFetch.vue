@@ -9,7 +9,7 @@
  </div>    
 
    
-<div class="row m-3 p-4">
+<div class="row m-3 p-4" v-if="voyant">
 
    <div class="col">
       <input class="form-control" id="searchInput" type="text" placeholder="Search..">
@@ -24,16 +24,17 @@
 
 <div class='container d-flex  align-items-inline' v-if='things'>
 
-<div  class='row align-items-center p-3 ' id="fatou " >
+<div  class='row align-items-center p-3 ' id="fatou"  >
 
     
-      <div class=' col-sm-1 col-md-3 col-lg-3  p-3 m-auto m-lg-4 overflow-y-hidden d-flex d-block switch' v-for='(thing) in things ' :key=thing._id id='lessonList draggable'>
+      <div class=' col-sm-1 col-md-3 col-lg-3  p-3 m-auto m-lg-4 overflow-y-hidden d-flex d-block switch' v-for='(thing) in things ' :key=thing._id id='draggable'>
        
         
             <div class=" border bg-light" style="width: 18rem;" >
                 
              <img :src="thing.imageUrl" class="card-img-top avatar" rounded="circle "  @click='goEdit(thing._id)' alt="carte" height='250' width='300'>
-                 <div class="" >
+                
+               <div class="" >
                 
                      <h5 class="corp"> <strong >Nom:</strong >{{thing.title}}</h5>
 
@@ -74,6 +75,7 @@
 
   import $ from 'jquery'
   import QrcodeVue from 'qrcode.vue'
+import {accountService} from '@/_services'
 
   //import {stuffService} from '@/_services'
   import {stuffService} from '@/_services'
@@ -91,7 +93,8 @@
     return {
         
              things:[],
-             result:''
+             result:'',
+             voyant:''
 
            }
 
@@ -182,7 +185,19 @@ if (error.message=== 'Network Error') {
         } 
 
  
-                                })
+                                });
+
+
+ if(accountService.isLogged()==true){
+
+this.voyant='success'
+
+       }else{
+this.voyant=''
+
+       } ; 
+
+
 
 $(function() {
 

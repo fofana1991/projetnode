@@ -173,7 +173,7 @@ postData() {
            
             const Thing=JSON.stringify(this.thing)
            
-            var blob= new Blob([this.FILE,this.FILE.name], {type : "image/PNG"})
+            var blob= new Blob([this.FILE,this.thing.filename], {type : "image/PNG"})
         
             formData.append('thing',Thing)
             formData.append('image',blob)

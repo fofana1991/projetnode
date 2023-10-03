@@ -31,7 +31,7 @@
 <div  class="col-lg-12  p-3 d-block fixed-right "  id="fatou cache" >
   
   <div class='row p-3 m-3 '>
-<img :src="thing.imageUrl"  class="avatar w-100 m-auto" rounded="circle" alt="carte" height='500'/>   
+<img :src="thing.imageUrl"  class="avatar w-100 m-auto" rounded="circle" alt="carte" height='250'/>   
 </div>
 
 

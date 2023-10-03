@@ -69,6 +69,74 @@
                </div>
 
 </div>
+
+<div class=" col-md-6 col-lg-12">
+      
+<form id='form' @submit.prevent='modifyRecu' class="p-3 m-3">
+
+  <div class='form-group p-3 m-3 bg-warning' v-if="err">
+            {{err}}
+           
+        </div>
+
+  
+       <div class='form-group p-3 m-3'>
+           <input class="form-control form-control-lg"  type='texte'  id='title' v-model='recu.type' placeholder="type de maison" required>
+      </div>
+
+
+      <div class='form-group p-3 m-3'>
+          <input class="form-control form-control-lg"  type='number'  v-model='recu.nombreDeChambre' placeholder="Nombre de chambre" required>
+      </div>
+
+     <div class='form-group p-3 m-3'>
+          <input class="form-control form-control-lg"  type='number'  v-model='recu.loyer' placeholder="Loyer" required>
+      </div>
+
+
+
+ <div class='form-group p-3 m-3'>
+          <input class="form-control form-control-lg"  type='number'  v-model='recu.caution' placeholder="caution" required>
+      </div>
+
+  <div class='form-group p-3 m-3'>
+          <input class="form-control form-control-lg"  type='texte'  v-model='recu.ville' placeholder="Ville" required>
+      </div>
+
+<div class='form-group p-3 m-3'>
+          <input class="form-control form-control-lg"  type='texte'  v-model='recu.quartier' placeholder="quartier" required>
+      </div>
+
+<div class='form-group p-3 m-3'>
+          <input class="form-control form-control-lg"  type='texte'  v-model='recu.geolocation' placeholder="Géolocation" >
+      </div>
+
+       <div>
+           <input class="form-control form-control-lg"  v-model='recu.imageUrl' requiredplaceholder="imageUrl" >
+       </div>
+
+ <div class='form-group p-3 m-3'>
+          <input class="form-control form-control-lg"  type='number'  v-model='recu.numero' placeholder="Numero" required>
+      </div>
+
+
+       <div class='form-group p-3 m-3'>
+           <input type='hidden'  v-model='recu.userId' >
+       </div>
+
+
+       <div class='form-group p-3 m-3'>
+             <button  @click='submit'> Ajouter</button>
+       </div>     
+
+</form>
+
+</div>
+
+
+
+
+
 </div>
 
 
@@ -99,11 +167,11 @@ import $ from 'jquery'
   
 methods:{
 
-  modifyThing(){
+  modifyRecu(){
 
- recuService.modifyThing(this.recu).then(
+ recuService.modifyRecu(this.recu).then(
 
-  this.$router.push( '/info')
+  this.$router.push( '/recus')
  ).catch(err=>{
 
 console.log(err)

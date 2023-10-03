@@ -1,6 +1,6 @@
 <template>
  <div class="hello messageBox">
-   <h1>Ask to chatGpt</h1>
+   <h1>Demande moi ce que tu veux!</h1>
   <div class="position-fixed fixed-bottom d-flex d-sm-inline w-100 form">
 
    <textarea v-model="currentMessage" type="text"> </textarea> 

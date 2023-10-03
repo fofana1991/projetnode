@@ -1,6 +1,7 @@
 <template class="bg-secondary">
 
-<div class="row m-3 p-4">
+
+<div class="row m-3 p-4" v-if="voyant">
    <div class="col">
       <input class="form-control" id="searchInput" type="text" placeholder="Search..">
    </div>
@@ -12,8 +13,10 @@
 
  
 <div class='container' id="lessonList" >
-     
-    <div  class='row align-items-inline ml-0 p-3' v-for='(user) in users' :key=user._id >
+
+
+
+    <div  class='row align-items-inline ml-0 p-3' v-for='(user) in users' :key=user._id   >
       <img :src='user.imageUrl' class="avatar mr-2 " @click='goEdit(user._id)' >
       {{user.name}}
       {{user.number}}
@@ -45,7 +48,8 @@
 
     return {
         
-             users:[]
+             users:[],
+             voyant:''
 
     }
   },
@@ -97,6 +101,19 @@ if(err.response.status===403){
                                  
 
                                 })
+
+// confirmation de la connection
+
+if(accountService.isLogged()==true){
+
+this.voyant='Vous etes connecté'
+
+       }else{
+this.voyant=''
+
+       }
+
+  
     
 $(function() {
  $(document).ready(function(){

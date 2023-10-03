@@ -4,7 +4,8 @@
 <template class="bg-secondary" >
 
 
-<div class='container d-flex  align-items-inline' >
+
+<div class='container d-flex  align-items-inline'>
 
 
     <div  class='row align-items-center p-3 ' id="fatou " >

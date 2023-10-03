@@ -1,6 +1,6 @@
 <template class="bg-secondary">
 
-<div class="row m-3 p-4">
+<div class="row m-3 p-4" v-if="voyant">
    <div class="col">
       <input class="form-control fixed-top" id="searchInput" type="text" placeholder="Search..">
    </div>
@@ -171,7 +171,9 @@ import {accountService} from '@/_services'
         userimageUrl:'',
         ruserId:'',
         ruserNumber:'',
-      }
+      },
+
+      voyant:''
     }
   },
 
@@ -249,6 +251,17 @@ messageService.getAllMessage().then(res=> {
 console.log(error)
 
     });
+
+// si la connection est établis
+
+ if(accountService.isLogged()==true){
+
+this.voyant='Vous etes connecté'
+
+       }else{
+this.voyant=''
+
+       }     
 
 
 

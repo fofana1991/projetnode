@@ -54,6 +54,7 @@ export default {
       } catch (error) {
         if (error.name === 'NotAllowedError') {
           this.error = "ERROR: you need to grant camera access permission"
+
         } else if (error.name === 'NotFoundError') {
           this.error = "ERROR: no camera on this device"
         } else if (error.name === 'NotSupportedError') {

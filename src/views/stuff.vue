@@ -1,7 +1,7 @@
 <template>
-  <div class="home overflow-y-hidden ">
+  <div class="home overflow-y-hidden" >
 
-  <nav class="nav w-100 navbar-expand navbar-expand-lg text-dark  bg-secondary navbar-dark text-center z-1 position-fixed fixed-bottom">
+  <nav class="nav w-100 navbar-expand navbar-expand-lg text-dark  bg-secondary navbar-dark text-center z-1 position-fixed fixed-bottom" v-if="voyant">
   
   
 <li class="nav-item">
@@ -43,12 +43,35 @@
 <script>
 // @ is an alias to /src
 import stuffFetch from '@/components/stuffFetch.vue'
+import {accountService} from '@/_services'
 
 export default {
   name: 'stuffVew',
   components: {
     stuffFetch
-  }
+  },
+  data() {
+    return {
+      show: false,
+      voyant:'',
+    }
+  },
+
+
+
+  mounted(){
+
+ if(accountService.isLogged()==true){
+
+this.voyant='success'
+
+       }else{
+this.voyant=''
+
+       }  
+
+}
+
 }
 </script>
 

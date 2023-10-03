@@ -1,16 +1,21 @@
 import Axios from './caller.services'
 
- let postInfobip= (currentMessage)=>{
+ let postMessage= (currentMessage)=>{
 
-       return Axios.post('/api/infobip',currentMessage)
+       return Axios.post('/api/info/message',currentMessage)
 }
 
+let postCall= (currentCall)=>{
+
+       return Axios.post('/api/info/call',currentCall)
+}
 
 
 
 export const infobipService = {
 	
-postInfobip,
+postMessage,
+postCall,
 
 
 }

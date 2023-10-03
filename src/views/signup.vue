@@ -9,7 +9,7 @@
    <h1>inscrivez vous</h1>
 </div >
 
- <img alt="Vue logo" src="../assets/canvas.png" class='m-auto ' height='300px'>
+ <img alt="Vue logo" src="../assets/logo2.png" class='m-auto ' height='300px'>
 
     <userSignup />  
 
