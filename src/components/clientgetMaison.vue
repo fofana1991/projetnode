@@ -19,7 +19,7 @@
 
 </div>
 
-<div class='row d-flex d-inline-sm  d-block-lg p-auto ' v-if='recu'>
+<div class='row d-flex d-inline-sm  d-block-lg p-4 ' v-if='recu'>
 
   <audio preload="auto" id="son" autoplay>
     
@@ -30,7 +30,7 @@
 
 <div  class="col-lg-12  p-auto d-block fixed-right "  id="fatou cache" >
   
-  <div class='row py-4 m-auto'>
+  <div class='row py-4 m-auto '>
 <img :src="recu.imageUrl"  class="avatar w-100 m-auto" rounded="circle" alt="carte" height='250'/>   
 </div>
 
@@ -53,92 +53,13 @@
 
         
 <iframe :src="recu.geolocation" class="w-100 my-3" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-            
-
-
-
-
-</div>
-
- <div >
-               <svg @click='deleteThing()' xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-trash3-fill mx-4 " viewBox="0 0 16 16">
-               <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
-               </svg>
-
-               </div>
-
-</div>
-
-<div class=" col-md-6 col-lg-12">
-      
-<form id='form' @submit.prevent='modifyRecu' class="p-3 m-3">
-
-  <div class='form-group p-3 m-3 bg-warning' v-if="err">
-            {{err}}
            
-        </div>
-
-  
-       <div class='form-group p-3 m-3'>
-           <input class="form-control form-control-lg"  type='texte'  id='title' v-model='recu.type' placeholder="type de maison" required>
-      </div>
-
-
-      <div class='form-group p-3 m-3'>
-          <input class="form-control form-control-lg"  type='number'  v-model='recu.nombreDeChambre' placeholder="Nombre de chambre" required>
-      </div>
-
-     <div class='form-group p-3 m-3'>
-          <input class="form-control form-control-lg"  type='number'  v-model='recu.loyer' placeholder="Loyer" required>
-      </div>
-
-
-
- <div class='form-group p-3 m-3'>
-          <input class="form-control form-control-lg"  type='number'  v-model='recu.caution' placeholder="caution" required>
-      </div>
-
-  <div class='form-group p-3 m-3'>
-          <input class="form-control form-control-lg"  type='texte'  v-model='recu.ville' placeholder="Ville" required>
-      </div>
-
-<div class='form-group p-3 m-3'>
-          <input class="form-control form-control-lg"  type='texte'  v-model='recu.quartier' placeholder="quartier" required>
-      </div>
-
-<div class='form-group p-3 m-3'>
-          <input class="form-control form-control-lg"  type='texte'  v-model='recu.geolocation' placeholder="Géolocation" >
-      </div>
-
-       <div>
-           <input class="form-control form-control-lg"  v-model='recu.imageUrl' requiredplaceholder="imageUrl" >
-       </div>
-
- <div class='form-group p-3 m-3'>
-          <input class="form-control form-control-lg"  type='number'  v-model='recu.numero' placeholder="Numero" required>
-      </div>
-
-
-       <div class='form-group p-3 m-3'>
-           <input type='hidden'  v-model='recu.userId' >
-       </div>
-
-
-       <div class='form-group p-3 m-3'>
-             <button  @click='submit'> Ajouter</button>
-       </div>     
-
-</form>
-
 </div>
-
-
-
 
 
 </div>
 
+</div>
 
 </template>
 
@@ -151,7 +72,7 @@ import $ from 'jquery'
   
   export default {
   
-  name: 'getRecu',
+  name: 'getclientMaison',
 
 
   data(){
@@ -163,48 +84,14 @@ import $ from 'jquery'
       myAudio:" "
     }
   },
-
   
-methods:{
-
-  modifyRecu(){
-
- recuService.modifyRecu(this.recu).then(
-
-  this.$router.push( '/recus')
- ).catch(err=>{
-
-console.log(err)
-
-
-
- }
-
-  ) },
-
-  async deleteThing(){
-
-await recuService.deleteRecu(this.recu);
-await  this.$router.push( '/recus');
-
-
-  }
-
-},
-
-
-beforeCreat () {
-document.write('wait for a momment we are verifying for you')
-
-},
 
 //recuperation de l'element dans le parametre de l'url 
     mounted() {
 
-this.id = this.$route.params.id
+this.id=this.$route.params.id
 recuService.getRecu(this.id).then(res=>{
-  
-  this.recu=res.data
+    this.recu=res.data
 if(this.recu==null) {
 
 this.avertissement='Produit Frauduleux';
@@ -215,9 +102,6 @@ this.avertissement='Produit Frauduleux';
   if(err.response.status==404){
     
     this.avertissement='Produit Frauduleux';
-  
-
-
   }
 }
 

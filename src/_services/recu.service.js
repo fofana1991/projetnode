@@ -22,6 +22,9 @@ let getAllrecu= ()=>{
 return Axios.get('/api/recu')
 }
 
+let geclientrecu= ()=>{
+return Axios.get('/api/recu/client')
+}
 
 
 let getRecu=(id)=>{
@@ -44,6 +47,7 @@ export const recuService = {
 	addRecu,
 	addImage,
 	deleteRecu,
+	geclientrecu,
 	
 
 }

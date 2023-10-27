@@ -3,28 +3,36 @@
 <div >
   <nav >
 
+
+   <a class="navbar-brand" href="#">
+      <img src="./assets/logo2.png" alt="" width="30" height="24">
+    </a> 
+
      
- <router-link    to="/signup">signup</router-link>|
+ <router-link    to="/signup">s'enregistrer</router-link>|
 
  
-  <router-link   to="/about">login</router-link>|
+  <router-link   to="/about">Connexion</router-link>|
    
 
 
-  <router-link to="/info">thingtable</router-link>|
+  <router-link to="/produits">Produits</router-link>|
 
        
       
-     <router-link  to="/users"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chat-dots-fill" viewBox="0 0 16 16">
-  <path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-</svg></router-link> |
+     <router-link  to="/users"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+  <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+</svg>
+</router-link> |
 
     
 
 
 
 <span @click='logout()'  >  
-Logout
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-unlock-fill" viewBox="0 0 16 16">
+  <path d="M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2z"/>
+</svg>
 </span>
 
 

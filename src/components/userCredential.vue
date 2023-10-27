@@ -2,12 +2,6 @@
 <div class="bg">
 <form  @submit.prevent='login'>
 
- <div v-if='voyant' class="hello bg-info m-3 p-3 w-75" >
- 
-    {{voyant}}
- 
-  </div> 
-
 <div v-if='error' class="hello bg-danger  m-3 p-3" >
     {{error}}
   </div>

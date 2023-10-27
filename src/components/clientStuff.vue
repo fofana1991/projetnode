@@ -12,7 +12,9 @@
 <div class="row m-3 p-4" v-if="voyant">
 
    <div class="col">
-      <input class="form-control" id="searchInput" type="text" placeholder="Search..">
+
+       <input class="form-control" id="searchInput" type="text" placeholder="Search..">
+
    </div>
 </div>  
 
@@ -23,39 +25,36 @@
 
 
 <div class='container d-flex  align-items-inline' v-if='things'>
-
-<div  class='row align-items-center p-3 ' id="fatou"  >
+<div  class='row align-items-center p-3 ' id="fatou w-100"  >
 
     
-      <div class=' col-sm-1 col-md-3 col-lg-3  p-3 m-auto m-lg-4 overflow-y-hidden d-flex d-block switch' v-for='(thing) in things ' :key=thing._id id='draggable'>
+      <div class='col-sm-1 col-md-3 col-lg-3  py-3 m-auto  m-lg-4 m-md-4  overflow-y-hidden d-flex d-block d-md-inline' v-for='(thing) in things ' :key=thing._id id='draggable'>
        
         
-            <div class=" border bg-light lessonList" style="width: 18rem;" >
-                
+            <div class=" border bg-light lessonList w-100 mb-5 border border-5 border-info things" style="width: 18rem;" >
+             
+            <div class="d-flex d-inline " >
+
+
+             <div class="w-50 " >
+
              <img :src="thing.imageUrl" class="card-img-top avatar" rounded="circle "  @click='goEdit(thing._id)' alt="carte" height='250' width='300'>
+              
+              </div>
+
+               <div class="w-50 " >
                 
-               <div class="" >
-                
-                     <h5 class="corp"> <strong >Nom:</strong >{{thing.title}}</h5>
+                     <h5 class="corp ml-3"> <strong ></strong >{{thing.title}}</h5>
 
-                      <p class=""><strong >Prenom:</strong >{{thing.description}}</p>
-                      <p class="corp"><strong >Profession:</strong >{{thing.profession}}</p>
-                      <p class=""><strong >Sexe:</strong >{{thing.sexe}}</p>
-                      <p class="corp"><strong >Entreprise:</strong >{{thing.price}}</p>
-     
-                       
-
-<figure class="qrcode">
-    <p class="card-text">
-                        <qrcode-vue v-if='thing._id' :value="thing._id" :size="size" level="H" tag="svg"></qrcode-vue>
-                       <img class="qrcode__image" src="../assets/logo2.png" alt="Chen Fengyuan" />
-
-        <input class="form-control form-control-lg" type='text' v-model='thing._id' hidden="true">
- </p>
-</figure>
+                      <p class=""><strong ></strong >{{thing.description}}</p>
+                      <p class="corp"><strong ></strong >{{thing.profession}}</p>
+                      <p class=""><strong ></strong >{{thing.sexe}}</p>
+                      <p class="corp"><strong ></strong >{{thing.price}} FCFA</p>
                      
 
                     </div>
+
+               </div>     
               </div>
           </div>
     </div>    
@@ -74,7 +73,6 @@
 <script>
 
   import $ from 'jquery'
-  import QrcodeVue from 'qrcode.vue'
 import {accountService} from '@/_services'
 
   //import {stuffService} from '@/_services'
@@ -83,7 +81,7 @@ import {accountService} from '@/_services'
    
   export default {
   
-  name: 'stuffFetch',
+  name: 'clientstuffFetch',
 
 
   
@@ -103,31 +101,18 @@ import {accountService} from '@/_services'
 
   components: {
 
-      QrcodeVue,
+    
 
               },
 
 
    methods:{
 
-
-
- 
-       
-      
-
- 
-
-
-
-
-
-
             refresh(){
 
 
 
-stuffService.getAllstuff().then(res=>{
+stuffService.getclientstuff.then(res=>{
 
                                   
 
@@ -146,7 +131,7 @@ stuffService.getAllstuff().then(res=>{
            goEdit(uid){
 
  // this.$router.push( '/modifyStuff/'+id)
-this.$router.push( {name:'modifystuff',params:{id:uid}})
+this.$router.push( {name:'updatething',params:{id:uid}})
 
                      }
 
@@ -164,7 +149,7 @@ this.$router.push( {name:'modifystuff',params:{id:uid}})
          /* eslint-disable */ 
 
        // openiaService.getopenai()
-      stuffService.getAllstuff()
+      stuffService.getclientstuff()
                                 .then(res=>{
     
      this.things=res.data         
@@ -173,7 +158,7 @@ this.$router.push( {name:'modifystuff',params:{id:uid}})
 
          if(error.response.status===403){           
     
-     this.$router.push( '/produits' )
+     this.$router.push( '/carte' )
         
          }
 
@@ -234,7 +219,7 @@ updated(){
 
 
 
-stuffService.getAllstuff().then(res=>{
+stuffService.getclientstuff().then(res=>{
 if (res.status===200) {
 
           this.resultat = "mis a jour effectuée avec success"
@@ -334,6 +319,15 @@ a {
 
 }
 
+
+.things {
+
+animation:img_animation 6000ms 150ms alternate infinite ease-in-out paused forwards;
+
+
+}
+
+
 .manche:hove + .lumiere{
     animation-play-state: running;
 }
@@ -355,7 +349,7 @@ a {
     
 }
 .switch:hover{
-    animation-play-state: running;
+    animation-play-state:running;
 }
 
 @keyframes lumiere_animation {
@@ -387,21 +381,65 @@ a {
     40%{
 
 
-        margin-left:-350px;
-        
+    border-left-color:red ;
+    border-width:10px ;
+       
        
     }
 60%{
-    left: -2px;
 
+    border-top-color:red ;
+    border-width:10px ;
+
+    
+        
+}
+60%,70%{
+
+    border-right-color:red ;
+
+    border-width:10px ;
+        
+}
+90%,100%{
+      
+    border-bottom-color:red ;
+    border-width:10px;
+   
+}
+ }
+
+
+@keyframes img_animation {
+    0%,{
+        
+        opacity:1;
+    }
+    40%,50%{
+
+        border-left-color:red;
+
+        border-width: 50px;
+       
+            }
+60%,70%{
+     border-top-color:burlywood;
+      border-width: 10px;
     
 }
 90%,100%{
-      left:-2px;
+      
+      border-right-color: yellowgreen;
+
+      border-width: 50px;
+      
       
    
 }
  }
+
+
+
 
 
 </style>

@@ -14,8 +14,6 @@
  
 <div class='container'>
 
-
-
     <div  class='row align-items-inline ml-0 p-3 lessonList' v-for='(user) in users' :key=user._id    >
       <img :src='user.imageUrl' class="avatar mr-2 " @click='goEdit(user._id)' >
       {{user.name}}

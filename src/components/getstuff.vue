@@ -2,7 +2,7 @@
 
 
 
-<div class='container p-3 m-3 '>
+<div class='container p-auto m-auto '>
 
 
 <div v-if='avertissement' class='bg-danger m-4 p-3' width="500"  height='500' >
@@ -19,7 +19,7 @@
 
 </div>
 
-<div class='row d-flex d-inline-sm  d-block-lg p-4 ' v-if='thing'>
+<div class='row d-flex d-inline-sm  d-block-lg p-auto ' v-if='thing'>
 
   <audio preload="auto" id="son" autoplay>
     
@@ -28,14 +28,35 @@
       </audio>
 
 
-<div  class="col-lg-12  p-3 d-block fixed-right "  id="fatou cache" >
+<div  class="col-lg-12  p-auto d-block fixed-right "  id="fatou cache" >
   
-  <div class='row p-3 m-3 '>
-<img :src="thing.imageUrl"  class="avatar w-100 m-auto" rounded="circle" alt="carte" height='250'/>   
-</div>
+        <div class='row p-auto m-auto  carousel slide carousel-fade' id="carouselExampleFade" >
+             <div class="carousel-inner">
+                   <div class="carousel-item active py-4">
+                         <img :src="thing.imageUrl"  class="avatar w-100 w-lg-75 m-auto img-fluid" rounded="circle" alt="
+                          carte" height='250' h-75/>   
+                    </div>
+                    <div class="carousel-item ">
+                          <img src="https://images.bfmtv.com/8Vm06p25a2eRp8QyhfCMWoxgA18=/6x69:1254x771/1248x0/images/Cette-montre-a-moins-de-50-est-tres-design-et-elle-fait-de-l-ombre-a-la-concurrence-1662262.jpg" class="d-block w-100" alt="...">
+                     </div>
+
+               </div>
+
+                   <button class="carousel-control-prev" type="button" data-bs-target="  #carouselExampleFade" data-bs-slide="prev">
+                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                   </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                       <span class="visually-hidden">Next</span>
+                  </button>
 
 
-            <div class="corp border bg-light w-100 " style="width: 18rem;" >
+
+          </div>
+
+
+            <div class="corp border bg-light w-100" style="width: 18rem;" >
                 
                  <div class="" >
                      <h5 class=""> <strong >Nom du Produit:</strong >{{thing.title}}</h5>
@@ -220,8 +241,8 @@ a {
 img{
 
   border-style: solid;
-  border-width: 5px;
-  animation:img_animation 2000ms 200ms alternate infinite ease-in-out ;
+  border-width: 2px;
+  animation:img_animation 20000ms 200ms alternate infinite ease-in-out ;
 
 }
 
@@ -240,18 +261,22 @@ img{
     }
     40%,50%{
 
-        border-color: red;
-        width: 55px;
+        border-left-color:red;
+
+        border-width: 50px;
+       
             }
 60%,70%{
-     border-color: burlywood;
-
+     border-top-color:burlywood;
+      border-width: 10px;
     
 }
 90%,100%{
       
-      border-color: yellowgreen;
-      border-width: 10px;
+      border-right-color: yellowgreen;
+
+      border-width: 50px;
+      
       
    
 }

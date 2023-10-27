@@ -23,6 +23,21 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/stuff.vue')
   },
+
+ {
+    path: '/produits',
+    name: 'produits',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/clientStuff.vue')
+  },
+
+
+
+
+
+
   {
     path: '/signup',
     name: 'signup',
@@ -139,6 +154,26 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/getAllrecu.vue')
   },
+
+{
+    path: '/maison',
+    name: 'maison',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/clientMaison.vue')
+  },
+
+  {
+    path: '/clientgetMaison/:id',
+    name: 'clientgetMaison',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/getclientMaison.vue')
+  },
+
+
 {
     path: '/updateRecu/:id',
     name: 'updateRecu',

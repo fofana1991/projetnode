@@ -22,6 +22,10 @@ let getAllstuff= ()=>{
 return Axios.get('/api/stuff')
 }
 
+let getclientstuff= ()=>{
+return Axios.get('/api/stuff/client')
+}
+
 
 
 let getStuff=(id)=>{
@@ -39,6 +43,7 @@ let deleteThing=(thing)=>{
 }
 export const stuffService = {
 	getAllstuff,
+	getclientstuff,
 	getStuff,
 	modifyThing,
 	addThing,

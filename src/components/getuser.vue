@@ -55,6 +55,9 @@
 <input type="text" v-model='user.role' class=" m-2 " placeholder='Poste occupé'><br>
 </div>
 
+<div class="form-group m-auto">
+<input type="text" v-model='user.infoToken' class=" m-2 " placeholder='infoToken'><br>
+</div>
 
 <div class="form-group m-auto">
 <input type="texte" v-model='user.birthday' class=" m-2 " placeholder='Date de naissance'><label for='image'>Naissance</label><br>
@@ -63,9 +66,11 @@
 <div class="form-group m-auto">
 <input type="text" v-model='user.city' class=" m-2 " placeholder='Domicile'><br>
 </div>
+
 <div class="form-group m-auto">
 <input type="number" v-model='user.number' class=" m-2 " placeholder='telephone'><br>
 </div>
+
 <div class='form-group'>
 <input type='texte' v-model='user.imageUrl' name='file' id="file">
 </div>

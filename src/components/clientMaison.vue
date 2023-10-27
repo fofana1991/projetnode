@@ -1,6 +1,3 @@
-
-              /* eslint-disable */
-
 <template class="bg-secondary" >
 
 <div class="row m-3 p-4" >
@@ -14,45 +11,45 @@
 <div class='container d-flex  align-items-inline'>
 
 
-    <div  class='row align-items-center p-auto ' id="fatou " >
+    <div  class='row align-items-center p-3 ' id="fatou " >
 
     
-        <div class=' col-sm-12 col-md-12  col-lg-12  p-3 m-auto m-lg-4 overflow-y-hidden d-flex d-block switch' v-for='(recu,index) in recus ' :key=recu.ville  >
+        <div class=' col-sm-12 col-md-12  col-lg-12  p-auto m-auto m-lg-4 overflow-y-hidden d-flex d-block switch' v-for='(recu,index) in recus ' :key=recu.ville  >
             
          <div class="col-12 lessonList">
-            <p class=""><strong >Ville:</strong >{{recu.ville}}</p><br/>
-             <p class=""><strong >Publié le:</strong >{{recu.date}}</p><br/>
+            
+             <p class="mt-4 bg-info"><strong >Publié le:</strong >{{recu.date}}</p><br/>
             <div class="corp border bg-light w-100" style="width: 18rem;" >
 
                 <p class=""><strong >Numero </strong >{{index+1}}</p>
-                 <div class="" >
+                 <div class="d-flex d-inline" >
+
+                      <div>
                       <img :src="recu.imageUrl" class="avatar w-100" rounded="circle "  @click='goEdit(recu._id)' alt="carte" height='250' >               
-                    
+                      </div>
+
+                      <div>
+
                       <p class=""><strong >Type de maison:</strong >{{recu.type}}</p>
                       <p class=""><strong >Nombre de chambre:</strong >{{recu.nombreDeChambre}}</p>
                       <p class=""><strong >Loyer:</strong >{{recu.loyer}}</p>
                       <p class=""><strong >Caution:</strong >{{recu.caution}}</p>
                       <p class=""><strong >Ville:</strong >{{recu.ville}}</p>
                       <p class=""><strong >Quartier:</strong >{{recu.quartier}}</p>
-                      <p class=""><strong >Numero:</strong > 0{{recu.numero}}</p>
-     
-                       <p class="card-text">
-
-                           
-
-                                    <qrcode-vue v-if='recu._id' :value="recu._id" :size="size" level="H" />
-
-                                     <input class="form-control form-control-lg" type='text' v-model='recu._id' hidden="true">
-
-
-                        
-
-
-                      </p>
+        
+                     
+                     </div>
+                     
 
                     </div>
                 </div>
+ <span class="w-100 bg-success mx-2"> </span>  
+                        
               </div>
+
+            
+                      
+
           </div>
     </div>
   </div>
@@ -65,15 +62,14 @@
 <script>
 
   import $ from 'jquery'
-  import QrcodeVue from 'qrcode.vue'
-
+  
   //import {stuffService} from '@/_services'
   import {recuService} from '@/_services'
   //import {openiaService} from  '@/_services'
    
   export default {
   
-  name: 'getAllrecu',
+  name: 'getclientMaison',
 
 
   
@@ -90,7 +86,7 @@
 
   components: {
 
-      QrcodeVue,
+      
 
               },
 
@@ -103,11 +99,9 @@
        
 
 
-           goEdit(uid){
-
-  
+           goEdit(uid){ 
  // this.$router.push( '/updatething/'+id)
-this.$router.push( {name:'updateRecu',params:{id:uid}})
+this.$router.push( {name:'clientgetMaison',params:{id:uid}})
 
                      }
 
@@ -125,7 +119,7 @@ this.$router.push( {name:'updateRecu',params:{id:uid}})
          /* eslint-disable */ 
 
        // openiaService.getopenai()
-      recuService.getAllrecu()
+      recuService.geclientrecu()
       
         //stuffService.getAllstuff()
                                 .then(res=>{
@@ -201,7 +195,7 @@ updated(){
 
 
 
-recuService.getAllrecu().then(res=>{
+recuService.geclientrecu().then(res=>{
 
     
                                   this.things=res.data

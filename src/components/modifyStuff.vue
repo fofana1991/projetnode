@@ -2,7 +2,7 @@
 
 
 
-<div class='container p-3 m-3 '>
+<div class='container p-auto m-auto '>
 
 <div v-if='avertissement' class='bg-danger m-4 p-3' height='250'>
 <img src="../assets/danger.jpeg" width="50" height="50">
@@ -11,20 +11,20 @@
 </div>
 
 
-<div class='row d-flex d-inline-sm  d-block-lg p-4 ' v-if='thing'>
+<div class='row d-flex d-inline-sm  d-block-lg p-auto ' v-if='thing'>
   
 <div class='col-12 col-lg-6 modifier'  >
 
 <form @submit.prevent='modifyThing'>
 
 
-  <div class='form-group avatar'>
+  <div class='form-group avatar py-3'>
 <img :src='thing.imageUrl' width="300" height="300">
 </div>
 
 
 
-<div class='form-group'>
+<div class='form-group py-3'>
 
  <qrcode-vue v-if='id' :value="id" :size="size" level="H" />
 <input class="form-control form-control-lg" type='texte' v-model='thing._id' hidden>
@@ -33,7 +33,7 @@
 
 
 
-<div class='form-group'>
+<div class='form-group py-3'>
  
   <div id="w1">
       <input id="wc-input"   type="texte" v-model ='thing.color' /><br />
@@ -46,20 +46,20 @@
 
   
   
-<div class='form-group'>
+<div class='form-group py-3'>
 <label for='title'>Nom:</label><input class="form-control form-control-lg" type='texte' v-model='thing.title' placeholder="Inconnu">
 </div>
 
-<div class='form-group'>
+<div class='form-group py-3'>
 <label for='description'>Prenom:</label><input class="form-control form-control-lg" type='texte' v-model='thing.description' placeholder="Inconnu">
 </div>
-<div class='form-group'>
+<div class='form-group py-3'>
 <label for='description'>Profession:</label><input class="form-control form-control-lg" type='texte' v-model='thing.profession' placeholder="Inconnu">
 </div>
-<div class='form-group'>
+<div class='form-group py-3'>
 <label for='description'>Entreprise:</label><input class="form-control form-control-lg" type='texte' v-model='thing.entreprise' placeholder="Inconnu">
 </div>
-<div class='form-group'>
+<div class='form-group py-3'>
 
 <label for='description'>sexe:</label><select v-model=thing.sexe>
     <option value="feminin">F</option>
@@ -70,16 +70,16 @@
 
 
 
-<div class='form-group'>
+<div class='form-group py-3'>
 
 <label for='imageUrl'>imageUrl:</label><input id='imageUrl' class="form-control form-control-lg" type='texte' v-model="thing.imageUrl" placeholder="Inconnu">
 </div>
 
-<div class='form-group'>
+<div class='form-group py-3'>
 <input class="form-control form-control-lg" type='hidden' v-model='thing.userId'>
 </div>
 
-<div class='form-group'>
+<div class='form-group py-3'>
 <label for='price'>Entreprise:</label><input class="form-control form-control-lg" type='texte' v-model='thing.price' placeholder="Inconnu">
 </div>
 
@@ -98,10 +98,10 @@
 
 
 
-<div  class="col-lg-6  p-3 d-block fixed-right "  id="fatou cache" >
+<div  class="col-lg-6  p-3  d-block fixed-right "  id="fatou cache" >
 
             <div class="corp border bg-light " style="width: 18rem;" >
-                <img :src="thing.imageUrl" class="card-img-top avatar" rounded="circle "   alt="carte" height='250' width='300'/>
+                <img :src="thing.imageUrl" class="card-img-top avatar mx-auto" rounded="circle "   alt="carte" height='250' width='300'/>
                  <div class="" >
                      <h5 class=""> <strong >Nom:</strong >{{thing.title}}</h5>
                       <p class=""><strong >Prenom:</strong >{{thing.description}}</p>
