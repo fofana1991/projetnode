@@ -75,6 +75,7 @@
 <label for='imageUrl'>imageUrl:</label><input id='imageUrl' class="form-control form-control-lg" type='texte' v-model="thing.imageUrl" placeholder="Inconnu">
 </div>
 
+
 <div class='form-group py-3'>
 <input class="form-control form-control-lg" type='hidden' v-model='thing.userId'>
 </div>
@@ -82,6 +83,12 @@
 <div class='form-group py-3'>
 <label for='price'>Entreprise:</label><input class="form-control form-control-lg" type='texte' v-model='thing.price' placeholder="Inconnu">
 </div>
+
+<div class='form-group py-3'>
+<label for='price'>Entreprise:</label><input class="form-control form-control-lg" type='texte' v-model='thing.normalPrice' placeholder="Inconnu">
+</div> 
+
+
 
 <div>
 
@@ -100,7 +107,7 @@
 
 <div  class="col-lg-6  p-3  d-block fixed-right "  id="fatou cache" >
 
-            <div class="corp border bg-light " style="width: 18rem;" >
+            <div class="corp border bg-light m-auto" style="width: 18rem;" >
                 <img :src="thing.imageUrl" class="card-img-top avatar mx-auto" rounded="circle "   alt="carte" height='250' width='300'/>
                  <div class="" >
                      <h5 class=""> <strong >Nom:</strong >{{thing.title}}</h5>
@@ -108,7 +115,8 @@
                       <p class=""><strong >Profession:</strong >{{thing.profession}}</p>
                       <p class=""><strong >Sexe:</strong >{{thing.sexe}}</p>
                       <p class=""><strong >Entreprise:</strong >{{thing.price}}</p>
-     
+                       <p class=""><strong >Entreprise:</strong>{{thing.normalPrice}} </p>   
+                                                               
                        <p class="card-text">
 
                            
@@ -160,8 +168,8 @@
 <script>
 
 import $ from 'jquery'
-  import QrcodeVue from 'qrcode.vue'
-  import {stuffService} from '@/_services'
+import QrcodeVue from 'qrcode.vue'
+import {stuffService} from '@/_services'
   
   
   export default {

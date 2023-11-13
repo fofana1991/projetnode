@@ -60,6 +60,11 @@
 </div>
 
 <div class="form-group m-auto">
+<input type="text" v-model='user.compagnyName' class=" m-2 " placeholder='nom de la compagny'><br>
+</div>
+
+
+<div class="form-group m-auto">
 <input type="texte" v-model='user.birthday' class=" m-2 " placeholder='Date de naissance'><label for='image'>Naissance</label><br>
 </div>
 

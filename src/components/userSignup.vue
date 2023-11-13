@@ -89,6 +89,8 @@ import {accountService} from '@/_services'
                   imageUrl:'',
                   
                   infoToken:'',
+                  
+                  compagnyName:'',
 
                 },
 

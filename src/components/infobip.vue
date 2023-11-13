@@ -11,23 +11,23 @@
 <Transition name="bounce">
  
 
- <div v-if="show2" class="hello messageBox">
+ <div v-if="show2"  class="hello messageBox">
   
    
-   <div class="position-fixed fixed-bottom  w-100 form p-auto">
+   <div class="position-fixed fixed-bottom  w-100 form p-auto " style="color:white;">
   <h1>Envoyez votre message</h1>
 
   <div v-if="error" class="error">
      {{error}}
    </div> 
     
-    <textarea v-model="currentMessage.receiver" type="tel" placeholder="Receiver Number"> </textarea> 
+  <label>Numéro du client: </label> <br/> <textarea v-model="currentMessage.receiver" type="tel" placeholder="EX: 0707099015"> </textarea> <br/> 
    
 
-   <textarea v-model="currentMessage.sender" type="texte" placeholder="Sender number or Name"> 
-   </textarea> 
-   
-   <textarea v-model="currentMessage.message" type="texte" placeholder="message to send"> </textarea> 
+  <label>Nom de votre marque: </label> <br/> <textarea v-model="currentMessage.sender"  placeholder="EX: fmsquared" maxlength="11"> 
+   </textarea>  <br/>
+    
+  <label>Méssage: </label> <br/>  <textarea v-model="currentMessage.message" placeholder="EX:merci pour votre achat"> </textarea> 
     
     <br/>
     <span>
@@ -67,20 +67,19 @@
  <div v-if="show3" class="hello messageBox">
   
    
-   <div class="position-fixed fixed-bottom  w-100 form p-auto">
+   <div class="position-fixed fixed-bottom  w-100 form p-auto" style="color:white;">
   <h1>lancé un appelle</h1>
 
   <div v-if="error" class="error">
      {{error}}
    </div> 
     
-    <textarea v-model="currentCall.receiver" type="tel" placeholder="Receiver Number"> </textarea> 
+   <label>Numéro du client: </label> <br/> <textarea v-model="currentCall.receiver" type="tel" placeholder="EX:0707900020"></textarea>  <br/>
    
 
-   <textarea v-model="currentCall.sender" type="texte" placeholder="Sender number or Name"> 
-   </textarea> 
+  <label>Numéro de l'entreprise</label> <br/> <textarea v-model="currentCall.sender" type="texte" placeholder="EX:0707900020"></textarea> <br/>
    
-   <textarea v-model="currentCall.message" type="texte" placeholder="ex:https://www.exemple.com"> </textarea> 
+   <label>URL du Méssage vocal</label> <br/><textarea v-model="currentCall.message" type="texte" placeholder="ex:https://www.exemple.com"></textarea> 
     
     <br/>
     <span>
@@ -154,8 +153,15 @@ export default {
      infobipService.postMessage(this.currentMessage)
      .then((response) => {
        this.messages.push(response.data)
+       
+
      }).catch(error=>{
       this.error = error.response.data
+
+      if(error.response.status=='403'){
+
+        alert("vous n'êtes pas enregistrez auprès de l'agence pour envoyer le message")
+       }
 
      })
    },
@@ -168,6 +174,10 @@ export default {
         this.callMessages.push(response.data)
       }).catch(error=>{
        this.error = error.response.data
+        if(error.response.status=='403'){
+
+        alert("vous n'êtes pas enregistrez auprès de l'agence pour passez cet appel")
+       }
 
       })
  }

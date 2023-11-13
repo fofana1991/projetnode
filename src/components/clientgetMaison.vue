@@ -28,14 +28,32 @@
       </audio>
 
 
-<div  class="col-lg-12  p-auto d-block fixed-right "  id="fatou cache" >
-  
-  <div class='row py-4 m-auto '>
-<img :src="recu.imageUrl"  class="avatar w-100 m-auto" rounded="circle" alt="carte" height='250'/>   
-</div>
+        
+ 
 
 
-            <div class="corp border bg-light w-100 " style="width: 18rem;" >
+
+
+<div  class="row col-lg-12  py-auto d-block fixed-right "  id="fatou cache" >
+
+
+           
+
+              <iframe v-if="recu.videoUrl"  class="w-100 py-4" height="300" :src="recu.videoUrl" title="Plain pied neuf ST MACAIRE" frameborder="0" allow="accelerometer; autoplay;clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+            
+              </iframe>
+         
+
+
+
+     
+ 
+
+
+                   <img :src="recu.imageUrl" class="w-100 py-4" height="300" alt="carte"/>   
+
+
+            <div class="corp border bg-light w-100 " style="width:18rem;" >
                 
                  <div class="" >
                      <h5 class=""><strong >Type de maison:</strong >{{recu.type}} </h5>
@@ -175,9 +193,17 @@ a {
 
 img{
 
-  border-style: solid;
   border-width: 5px;
-  animation:img_animation 2000ms 200ms alternate infinite ease-in-out ;
+  transition: border-width 4s;
+/*  animation:img_animation 2000ms 200ms alternate infinite ease-in-out ;*/
+
+}
+img:hover{
+
+  
+  border-width: 2px;
+   transition: border-width 2s;
+/*  animation:img_animation 2000ms 200ms alternate infinite ease-in-out ;*/
 
 }
 

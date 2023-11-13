@@ -33,8 +33,7 @@
         <div class='row p-auto m-auto  carousel slide carousel-fade' id="carouselExampleFade" >
              <div class="carousel-inner">
                    <div class="carousel-item active py-4">
-                         <img :src="thing.imageUrl"  class="avatar w-100 w-lg-75 m-auto img-fluid" rounded="circle" alt="
-                          carte" height='250' h-75/>   
+                         <img :src="thing.imageUrl"  class="avatar w-100 m-auto " height="350" rounded="circle" alt="carte" />   
                     </div>
                     <div class="carousel-item ">
                           <img src="https://images.bfmtv.com/8Vm06p25a2eRp8QyhfCMWoxgA18=/6x69:1254x771/1248x0/images/Cette-montre-a-moins-de-50-est-tres-design-et-elle-fait-de-l-ombre-a-la-concurrence-1662262.jpg" class="d-block w-100" alt="...">
@@ -56,16 +55,17 @@
           </div>
 
 
-            <div class="corp border bg-light w-100" style="width: 18rem;" >
+            <div class="corp border bg-light w-100 h-auto" style="width:18em;" >
                 
-                 <div class="" >
-                     <h5 class=""> <strong >Nom du Produit:</strong >{{thing.title}}</h5>
-                      <p class=""><strong >Description:</strong >{{thing.description}}</p>
-                      <p class=""><strong >Rôle:</strong >{{thing.profession}}</p>
-                      <p class=""><strong >Sexe:</strong >{{thing.sexe}}</p>
-                      <p class=""><strong >Prix:</strong >{{thing.price}}</p>
-     
-          
+                 <div class=" mb-5 py-5" >
+                     <h5 class=""> <strong >Nom du Produit: </strong >{{thing.title}}</h5>
+                      <p class=""><strong >Description: </strong >{{thing.description}}</p>
+                      <p class=""><strong >Rôle: </strong >{{thing.profession}}</p>
+                      <p class=""><strong >Sexe: </strong >{{thing.sexe}}</p>
+                      <p class=""><strong >Prix promo: </strong ><mark>{{thing.price}} FCFA</mark></p>
+                      <p class="" v-if="thing.normalPrice"><strong >Prix Normal:</strong><s><mark>                           {{thing.normalPrice}} FCFA</mark></s></p>
+
+
                     </div>
               </div>
 
@@ -103,7 +103,6 @@ import $ from 'jquery'
       id:'',
       thing:{},
       avertissement:'',
-      myAudio:" "
     }
   },
 
@@ -241,10 +240,25 @@ a {
 img{
 
   border-style: solid;
-  border-width: 2px;
-  animation:img_animation 20000ms 200ms alternate infinite ease-in-out ;
+  border-width:25px ;
+  transition:border-width 2s;
+/*  animation:img_animation 20000ms 200ms alternate infinite ease-in-out ;*/
 
 }
+
+img:hover{
+
+  border-style: solid;
+  border-width:2px ;
+
+  
+/*  animation:img_animation 2000ms 200ms alternate ease-in-out ;*/
+
+}
+
+
+
+
 
 .avertissement{
 
@@ -263,19 +277,19 @@ img{
 
         border-left-color:red;
 
-        border-width: 50px;
+        border-width:10px;
        
             }
 60%,70%{
      border-top-color:burlywood;
-      border-width: 10px;
+      border-width: 5px;
     
 }
 90%,100%{
       
       border-right-color: yellowgreen;
 
-      border-width: 50px;
+      border-width: 2px;
       
       
    

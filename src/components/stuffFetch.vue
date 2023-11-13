@@ -27,10 +27,10 @@
 <div  class='row align-items-center p-3 ' id="fatou"  >
 
     
-      <div class=' col-sm-1 col-md-3 col-lg-3  p-3 m-auto m-lg-4 overflow-y-hidden d-flex d-block switch' v-for='(thing) in things ' :key=thing._id id='draggable'>
+      <div class=' col-sm-1 col-md-5 col-lg-3  p-3 m-auto m-lg-4 overflow-y-hidden d-flex d-block switch' v-for='(thing) in things ' :key=thing._id id='draggable'>
        
         
-            <div class=" border bg-light lessonList" style="width: 18rem;" >
+            <div class=" border bg-light lessonList m-auto" style="width: 18rem;" >
                 
              <img :src="thing.imageUrl" class="card-img-top avatar" rounded="circle "  @click='goEdit(thing._id)' alt="carte" height='250' width='300'>
                 
@@ -39,9 +39,10 @@
                      <h5 class="corp"> <strong >Nom:</strong >{{thing.title}}</h5>
 
                       <p class=""><strong >Prenom:</strong >{{thing.description}}</p>
-                      <p class="corp"><strong >Profession:</strong >{{thing.profession}}</p>
+                      <p class="corp"><strong >Description:</strong >{{thing.profession}}</p>
                       <p class=""><strong >Sexe:</strong >{{thing.sexe}}</p>
-                      <p class="corp"><strong >Entreprise:</strong >{{thing.price}}</p>
+                      <p class="corp"><strong >Prix promo:</strong ><mark>{{thing.price}}</mark></p>
+                       <p class="corp"><strong >Prix Normal:</strong><s><mark>{{thing.normalPrice}}</mark></s></p>
      
                        
 

@@ -4,7 +4,7 @@
 
 <div class="row m-3 p-4" v-if='things'>
 
-    {{result}}
+    {{result}} 
 
  </div>    
 
@@ -28,7 +28,7 @@
 <div  class='row align-items-center p-3 ' id="fatou w-100"  >
 
     
-      <div class='col-sm-1 col-md-3 col-lg-3  py-3 m-auto  m-lg-4 m-md-4  overflow-y-hidden d-flex d-block d-md-inline' v-for='(thing) in things ' :key=thing._id id='draggable'>
+      <div class='col-sm-1 col-md-5 col-lg-3  py-3 m-auto  m-lg-4 m-md-4  overflow-y-hidden d-flex d-block d-md-inline' v-for='(thing) in things ' :key=thing._id id='draggable'>
        
         
             <div class=" border bg-light lessonList w-100 mb-5 border border-5 border-info things" style="width: 18rem;" >
@@ -49,7 +49,9 @@
                       <p class=""><strong ></strong >{{thing.description}}</p>
                       <p class="corp"><strong ></strong >{{thing.profession}}</p>
                       <p class=""><strong ></strong >{{thing.sexe}}</p>
-                      <p class="corp"><strong ></strong >{{thing.price}} FCFA</p>
+                      <p class="corp"><strong></strong ><mark>{{thing.price}} FCFA</mark></p>
+                      <p class="corp" v-if="thing.normalPrice"><strong > </strong><mark><s>{{thing.normalPrice}} FCFA</s></mark></p>
+                      
                      
 
                     </div>
@@ -238,7 +240,17 @@ if (res.status===200) {
              
         
 
+computed:{
+ prixreduit(){
 
+ return 10000
+
+
+
+}
+
+
+}
 
 
 

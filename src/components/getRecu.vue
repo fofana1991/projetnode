@@ -29,10 +29,17 @@
 
 
 <div  class="col-lg-12  p-auto d-block fixed-right "  id="fatou cache" >
+
+    <div v-if='recu.videoUrl'>   
+
+              <iframe  class="w-100" height="300" :src="recu.videoUrl" title="Plain pied neuf ST MACAIRE" frameborder="0" allow="accelerometer; autoplay;clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+            
+              </iframe>
+         </div>
+
   
-  <div class='row py-4 m-auto'>
-<img :src="recu.imageUrl"  class="avatar w-100 m-auto" rounded="circle" alt="carte" height='250'/>   
-</div>
+  
+<img :src="recu.imageUrl"  class="w-100 m-auto py-4" rounded="circle" alt="carte" height='250'/>   
 
 
             <div class="corp border bg-light w-100 " style="width: 18rem;" >
@@ -111,9 +118,16 @@
           <input class="form-control form-control-lg"  type='texte'  v-model='recu.geolocation' placeholder="Géolocation" >
       </div>
 
-       <div>
+       <div class="p-3 m-3">
            <input class="form-control form-control-lg"  v-model='recu.imageUrl' requiredplaceholder="imageUrl" >
        </div>
+
+        <div class="p-3 m-3">
+           <input class="form-control form-control-lg"  type='text'  v-model='recu.videoUrl' placeholder="URL de votre vidéo">
+       </div>
+
+       
+
 
  <div class='form-group p-3 m-3'>
           <input class="form-control form-control-lg"  type='number'  v-model='recu.numero' placeholder="Numero" required>
@@ -291,7 +305,7 @@ a {
 
 img{
 
-  border-style: solid;
+  
   border-width: 5px;
   animation:img_animation 2000ms 200ms alternate infinite ease-in-out ;
 

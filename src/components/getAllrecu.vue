@@ -11,11 +11,20 @@
 
 
 
-<div class='container d-flex  align-items-inline'>
+<div class='container d-flex align-items-inline'>
+
+  
+       <div  class='row align-items-center p-auto ' id="fatou " >
 
 
-    <div  class='row align-items-center p-auto ' id="fatou " >
+        <div v-if="recus">   
 
+              <iframe  width="300" height="392" src="https://www.youtube.com/embed/jBn0Dll4O4w" title="Plain pied neuf ST MACAIRE" frameborder="0" allow="accelerometer; autoplay;clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+            
+              </iframe>
+        </div>
+
+        
     
         <div class=' col-sm-12 col-md-12  col-lg-12  p-3 m-auto m-lg-4 overflow-y-hidden d-flex d-block switch' v-for='(recu,index) in recus ' :key=recu.ville  >
             
@@ -133,11 +142,15 @@ this.$router.push( {name:'updateRecu',params:{id:uid}})
                                   
 
                                   this.recus=res.data
+
+                                  if(res.status=='403'){           
+    
+     this.$router.push( '/maison' )
+        
+         }       
                       
 
                                 }).catch(error=>{
-
-                                    
 
 
 if (error.message=== 'Network Error') {

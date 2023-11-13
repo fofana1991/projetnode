@@ -51,6 +51,12 @@
            <input class="form-control form-control-lg"  type='hidden'  v-model='recu.imageUrl' required>
        </div>
 
+        <div>
+           <input class="form-control form-control-lg"  type='text'  v-model='recu.videoUrl' placeholder="URL de votre vidéo">
+       </div>
+
+    
+
  <div class='form-group p-3 m-3'>
           <input class="form-control form-control-lg"  type='number'  v-model='recu.numero' placeholder="Numero" required>
       </div>
@@ -98,6 +104,7 @@ recu:{
   quartier:"",
   geolocation:"",
   imageUrl:"",
+  videoUrl:"",
   userId:"",
   numero:"",
     

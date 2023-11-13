@@ -86,7 +86,9 @@
         <div class='form-group p-3 m-3'>
             <input class="form-control form-control-lg"  type='text' name='price' v-model='thing.price' placeholder="Prix du produit" required >
        </div>
-
+        <div class='form-group p-3 m-3'>
+            <input class="form-control form-control-lg"  type='text' name='price' v-model='thing.normalPrice' placeholder="Prix Baré" required >
+       </div>     
        <div class='form-group p-3 m-3'>
              <button  @click='(e)'> Ajouter</button>
        </div>     
@@ -128,7 +130,10 @@ thing:{
       imageUrl:'',
 
       filename:'',
+      
       sexe:'',
+
+      normalPrice:'',
     
 
        },
@@ -183,7 +188,7 @@ postData() {
         // var values=JSON.stringify(Object.from((formData)))
          
             stuffService.addThing(formData,{
-          })
+          },this.thing)
             .then(res=>{
 
                 if (res.status===201) {
