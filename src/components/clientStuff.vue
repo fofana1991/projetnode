@@ -9,7 +9,7 @@
  </div>    
 
    
-<div class="row m-3 p-4" v-if="voyant">
+<div class="row m-3 p-4">
 
    <div class="col">
 
@@ -20,18 +20,27 @@
 
   
 
-
+       
 
 
 
 <div class='container d-flex  align-items-inline' v-if='things'>
-<div  class='row align-items-center p-3 ' id="fatou w-100"  >
+
 
     
-      <div class='col-sm-1 col-md-5 col-lg-3  py-3 m-auto  m-lg-4 m-md-4  overflow-y-hidden d-flex d-block d-md-inline' v-for='(thing) in things ' :key=thing._id id='draggable'>
+
+
+
+
+<div  class='row align-items-center p-3 ' id="fatou w-100"  >
+          
+
+
+    
+      <div class='col-sm-1 col-md-5 col-lg-3  py-3 m-auto  m-lg-4 m-md-4  overflow-y-hidden d-flex d-block d-md-inline' v-for='(thing) in things ' :key=thing._id>
        
         
-            <div class=" border bg-light lessonList w-100 mb-5 border border-5 border-info things" style="width: 18rem;" >
+            <div class=" border bg-light lessonList w-100 mb-5 border border-5 border-info things"  style="width: 18rem;" >
              
             <div class="d-flex d-inline " >
 
@@ -51,12 +60,21 @@
                       <p class=""><strong ></strong >{{thing.sexe}}</p>
                       <p class="corp"><strong></strong ><mark>{{thing.price}} FCFA</mark></p>
                       <p class="corp" v-if="thing.normalPrice"><strong > </strong><mark><s>{{thing.normalPrice}} FCFA</s></mark></p>
+
                       
-                     
+                                     
 
                     </div>
+                                         
 
-               </div>     
+               </div> 
+
+                 <div v-if="thing.userNumber">
+
+                        <img src="../assets/whatsapp2.png" @click='whatsapp(thing.userNumber)' height='60' class="w-25">
+
+                      </div>
+
               </div>
           </div>
     </div>    
@@ -132,14 +150,23 @@ stuffService.getclientstuff.then(res=>{
 
            goEdit(uid){
 
- // this.$router.push( '/modifyStuff/'+id)
+  // this.$router.push( '/modifyStuff/'+id)
 this.$router.push( {name:'updatething',params:{id:uid}})
 
-                     }
+                     },
+
+ whatsapp(uid){
+
+ 
+window.location.replace('https://wa.me/2250'+ uid)
+
 
 
 
            },
+
+ },
+                  
         
 
 
@@ -209,6 +236,12 @@ $(function() {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
          });
       });
+      function bien() {
+        $('#fatou').animate({left:"-=50px"},2000,bien);
+       };
+       bien();
+
+
    });
                                 
     });

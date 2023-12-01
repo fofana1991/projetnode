@@ -79,7 +79,20 @@
 
   <label>Numéro de l'entreprise</label> <br/> <textarea v-model="currentCall.sender" type="texte" placeholder="EX:0707900020"></textarea> <br/>
    
-   <label>URL du Méssage vocal</label> <br/><textarea v-model="currentCall.message" type="texte" placeholder="ex:https://www.exemple.com"></textarea> 
+   <label>URL du Méssage vocal</label> 
+   <br/><textarea v-model="currentCall.message" type="texte" placeholder="ex:https://www.exemple.com"></textarea> 
+   <br/> 
+  
+  <select id="cars" v-model="currentCall.message">
+  <option value="https://horus.fmsquared.cloud/siren.mp3" selected>siren</option>
+  <option value="https://horus.fmsquared.cloud/scan.mp3">scan</option>
+  <option value="https://horus.fmsquared.cloud/PTT-20230916-WA0005.opus">sepho</option>
+  <option value="audi">Audi</option>
+</select>
+  
+
+
+
     
     <br/>
     <span>

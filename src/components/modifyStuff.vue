@@ -36,7 +36,7 @@
 <div class='form-group py-3'>
  
   <div id="w1">
-      <input id="wc-input"   type="texte" v-model ='thing.color' /><br />
+      <input id="wc-input"   type="text" v-model ='thing.color' /><br />
     </div>
   
    
@@ -110,12 +110,12 @@
             <div class="corp border bg-light m-auto" style="width: 18rem;" >
                 <img :src="thing.imageUrl" class="card-img-top avatar mx-auto" rounded="circle "   alt="carte" height='250' width='300'/>
                  <div class="" >
-                     <h5 class=""> <strong >Nom:</strong >{{thing.title}}</h5>
-                      <p class=""><strong >Prenom:</strong >{{thing.description}}</p>
-                      <p class=""><strong >Profession:</strong >{{thing.profession}}</p>
-                      <p class=""><strong >Sexe:</strong >{{thing.sexe}}</p>
-                      <p class=""><strong >Entreprise:</strong >{{thing.price}}</p>
-                       <p class=""><strong >Entreprise:</strong>{{thing.normalPrice}} </p>   
+                     <h5 class=""> <strong >Nom:</strong > {{thing.title}}</h5>
+                      <p class=""><strong >Prenom:</strong > {{thing.description}}</p>
+                      <p class=""><strong >Profession:</strong > {{thing.profession}}</p>
+                      <p class=""><strong >Sexe:</strong > {{thing.sexe}}</p>
+                      <p class=""><strong >Entreprise:</strong > {{thing.price}}</p>
+                       <p class=""><strong >Entreprise:</strong> {{thing.normalPrice}} </p>   
                                                                
                        <p class="card-text">
 
@@ -253,7 +253,7 @@ $("#w1").wColorPicker({
               $('.corp,body').css('background', color);
             },
             onMouseover: function(color){
-              $('#wc-input').css('background', color).val(color);
+              $('#wc-input,.font').css('background', color).val(color);
             }
         });
 

@@ -151,15 +151,13 @@ this.$router.push( {name:'updateRecu',params:{id:uid}})
                       
 
                                 }).catch(error=>{
+ if(error.status=='403'){           
+    
+     this.$router.push( '/maison' )
+        
+         }       
 
 
-if (error.message=== 'Network Error') {
-
-          this.resultat = "vérifier la connection internet"
-
-        } 
-
- 
                                 })
 
 $(function() {

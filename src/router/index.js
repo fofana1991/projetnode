@@ -205,6 +205,62 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/openaiImage.vue')
   },
 
+ {
+    path: '/creatProfCarte',
+    name: 'creatProfCarte',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/creatProfCarte.vue')
+  },
+
+  {
+    path: '/getAllProfCarte',
+    name: 'getAllProfCarte',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/getAllprofCarte.vue')
+  },
+
+{
+    path: '/getProfCarte/:id',
+    name: 'getProfCarte',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/getProfcarte.vue')
+  },
+
+  {
+    path: '/qrSanProfcarte',
+    name: 'qrSanProfcarte',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/qrScanProfcarte.vue')
+  },
+
+  {
+    path: '/modifyProfCarte/:id',
+    name: 'modifyProfCarte',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/modifyProfCarte.vue')
+  },
+
+  {
+    path: '/services',
+    name: 'services',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/ensembleService.vue')
+  },
+
+
+
 
 ]
 

@@ -54,7 +54,7 @@ import {accountService} from '@/_services'
 
     accountService.login(this.user).then(res=> {
     accountService.saveToken(res.data.token)
- this.$router.push( '/info' )
+ this.$router.push( '/services' )
 
     }).catch(error=> {
 
