@@ -23,9 +23,13 @@
     
   <label>Numéro du client: </label> <br/> <textarea v-model="currentMessage.receiver" type="tel" placeholder="EX: 0707099015"> </textarea> <br/> 
    
+   <div v-if="user.role==='Owner'">
 
   <label>Nom de votre marque: </label> <br/> <textarea v-model="currentMessage.sender"  placeholder="EX: fmsquared" maxlength="11"> 
-   </textarea>  <br/>
+   </textarea> 
+  </div> 
+
+    <br/>
     
   <label>Méssage: </label> <br/>  <textarea v-model="currentMessage.message" placeholder="EX:merci pour votre achat"> </textarea> 
     
@@ -77,7 +81,10 @@
    <label>Numéro du client: </label> <br/> <textarea v-model="currentCall.receiver" type="tel" placeholder="EX:0707900020"></textarea>  <br/>
    
 
+   <div v-if="user.role==='Owner'">
   <label>Numéro de l'entreprise</label> <br/> <textarea v-model="currentCall.sender" type="texte" placeholder="EX:0707900020"></textarea> <br/>
+
+    </div>
    
    <label>URL du Méssage vocal</label> 
    <br/><textarea v-model="currentCall.message" type="texte" placeholder="ex:https://www.exemple.com"></textarea> 
@@ -128,6 +135,7 @@
 
 <script>
 
+import {accountService} from '@/_services'
 import {infobipService} from '@/_services' 
 // import axios from 'axios'
 export default {
@@ -135,6 +143,8 @@ export default {
  data() {
    return {
 
+    user:{},
+    
     callMessages:[],
      
      messages:[],
@@ -202,6 +212,13 @@ export default {
  },
 
  mounted() {
+
+accountService.getuser2().then(res=>{
+  
+  this.user=res.data
+
+  });
+
 
    let btnClear=document.querySelector('button');
   let inputs= document.querySelectorAll('textarea');

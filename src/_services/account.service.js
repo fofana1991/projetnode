@@ -32,8 +32,16 @@ let getAllUser=()=>{
 	return Axios.get('/api/auth/allUsers')
 }
 
+// pour modification
+
 let getuser=(id)=>{
 	return Axios.get('/api/auth/user/'+id)
+}
+
+// pour condition
+
+let getuser2=()=>{
+	return Axios.get('/api/auth/user2')
 }
 
 let modifyUser=(user)=>{
@@ -55,5 +63,6 @@ export const accountService = {
 	getAllUser,
 	getuser,
 	deleteUser,
-	modifyUser
+	modifyUser,
+	getuser2
 }

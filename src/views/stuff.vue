@@ -8,16 +8,6 @@
  <router-link class="nav-link text-body-emphasis badge"  to="/addthing">ajoutez un produit</router-link>
 </li>
 
-<li class="nav-item">
-  <router-link class="nav-link text-body-emphasis badge"  to="/recu">ajoutez une maison</router-link>
-    
- </li>
-
-
- <li class="nav-item">
-  <router-link class="nav-link text-body-emphasis badge"  to="/recus">Maison disponible</router-link>
-    
- </li>
 
     </nav>    
 

@@ -60,6 +60,12 @@ export default {
 
     background-image: url('../assets/scan3.jpeg') ;
 }
+70%,90%{
+     
+
+    background-image: url('../assets/logo4.png') ;
+}
+
 90%,100%{
       
       border-color: yellow;

@@ -4,8 +4,8 @@
   <nav >
 
 
-   <a class="navbar-brand" href="#">
-      <img src="./assets/logo2.png" alt="" width="30" height="24">
+   <a class="navbar-brand mr-3" href="#">
+      <img src="./assets/logo4.png" alt="" width="35" height="35">
     </a> 
 
      

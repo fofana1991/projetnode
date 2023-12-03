@@ -6,7 +6,7 @@
 
  
 <div class="home mt-auto" id="login">
-    <img alt="Vue logo" src='../assets/logo2.png' >
+    <img alt="Vue logo" src='../assets/logo4.png' class='mt-3' width="200" height="200">
 
 <KeepAlive include="a,b">
     <userLogin :is="activeComponent"/>
@@ -220,6 +220,15 @@ background-color:;
 
     background-image: url('../assets/scan.png') ;
 }
+70%,90%{
+      
+      border-color: yellow;
+      background-image: url('../assets/logo4.png') ;
+   
+}
+
+
+
 90%,100%{
       
       border-color: yellow;
