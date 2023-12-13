@@ -358,7 +358,7 @@ modifyUser(){
   this.message.ruserId=this.user._id
   this.message.ruserNumber=this.user.number
   this.message.userId=this.user._id
-  const d = new Date();
+ 
   const depos=Number(this.user.depos)
   const count=Number(this.user.count)
  const count2=Number(this.user2.count)  
@@ -382,12 +382,6 @@ else if(this.usercountOperation=='121' && this.user2countOperation=='121' && thi
  this.message.message='votre compte a été debité de'+ ' ' + '-'+ this.RetraitMill +  ' ' + 'FCFA' + ' ' + 'par' + ' ' + this.user2.name
     }
     
-   else if(this.usercountOperation=='141'){
-
-  this.message.message=this.user.name + ' ' + 'est arrivé le ' + ' ' + d.toUTCString().split(',')[1] + ' '  + 'au service' 
-
-}
-
    else if(this.usercountOperation=='121' &&  this.user2countOperation=='121' && this.user.retrait>= this.user.countG){
    alert('le solde du client en en dessous du solde minimum')
     }
@@ -529,7 +523,7 @@ accountService.getuser(this.id).then(res=>{
   this.message.ruserId=this.user._id
   this.message.ruserNumber=this.user.number
   this.message.userId=this.user._id
-  this.message.message=this.user.forename + ' ' + 'est arrivé le ' + ' ' + d.toUTCString().split(',')[1] + ' '  + 'au service'
+  this.message.message= 'est arrivé le ' + ' ' + d.toUTCString().split(',')[1] + ' '  + 'chez' +' ' +this.user.forename
 
   messageService.addMessage(this.message).catch(error=> {
       console.log(error)
