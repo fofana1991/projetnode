@@ -16,12 +16,74 @@
 
 
 
-<div class="row P-3 m-3 menu "> 
+
+<div class="row P-3 m-3 menu py-4  align-items-center d-block"> 
+                 
+  <div class="card-text bg-info card  col-md-6 col-lg-4" >
+
+    <div class='form-group p-3'>
+
+<select  v-model="countOperation" placeholder='Operation' >
+  <option value="121" selected>retrait</option>
+  <option value="212">depos</option>
+  <option value="141">pointage au service</option>
+  
+</select>
+</div>
+
+    <div class="compte p-4 d-inline"> 
+            
+
+                  <img :src='user.imageUrl' class='mt-3' width="50" height="50">
+          
+
+           
+                       {{CountG}} FCFA
+
+                 
+
+
+       </div>  
+
+    <div class="card-text card2 " >
+
+          
+
+
+            <p class="card-text qrcode py-3  d-block ">
+
+              
+
+                            <img alt="Vue logo" src='../assets/logo4.png' class='mt-3' width="50" height="50">
+
+                                    <qrcode-vue v-if='user._id' :value="userid" :size="size" level="H"   class="pt-4 w-50 h-50" />
+
+                                     <input class="form-control form-control-lg" type='text' v-model='userid' hidden>
+
+                                     <img alt="Vue logo" src='../assets/logo4.png' class='mt-3' width="50" height="50">
+
+
+                        
+              </p>
+             <p>
+
+              <router-link to="/qrScanUser" class="Scanner">
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-camera " viewBox="0 0 16 16">
+              <path d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4z"/>
+              <path d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5m0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7M3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0"/>
+          </svg> Scanner</router-link>
+
+                </p>
+
+   </div>  
+
+      </div>       
 
 
   <div class="P-3 m-3 lessonList"> 
 
-     <button class="bg-secondary button" > 
+     <button class="bg-dark button" > 
    
  <svg @click='getGeolocation()' xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-broadcast-pin my-4" viewBox="0 0 16 16" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
   <path d="M3.05 3.05a7 7 0 0 0 0 9.9.5.5 0 0 1-.707.707 8 8 0 0 1 0-11.314.5.5 0 0 1 .707.707zm2.122 2.122a4 4 0 0 0 0 5.656.5.5 0 1 1-.708.708 5 5 0 0 1 0-7.072.5.5 0 0 1 .708.708zm5.656-.708a.5.5 0 0 1 .708 0 5 5 0 0 1 0 7.072.5.5 0 1 1-.708-.708 4 4 0 0 0 0-5.656.5.5 0 0 1 0-.708zm2.122-2.12a.5.5 0 0 1 .707 0 8 8 0 0 1 0 11.313.5.5 0 0 1-.707-.707 7 7 0 0 0 0-9.9.5.5 0 0 1 0-.707zM6 8a2 2 0 1 1 2.5 1.937V15.5a.5.5 0 0 1-1 09.937A2 2 0 0 1 6 8z"/>
@@ -53,7 +115,7 @@
  <ul class="lessonList">
 
  <li class="nav-item P-3 m-3 lessonList ">
- <router-link class="nav-link badge text-bg-secondary"  to="/carte"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-qr-code-scan ball" viewBox="0 0 16 16">
+ <router-link class="nav-link badge bg-dark router-link "  to="/carte"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-qr-code-scan ball router-link" viewBox="0 0 16 16">
   <path d="M0 .5A.5.5 0 0 1 .5 0h3a.5.5 0 0 1 0 1H1v2.5a.5.5 0 0 1-1 0v-3Zm12 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0V1h-2.5a.5.5 0 0 1-.5-.5ZM.5 12a.5.5 0 0 1 .5.5V15h2.5a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5Zm15 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1 0-1H15v-2.5a.5.5 0 0 1 .5-.5ZM4 4h1v1H4V4Z"/>
   <path d="M7 2H2v5h5V2ZM3 3h3v3H3V3Zm2 8H4v1h1v-1Z"/>
   <path d="M7 9H2v5h5V9Zm-4 1h3v3H3v-3Zm8-6h1v1h-1V4Z"/>
@@ -64,7 +126,7 @@
 
 
    <li class="nav-item P-3 m-3 lessonList ">
- <router-link class="nav-link badge text-bg-secondary "  to="/carteGl"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-qr-code-scan ball" viewBox="0 0 16 16">
+ <router-link class="nav-link badge bg-dark router-link"  to="/carteGl"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-qr-code-scan ball" viewBox="0 0 16 16">
   <path d="M0 .5A.5.5 0 0 1 .5 0h3a.5.5 0 0 1 0 1H1v2.5a.5.5 0 0 1-1 0v-3Zm12 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0V1h-2.5a.5.5 0 0 1-.5-.5ZM.5 12a.5.5 0 0 1 .5.5V15h2.5a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5Zm15 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1 0-1H15v-2.5a.5.5 0 0 1 .5-.5ZM4 4h1v1H4V4Z"/>
   <path d="M7 2H2v5h5V2ZM3 3h3v3H3V3Zm2 8H4v1h1v-1Z"/>
   <path d="M7 9H2v5h5V9Zm-4 1h3v3H3v-3Zm8-6h1v1h-1V4Z"/>
@@ -72,8 +134,8 @@
   <path d="M12 9h2V8h-2v1Z"/>
 </svg> CHARGEZ UN QRCODE DE PRODUIT</router-link>
   </li>
-<li class="nav-item P-3 m-3 lessonList ">
- <router-link class="nav-link badge text-bg-secondary "  to="/carteUp"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-qr-code-scan ball" viewBox="0 0 16 16">
+<li class="nav-item P-3 m-3 lessonList">
+ <router-link class="nav-link badge bg-dark router-link "  to="/carteUp"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-qr-code-scan ball" viewBox="0 0 16 16">
   <path d="M0 .5A.5.5 0 0 1 .5 0h3a.5.5 0 0 1 0 1H1v2.5a.5.5 0 0 1-1 0v-3Zm12 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0V1h-2.5a.5.5 0 0 1-.5-.5ZM.5 12a.5.5 0 0 1 .5.5V15h2.5a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5Zm15 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1 0-1H15v-2.5a.5.5 0 0 1 .5-.5ZM4 4h1v1H4V4Z"/>
   <path d="M7 2H2v5h5V2ZM3 3h3v3H3V3Zm2 8H4v1h1v-1Z"/>
   <path d="M7 9H2v5h5V9Zm-4 1h3v3H3v-3Zm8-6h1v1h-1V4Z"/>
@@ -83,7 +145,7 @@
   </li>
 
  <li class="nav-item P-3 m-3 lessonList ">
- <router-link class="nav-link badge text-bg-secondary"  to="/qrSanProfcarte"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-qr-code-scan ball" viewBox="0 0 16 16">
+ <router-link class="nav-link badge bg-dark router-link"  to="/qrSanProfcarte"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-qr-code-scan ball" viewBox="0 0 16 16">
   <path d="M0 .5A.5.5 0 0 1 .5 0h3a.5.5 0 0 1 0 1H1v2.5a.5.5 0 0 1-1 0v-3Zm12 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0V1h-2.5a.5.5 0 0 1-.5-.5ZM.5 12a.5.5 0 0 1 .5.5V15h2.5a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5Zm15 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1 0-1H15v-2.5a.5.5 0 0 1 .5-.5ZM4 4h1v1H4V4Z"/>
   <path d="M7 2H2v5h5V2ZM3 3h3v3H3V3Zm2 8H4v1h1v-1Z"/>
   <path d="M7 9H2v5h5V9Zm-4 1h3v3H3v-3Zm8-6h1v1h-1V4Z"/>
@@ -94,34 +156,34 @@
 
 
 <li class="nav-item P-3 m-3 lessonList ">
- <router-link class="nav-link badge text-bg-secondary"  to="/Assistant"> <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-reddit ball" viewBox="0 0 16 16">
+ <router-link class="nav-link badge bg-dark router-link"  to="/Assistant"> <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-reddit ball" viewBox="0 0 16 16">
   <path d="M6.167 8a.831.831 0 0 0-.83.83c0 .459.372.84.83.831a.831.831 0 0 0 0-1.661zm1.843 3.647c.315 0 1.403-.038 1.976-.611a.232.232 0 0 0 0-.306.213.213 0 0 0-.306 0c-.353.363-1.126.487-1.67.487-.545 0-1.308-.124-1.671-.487a.213.213 0 0 0-.306 0 .213.213 0 0 0 0 .306c.564.563 1.652.61 1.977.61zm.992-2.807c0 .458.373.83.831.83.458 0 .83-.381.83-.83a.831.831 0 0 0-1.66 0z"/>
   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.828-1.165c-.315 0-.602.124-.812.325-.801-.573-1.9-.945-3.121-.993l.534-2.501 1.738.372a.83.83 0 1 0 .83-.869.83.83 0 0 0-.744.468l-1.938-.41a.203.203 0 0 0-.153.028.186.186 0 0 0-.086.134l-.592 2.788c-1.24.038-2.358.41-3.17.992-.21-.2-.496-.324-.81-.324a1.163 1.163 0 0 0-.478 2.224c-.02.115-.029.23-.029.353 0 1.795 2.091 3.256 4.669 3.256 2.577 0 4.668-1.451 4.668-3.256 0-.114-.01-.238-.029-.353.401-.181.688-.592.688-1.069 0-.65-.525-1.165-1.165-1.165z"/>
 </svg>CHATBOT INTELLIGENT </router-link>
   </li>
 
-<li class="nav-item P-3 m-3 lessonList" v-if="user.role==='Owner'">
- <router-link class="nav-link badge text-bg-secondary "  to="/ifmessage"> <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-reddit ball" viewBox="0 0 16 16">
+<li class="nav-item P-3 m-3 lessonList">
+ <router-link class="nav-link badge bg-dark router-link"  to="/ifmessage" > <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-reddit ball" viewBox="0 0 16 16">
    <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zm10.762.135a.5.5 0 0 1 .708 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 0 1-.708-.708L14.293 4H9.5a.5.5 0 0 1 0-1h4.793l-1.647-1.646a.5.5 0 0 1 0-.708z"/>
 </svg>IFMESSAGE</router-link>
   </li>
 
  <li class="nav-item P-3 m-3 lessonList">
- <router-link class="nav-link badge text-bg-secondary"  to="/openaiImage"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-reddit  ball" viewBox="0 0 16 16">
+ <router-link class="nav-link badge bg-dark router-link"  to="/openaiImage"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-reddit  ball" viewBox="0 0 16 16">
   <path d="M6.167 8a.831.831 0 0 0-.83.83c0 .459.372.84.83.831a.831.831 0 0 0 0-1.661zm1.843 3.647c.315 0 1.403-.038 1.976-.611a.232.232 0 0 0 0-.306.213.213 0 0 0-.306 0c-.353.363-1.126.487-1.67.487-.545 0-1.308-.124-1.671-.487a.213.213 0 0 0-.306 0 .213.213 0 0 0 0 .306c.564.563 1.652.61 1.977.61zm.992-2.807c0 .458.373.83.831.83.458 0 .83-.381.83-.83a.831.831 0 0 0-1.66 0z"/>
   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.828-1.165c-.315 0-.602.124-.812.325-.801-.573-1.9-.945-3.121-.993l.534-2.501 1.738.372a.83.83 0 1 0 .83-.869.83.83 0 0 0-.744.468l-1.938-.41a.203.203 0 0 0-.153.028.186.186 0 0 0-.086.134l-.592 2.788c-1.24.038-2.358.41-3.17.992-.21-.2-.496-.324-.81-.324a1.163 1.163 0 0 0-.478 2.224c-.02.115-.029.23-.029.353 0 1.795 2.091 3.256 4.669 3.256 2.577 0 4.668-1.451 4.668-3.256 0-.114-.01-.238-.029-.353.401-.181.688-.592.688-1.069 0-.65-.525-1.165-1.165-1.165z"/>
 </svg>Générateur d'image intélligent</router-link>
   </li>
 
 
-  <li class="nav-item P-3 m-3 lessonList" v-if="user.role==='Owner'">
- <router-link class="nav-link badge text-bg-secondary"  to="/info"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+  <li class="nav-item P-3 m-3 lessonList " v-if="user.role==='Owner'">
+ <router-link class="nav-link badge bg-dark router-link"  to="/info"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
   <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
 </svg>MA BOUTIQUE</router-link>
   </li>
 
-<li class="nav-item P-3 m-3 lessonList">
- <router-link class="nav-link badge text-bg-secondary"  to="/produits"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+<li class="nav-item P-3 m-3 lessonList ">
+ <router-link class="nav-link badge bg-dark router-link"  to="/produits"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
   <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
 </svg>BOUTIQUE</router-link>
   </li>
@@ -131,7 +193,7 @@
 
 
    <li class="nav-item P-3 m-3 lessonList">
-  <router-link class="nav-link text-body-emphasis badge bg-secondary"  to="/maison">Maison disponible
+  <router-link class="nav-link text-body-emphasis badge bg-dark router-link"  to="/maison">Maison disponible
 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
   <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z"/>
 </svg>
@@ -141,22 +203,22 @@
  </li>
 
   <li class="nav-item P-3 m-3 lessonList" v-if="user.role==='Owner'">
- <router-link class="nav-link badge text-bg-secondary"  to="/recus"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+ <router-link class="nav-link badge bg-dark router-link"  to="/recus">Mes maisons<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
   <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z"/>
   <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"/>
-</svg> MES MAISONS</router-link>
+</svg> </router-link>
   </li>
 
 
   <li class="nav-item P-3 m-3 lessonList" v-if="user.role==='Owner'">
- <router-link class="nav-link badge text-bg-secondary"  to="/creatProfCarte"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-vcard-fill" viewBox="0 0 16 16">
+ <router-link class="nav-link badge bg-dark router-link"  to="/creatProfCarte"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-vcard-fill" viewBox="0 0 16 16">
   <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm9 1.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4a.5.5 0 0 0-.5.5M9 8a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4A.5.5 0 0 0 9 8m1 2.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5m-1 2C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1 1 0 0 0 2 13h6.96c.026-.163.04-.33.04-.5M7 6a2 2 0 1 0-4 0 2 2 0 0 0 4 0"/>
 </svg>CREER UNE CARTE PRO</router-link>
   </li>
 
 
- <li class="nav-item P-3 m-3 lessonList" v-if="user.role==='Owner'">
- <router-link class="nav-link badge text-bg-secondary"  to="/getAllProfCarte"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-reddit  ball" viewBox="0 0 16 16">
+ <li class="nav-item P-3 m-3 lessonList router-link" v-if="user.role==='Owner'">
+ <router-link class="nav-link badge bg-dark router-link"  to="/getAllProfCarte"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-reddit  ball" viewBox="0 0 16 16">
   <path d="M6.167 8a.831.831 0 0 0-.83.83c0 .459.372.84.83.831a.831.831 0 0 0 0-1.661zm1.843 3.647c.315 0 1.403-.038 1.976-.611a.232.232 0 0 0 0-.306.213.213 0 0 0-.306 0c-.353.363-1.126.487-1.67.487-.545 0-1.308-.124-1.671-.487a.213.213 0 0 0-.306 0 .213.213 0 0 0 0 .306c.564.563 1.652.61 1.977.61zm.992-2.807c0 .458.373.83.831.83.458 0 .83-.381.83-.83a.831.831 0 0 0-1.66 0z"/>
   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.828-1.165c-.315 0-.602.124-.812.325-.801-.573-1.9-.945-3.121-.993l.534-2.501 1.738.372a.83.83 0 1 0 .83-.869.83.83 0 0 0-.744.468l-1.938-.41a.203.203 0 0 0-.153.028.186.186 0 0 0-.086.134l-.592 2.788c-1.24.038-2.358.41-3.17.992-.21-.2-.496-.324-.81-.324a1.163 1.163 0 0 0-.478 2.224c-.02.115-.029.23-.029.353 0 1.795 2.091 3.256 4.669 3.256 2.577 0 4.668-1.451 4.668-3.256 0-.114-.01-.238-.029-.353.401-.181.688-.592.688-1.069 0-.65-.525-1.165-1.165-1.165z"/>
 </svg>ENSEMBLE DE CARTE PRO</router-link>
@@ -185,19 +247,28 @@ import {geolocationService} from '@/_services'
 
 import $ from 'jquery'
 
+import QrcodeVue from 'qrcode.vue'
+
 
 export default {
   name: 'ensembleService',
   
   data() {
     return {
+      userid:'',
       user:{},
       show: false,
       voyant:'',
       geolocation:'' ,
+      CountG:'',
+      countOperation:'',
     }
   },
+components: {
 
+      QrcodeVue,
+
+              },
 
 
  methods:{
@@ -221,8 +292,13 @@ this.geolocation=res.data
   mounted(){
 
 accountService.getuser2().then(res=>{
+
   
   this.user=res.data
+  this.userid=this.user._id + ' '+  Date.now() + ' ' + this.countOperation
+  this.CountG = new Intl.NumberFormat().format(this.user.countG);
+ 
+
 
   });
 
@@ -253,12 +329,33 @@ $(function() {
    });
                                 
     });
+},
+
+
+
+
+updated(){
+
+
+accountService.getuser2().then(res=>{
+  
+  this.user=res.data
+  this.userid=this.user._id + ' '+  Date.now() + ' ' + this.countOperation
+  this.CountG = new Intl.NumberFormat().format(this.user.countG);
+ 
+  })
+
+  
+
+
+
+  
 }
 
+
+
+
 };
-
-
-
 
 
 
@@ -291,6 +388,25 @@ background-color:;
     
 }
 
+.compte{
+
+background-color: white;
+color:black;
+font-size:20px;
+
+
+
+}
+
+
+.router-link{
+ color:#bf8c26;
+ font-family: !important;
+ font-style: ;
+   border-color:#bf8c26 ;
+   border-width:5px;
+}
+
 .bounce-enter-active {
   animation: bounce-in 0.5s;
 }
@@ -317,11 +433,34 @@ background-color:;
  margin-bottom: +300px;
 
 }
+.qrcode{
+  border-color: white;
+  border-width: 30px;
+}
 
+
+.card{
+  border-left-width: 30px;
+  border-right-width: 30px;
+  border-bottom-width: 10px;
+  border-top-width: 10px;
+  
+  
+
+}
+.card2 {
+ color: white;
+  
+
+}
+
+.Scanner{
+  color: white;
+}
 
 .button{
-
-  color: whitesmoke;
+  color:#bf8c26;
+  
 }
 
 

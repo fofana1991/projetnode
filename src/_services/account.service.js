@@ -44,6 +44,11 @@ let getuser2=()=>{
 	return Axios.get('/api/auth/user2')
 }
 
+let getuser3=()=>{
+	return Axios.get('/api/auth/user3')
+}
+
+
 let modifyUser=(user)=>{
 	return Axios.put('/api/auth/'+user._id,user)
 }
@@ -64,5 +69,6 @@ export const accountService = {
 	getuser,
 	deleteUser,
 	modifyUser,
-	getuser2
+	getuser2,
+	getuser3
 }

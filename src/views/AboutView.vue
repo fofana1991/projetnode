@@ -28,8 +28,8 @@
  
  <ul v-if="voyant" >
 
- <li class="nav-item P-3 m-3 ">
- <router-link class="nav-link badge text-bg-secondary"  to="/services"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-justify" viewBox="0 0 16 16">
+ <li class="nav-item P-3 m-3 service ">
+ <router-link class="nav-link badge service bg-dark "  to="/services"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-justify" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
 </svg> ensemble de service</router-link>
   </li>
@@ -143,6 +143,15 @@ background-color:;
     
     animation:switch 2000ms 200ms alternate infinite ease-in-out ;
     
+}
+
+
+.service{
+  color: #bf8c26;
+  opacity:1;
+  font-style: !important;
+
+
 }
 
 .bounce-enter-active {

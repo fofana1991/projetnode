@@ -1,4 +1,4 @@
-<template class="bg-secondary">
+s<template class="bg-secondary">
 
 
 <div class="row m-3 p-4" v-if="voyant">
@@ -7,19 +7,31 @@
    </div>
 </div>
 
-
-
-
-
  
 <div class='container'>
 
-    <div  class='row align-items-inline ml-0 p-3 lessonList' v-for='(user) in users' :key=user._id    >
-      <img :src='user.imageUrl' class="avatar mr-2 " @click='goEdit(user._id)' >
-      {{user.name}}
-      {{user.number}}
-    
+    <div  class='row align-items-inline  lessonList' v-for='(user,index) in users' :key=user._id    >
+      <table class="table table-bordered table-dark">
+  <thead>
+    <tr>
       
+      <th scope="col">ordre et photos</th>    
+      <th scope="col">Nom et Prenom</th>
+      <th scope="col">Numero et compte</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+       <td> {{index+1}} <img :src='user.imageUrl' class="avatar mr-2 " @click='goEdit(user._id)' ></td>
+      <td>{{user.name}} {{user.forename}} | {{user.email}} | {{user.role}} </td>
+      <td>0{{user.number}} | {{user.countG}} FCFA</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
     </div>
 
   </div>
@@ -47,7 +59,9 @@
     return {
         
              users:[],
-             voyant:''
+             voyant:'',
+             countMill:'',
+             total:'',
 
     }
   },
@@ -55,6 +69,17 @@
   components: {
   
     },
+
+     computed: {
+
+ 
+               
+        
+
+
+
+
+                 },
 
    methods:{
 
@@ -76,15 +101,12 @@ this.$router.push( {name:'updateUser',params:{id:uid}})
         
 //recuperation de toutes les chose et pacer dans le data
      mounted() {
-
+    
       // stuffService.getAllstuff()
         accountService.getAllUser()
                                 .then(res=>{
 
-                                  
-
-                                  this.users=res.data
-                                  
+                            this.users=res.data
 
                                 }).catch(err=>{
 
@@ -135,14 +157,13 @@ $(function() {
 
     updated(){
 
-
 accountService.getAllUser()
                                 .then(res=>{
 
                                 
 
                                   this.users=res.data
-                                  
+                                       
 
                                 }).catch(err=>{console.log(err)})
 

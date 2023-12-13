@@ -1,9 +1,9 @@
-<template class="bg-danger">
+<template class="signup">
   
 
 
 
-<div class="container">
+<div class="container ">
   <div class="row">
 
 <div class="col">
@@ -91,6 +91,20 @@ import {accountService} from '@/_services'
                   infoToken:'',
                   
                   compagnyName:'',
+                  
+                  count:'0', 
+
+                  countG:'0', 
+
+                  countGMill:'0',
+
+                  countOperation:'0',
+
+                  depos:'0',
+
+                  retrait:'0',
+
+
 
                 },
 
@@ -159,6 +173,7 @@ var formData = new FormData();
           this.error = "ERROR:Addresse email obligatoire"
         } else {
           this.error = `verifier si tous les champs sont bien remplis`;
+          console.log(this.error)
         }
 
 
@@ -186,12 +201,23 @@ label{
 }
 
 
+.signup{
+  border-color:#bf8c26;
+  border-width:5px;
+  background-color:#bf8c26 ;
 
+}
 
 input{
-border-color: black;
-color: black;
 
+ border-color:#bf8c26 ;
+   border-width:5px;
+}
+
+button{
+
+ border-color:#bf8c26 ;
+   border-width:5px;
 }
   
 h3 {

@@ -1,6 +1,6 @@
-<template class='bg-primary'>
+<template class=''>
 
-<div class="container  m-auto p-4 border" >
+<div class="container  m-auto p-4 signup" >
 
   
 <div id="signup" > 
@@ -33,6 +33,16 @@ export default {
 </script>
 
 <style>
+
+
+
+.signup{
+
+  border-color:#bf8c26;
+  border-width:5px;
+
+
+}
 
 #signup{
   background-image: url('../assets/scan.png') ;

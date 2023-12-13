@@ -7,9 +7,9 @@
   </div>
 
 
-<input type="email" v-model='user.email' class='m-2' placeholder="Email" required><br>
+<input type="email" v-model='user.email' class='m-2 input' placeholder="Email" required><br>
 
-<input type="password" v-model='user.password' class='m-2' placeholder="Password" required><br>
+<input type="password" v-model='user.password' class='m-2 input' placeholder="Password" required><br>
 
 <button  type="submit">
 Connexion
@@ -92,10 +92,19 @@ error.response.data.error.message
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped >
 
-input{
+/*input{
 border-color: black;
 color: black;
 
+}*/
+
+input{
+   border-color:#bf8c26 ;
+   border-width:5px;
+}
+button{
+   border-color:#bf8c26 ;
+   border-width:5px;
 }
 
 h3 {

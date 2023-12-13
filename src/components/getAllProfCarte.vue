@@ -21,7 +21,7 @@
                       <p class=""><strong >Né(e):</strong > {{profCarte.anniversaire}}</p>
 
 
-                        <p class=""><strong >Profession:</strong > {{profCarte.profession}}</p>
+                        <p class=""><strong >Profession:</strong > {{profCarte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.profession}}</p>
                         <p class=""><strong >Numéro:</strong > 0{{profCarte.number}}</p>
                         <p class=""><strong >Sexe:</strong > {{profCarte.sexe}}</p>
 

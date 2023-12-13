@@ -17,6 +17,8 @@
    <div class="position-fixed fixed-bottom  w-100 form p-auto " style="color:white;">
   <h1>Envoyez votre message</h1>
 
+  {{countG}} FCFA
+
   <div v-if="error" class="error">
      {{error}}
    </div> 
@@ -73,6 +75,7 @@
    
    <div class="position-fixed fixed-bottom  w-100 form p-auto" style="color:white;">
   <h1>lancé un appelle</h1>
+       {{countG}} FCFA
 
   <div v-if="error" class="error">
      {{error}}
@@ -143,12 +146,15 @@ export default {
  data() {
    return {
 
+    user3:{},
+
     user:{},
+
+    countG:'',
     
     callMessages:[],
      
      messages:[],
-
      currentMessage:{
           receiver:'',
           sender:' ',
@@ -173,7 +179,15 @@ export default {
 // send message
    async sendMessage() {
      
-     infobipService.postMessage(this.currentMessage)
+  const count=Number(this.user.count)
+  const count3=Number(this.user3.count)  
+ 
+    if( this.user.countG>=200){
+
+   this.user.countG= count - Number(200);
+   this.user3.countG=count3 + Number(200)
+
+      infobipService.postMessage(this.currentMessage)
      .then((response) => {
        this.messages.push(response.data)
        
@@ -187,10 +201,38 @@ export default {
        }
 
      })
-   },
+
+      accountService.modifyUser(this.user).then(
+ // this.$router.push( '/services')
+
+ ).catch(err=>(console.log(err)));
+
+  accountService.modifyUser(this.user3).catch(err=>(console.log(err)));    
+
+
+
+   }else if( 200>=this.user.countG) {
+   alert('credit insufisant pour effectuer cette action')
+
+   }
+
+    },
+     
+    
 
 // Make call 
  async makeCall() {
+      
+       const count=Number(this.user.count)
+      const count3=Number(this.user3.count)  
+       
+
+       if( this.user.countG>=500){
+
+        this.user.countG= count - Number(500);
+        this.user3.countG=count3 + Number(500)
+
+
      
       infobipService.postCall(this.currentCall)
       .then((response) => {
@@ -203,19 +245,76 @@ export default {
        }
 
       })
- }
+
+    accountService.modifyUser(this.user).then(
+ // this.$router.push( '/services')
+
+ ).catch(err=>(console.log(err)));
+
+  accountService.modifyUser(this.user3).catch(err=>(console.log(err)));    
 
 
 
+   }else if( 500>=this.user.countG) {
+   alert('credit insufisant pour effectuer cette action')
 
+   }
+
+
+
+}
 
  },
 
  mounted() {
 
+
 accountService.getuser2().then(res=>{
   
   this.user=res.data
+  this.countG = new Intl.NumberFormat().format(this.user.countG);
+ 
+
+  });
+
+accountService.getuser3().then(res=>{
+  
+  this.user3=res.data
+
+
+
+  });
+
+
+
+   let btnClear=document.querySelector('button');
+  let inputs= document.querySelectorAll('textarea');
+     btnClear.addEventListener('click',()=>{
+      inputs.forEach(textarea =>textarea.value='')
+     });
+
+ },
+
+
+
+ updated(){
+
+
+ 
+
+
+     accountService.getuser2().then(res=>{
+  
+  this.user=res.data
+  this.countG = new Intl.NumberFormat().format(this.user.countG);
+ 
+ 
+
+  });
+
+accountService.getuser3().then(res=>{
+  
+  this.user3=res.data
 
   });
 
@@ -226,9 +325,18 @@ accountService.getuser2().then(res=>{
       inputs.forEach(textarea =>textarea.value='')
      });
 
+
+
+
+
+
+
+
+
+
  }
  
-};
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -244,13 +352,21 @@ textarea {
 .form{
 border-left-width: 30px;
 background-color: black;
+color: bf8c26 ;
+
+}
+
+textarea{
+  border-color:#bf8c26 ;
+  border-width:5px;
+  color:#bf8c26  ;
 
 }
 
 
 svg{
 
-  color: white;
+  color:white;
 }
 
 
