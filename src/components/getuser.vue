@@ -255,8 +255,11 @@
 
 
     <div class='row d-flex d-block m-3 pb-4 message' v-for='(message) in messages' :key='message._id'>
+      
         <div class="col-8 m-2 p-2 b-warning">
-           {{ message.date}}
+          
+
+           {{message.date}}
         </div>
       <div class="d-flex d-inline">
        <div class='col-8 lessonList bg-primary ' @click='gomessageEdit(message._id)'>
@@ -323,7 +326,7 @@ import {accountService} from '@/_services'
       user2countOperation:'',
       usercountOperation:'',
       avertissement:'',
-      messages:{},
+      messages:[] ,
       id:'',
       user:{},
       user2:{},
@@ -364,19 +367,19 @@ modifyUser(){
  const count2=Number(this.user2.count)  
  const retrait=Number(this.user.retrait) 
 
- if (this.user2countOperation=='212' && this.user2.countG >=this.user.depos ) {
+ if (this.user2countOperation=='212' && this.user2.countG >=this.user.depos && this.user.depos>=5 ) {
   
     this.user.countG= depos + count;
     this.user2.countG= count2 - depos;
     this.message.message='vous avez recu un depos de' + ' ' + this.deposMill + ' ' + 'FCFA' + ' ' + 'par' + ' ' + this.user2.name
     
- }else if (this.user2countOperation=='212' && this.user.depos>= this.user2.countG ) {
+ }else if (this.user2countOperation=='212' && this.user.depos>= this.user2.countG) {
   
    alert('votre compte es en dessous du solde minimum');
   
  }
 
-else if(this.usercountOperation=='121' && this.user2countOperation=='121' && this.user.countG>=this.user.retrait){
+else if(this.usercountOperation=='121' && this.user2countOperation=='121' && this.user.countG>=this.user.retrait && this.user.retrait>=5 ){
    this.user.countG= count - retrait;
  this.user2.countG= count2 + retrait
  this.message.message='votre compte a été debité de'+ ' ' + '-'+ this.RetraitMill +  ' ' + 'FCFA' + ' ' + 'par' + ' ' + this.user2.name
@@ -386,7 +389,9 @@ else if(this.usercountOperation=='121' && this.user2countOperation=='121' && thi
    alert('le solde du client en en dessous du solde minimum')
     }
 
-    else if(this.usercountOperation != this.user2countOperation){
+    else if(
+  // this.usercountOperation != this.user2countOperation
+   this.usercountOperation !='121' &&  this.user2countOperation=='121' || this.usercountOperation=='121' &&  this.user2countOperation !='121' ||  this.usercountOperation !='141' &&  this.user2countOperation=='141' ||  this.usercountOperation =='141' &&  this.user2countOperation !='141'){
    alert('Votre opération ne coresponds pas a celle demandé par le client')
     }
 
@@ -448,6 +453,9 @@ await  this.$router.push( '/users');
 },
 //recuperation de l'element dans le parametre de l'url 
     mounted() {
+
+
+
 
 const d = new Date();
 
@@ -560,8 +568,7 @@ this.avertissement='Carte  Frauduleuse';
 // recuperation des messages 
 messageService.getAllMessage().then(res=> {
   
-  this.messages=res.data
-
+   this.messages=res.data
       
     }).catch(error=> {
 
@@ -631,6 +638,7 @@ messageService.getAllMessage().then(res=> {
 
     console.log(error)});
 
+  
     
                       }
    
