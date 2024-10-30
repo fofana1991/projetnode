@@ -4,11 +4,11 @@ import {accountService} from '@/_services'
 import router from '@/router'
 const Axios = axios.create({
  
- baseURL:'https://l3mon.fmsquared.cloud/'
+  // baseURL:'https://l3mon.fmsquared.cloud/'
 
-// baseURL:'http://192.168.43.245:3000'
+baseURL:'https://l3mon.fmsquared.ovh'
 
-// baseURL:'http://192.168.1.104:3000'
+ // baseURL:'http://192.168.43.54:3000'
 
 // baseURL:'http://localhost:3000',
 
