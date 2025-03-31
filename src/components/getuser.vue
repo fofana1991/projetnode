@@ -97,8 +97,6 @@
 
 
 
-
-
 <div class="row py-4" v-if="user2.role==='Owner'">
 
 <div class="col">
@@ -203,6 +201,7 @@
 </div>
 
 
+
 <div class="row py-4" v-if="user2._id===user._id">
 
 <div class="col">
@@ -254,15 +253,15 @@
 
 
 
-    <div class='row d-flex d-block m-3 pb-4 message' v-for='(message) in messages' :key='message._id'>
-      
+    <div class='row d-flex d-block m-3 pb-4 message ' v-for='(message) in messages' :key='message._id'>
+      <div class="lessonList"> 
         <div class="col-8 m-2 p-2 b-warning">
           
 
            {{message.date}}
         </div>
-      <div class="d-flex d-inline">
-       <div class='col-8 lessonList bg-primary ' @click='gomessageEdit(message._id)'>
+      <div class="d-flex d-inline lessonList">
+       <div class='col-8  bg-primary ' @click='gomessageEdit(message._id)'>
         <strong>{{message.name}} </strong><br/>
        {{message.message}}
        </div>
@@ -270,6 +269,7 @@
             <img :src='message.userimageUrl'  class='avatar  mt-3' >
           </div>
       </div>  
+      </div> 
      </div>
 
 
@@ -393,6 +393,12 @@ else if(this.usercountOperation=='121' && this.user2countOperation=='121' && thi
   // this.usercountOperation != this.user2countOperation
    this.usercountOperation !='121' &&  this.user2countOperation=='121' || this.usercountOperation=='121' &&  this.user2countOperation !='121' ||  this.usercountOperation !='141' &&  this.user2countOperation=='141' ||  this.usercountOperation =='141' &&  this.user2countOperation !='141'){
    alert('Votre opération ne coresponds pas a celle demandé par le client')
+    }
+// retrait ou depos inferieur a 5fcfa
+    else if(
+  // this.usercountOperation != this.user2countOperation
+   this.usercountOperation=='121' && this.user2countOperation=='121' && this.user.countG>=this.user.retrait && this.user.retrait<=5 || this.user2countOperation=='212' && this.user2.countG >=this.user.depos && this.user.depos<=5){
+   alert('le montant doit être supérieur ou égal à 5 FCFA')
     }
 
   else{
@@ -605,16 +611,16 @@ $("#wc1").wColorPicker({
             }
         });
 
-
-
-        $(document).ready(function(){
+ $(document).ready(function(){
       $("#searchInput").on("keyup", function() {
          var value = $(this).val().toLowerCase();
-         $("#lessonList").filter(function() {
+         $(".lessonList").filter(function() {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
          });
       });
    });
+ 
+       
 
     
     })

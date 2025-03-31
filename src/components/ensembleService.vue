@@ -9,7 +9,14 @@
 
    <div class="col">
 
-       <input class="form-control" id="searchInput" type="text" placeholder="Search..">
+       <input class="form-control" type="text" v-model="service" id="searchInput"  placeholder="Search..">
+
+       <select v-model="service">
+  <option value="Maison" selected>Maison</option>
+  <option value="Mes maisons">scan</option>
+  <option value="https://horus.fmsquared.cloud/PTT-20230916-WA0005.opus">sepho</option>
+  <option value="audi">Audi</option>
+  </select>
 
    </div>
 </div>  
@@ -256,6 +263,7 @@ export default {
   data() {
     return {
       userid:'',
+      service:'',
       user:{},
       show: false,
       voyant:'',
