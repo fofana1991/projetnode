@@ -13,8 +13,17 @@
 
    <div class="col">
 
-       <input class="form-control" id="searchInput" type="text" placeholder="Search..">
+       <input class="form-control" id="searchInput" type="text" placeholder="Produits">
 
+   </div>
+
+  
+
+   <div class="col">
+
+       <input class="form-control" id="searchInput2" type="text" placeholder="Ville">
+
+  
    </div>
 </div>  
 
@@ -26,10 +35,7 @@
 
 <div class='container d-flex  align-items-inline' v-if='things'>
 
-
-    
-
-
+  
 
 
 <div  class='row align-items-center p-3 ' id="fatou w-100"  >
@@ -112,7 +118,9 @@ import {accountService} from '@/_services'
         
              things:[],
              result:'',
-             voyant:''
+             voyant:'',
+             thingPrice:'',
+             thingNormalPrice:'',
 
            }
 
@@ -177,6 +185,12 @@ window.location.replace('https://wa.me/2250'+ uid)
 
          /* eslint-disable */ 
 
+
+// this.thingPrice =new Intl.NumberFormat().format(this.thing.price);
+
+// this.thingNormalPrice =new Intl.NumberFormat().format(this.thing.normalPrice);
+
+
        // openiaService.getopenai()
       stuffService.getclientstuff()
                                 .then(res=>{
@@ -230,16 +244,33 @@ $(function() {
 
 
        $(document).ready(function(){
+
+
       $("#searchInput").on("keyup", function() {
          var value = $(this).val().toLowerCase();
          $(".lessonList").filter(function() {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
          });
       });
+      
+       $("#searchInput2").on("keyup", function() {
+         var value = $(this).val().toLowerCase();
+         $(".lessonList").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+         });
+      });
+
+
+
       function bien() {
         $('#fatou').animate({left:"-=50px"},2000,bien);
        };
        bien();
+
+
+
+
+
 
 
    });

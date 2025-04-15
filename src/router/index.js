@@ -85,7 +85,24 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/messageEdit.vue')
   },
+{
+    path: '/ticketEdit/:id',
+    name: 'ticketEdit',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/getTicket.vue')
+  },
 
+
+{
+    path: '/ticket/:id',
+    name: 'ticket',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/creatticket.vue')
+  },
 
 
   {
@@ -143,6 +160,16 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/qrScanUser.vue')
   },
+
+{
+    path: '/qrScanTicket',
+    name: 'qrScanTicket',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/qrcodeScanTicket.vue')
+  },
+
 
 
 
@@ -268,6 +295,16 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/ensembleService.vue')
   },
+
+  {
+    path: '/metier',
+    name: 'metier',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/creatMetier.vue')
+  },
+
 
 
 

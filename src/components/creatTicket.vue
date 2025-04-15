@@ -1,20 +1,18 @@
 <template class="bg-secondary">
 
 <div class="row m-3 p-4" v-if="voyant">
-   
    <div class="col">
-      <input class="form-control fixed" id="searchInput" type="text" placeholder="Search1..">
+      <input class="form-control fixed-top" id="searchInput" type="text" placeholder="Search1..">
    </div>
-
-    <div class="col">
-      <input class="form-control fixed" id="searchInput2" type="text" placeholder="Search2..">
-   </div>
-
-
 </div>    
 
 
- 
+ <div class="row m-3 p-4" v-if="voyant">
+   <div class="col">
+      <input class="form-control fixed" id="searchInput2" type="text" placeholder="Search2..">
+   </div>
+</div>   
+
 
 
 <div class='container'>
@@ -95,6 +93,24 @@
 
 
            </div>
+
+
+    <ul class="lessonList">
+
+    <li class="nav-item P-3 m-3 lessonList ">
+ <router-link class="nav-link badge bg-dark router-link "  to="/qrScanTicket"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-qr-code-scan ball router-link" viewBox="0 0 16 16">
+  <path d="M0 .5A.5.5 0 0 1 .5 0h3a.5.5 0 0 1 0 1H1v2.5a.5.5 0 0 1-1 0v-3Zm12 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0V1h-2.5a.5.5 0 0 1-.5-.5ZM.5 12a.5.5 0 0 1 .5.5V15h2.5a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5Zm15 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1 0-1H15v-2.5a.5.5 0 0 1 .5-.5ZM4 4h1v1H4V4Z"/>
+  <path d="M7 2H2v5h5V2ZM3 3h3v3H3V3Zm2 8H4v1h1v-1Z"/>
+  <path d="M7 9H2v5h5V9Zm-4 1h3v3H3v-3Zm8-6h1v1h-1V4Z"/>
+  <path d="M9 2h5v5H9V2Zm1 1v3h3V3h-3ZM8 8v2h1v1H8v1h2v-2h1v2h1v-1h2v-1h-3V8H8Zm2 2H9V9h1v1Zm4 2h-1v1h-2v1h3v-2Zm-4 2v-1H8v1h2Z"/>
+  <path d="M12 9h2V8h-2v1Z"/>
+</svg> SCANNER UN PRODUIT </router-link>
+  </li>
+
+    </ul>
+
+
+
 
 
 </div>
@@ -215,71 +231,25 @@
 
 
 
-<div class="row py-4" v-if="user2._id===user._id">
-
-<div class="col">
-<form  @submit.prevent='modifyUser' class="m-auto p-auto" >
-
- <div v-if='error' class="hello bg-danger  m-2 p-3 text-center">
-{{error}}
-  </div>
-
-<div class="form-group m-auto">
-
-<input type="email" v-model='user.email' class="m-2" placeholder='Email'><br>
-</div >
-<div class="form-group m-auto">
-<input type="text" v-model='user.name' class=" m-2 " placeholder='Nom'><br>
-</div>
-
-<div class="form-group m-auto">
-<input type="text" v-model='user.forename' class=" m-2 " placeholder='Prenom'><br>
-</div>
-
-
-<div class="form-group m-auto">
-<input type="texte" v-model='user.birthday' class=" m-2 " placeholder='Date de naissance'><label for='image'>Naissance</label><br>
-</div>
-
-<div class="form-group m-auto">
-<input type="text" v-model='user.city' class=" m-2 " placeholder='Domicile'><br>
-</div>
-
-<div class="form-group m-auto">
-<input type="number" v-model='user.number' class=" m-2 " placeholder='telephone'><br>
-</div>
-
-<div class='form-group'>
-<input type='texte' v-model='user.imageUrl' name='file' id="file">
-</div>
-
-<div class='form-group d-block py-3'>
-
-<button  type="submit"> Modifier</button>
-
-</div>
-</form>
-</div>
-</div>
-
-
-
-
-
-    <div class='row d-flex d-block m-3 pb-4 message ' v-for='(message) in messages' :key='message._id'>
+    <div class='row d-flex d-block m-3 pb-4 message ' v-for='(ticket) in tickets' :key='ticket._id'>
       <div class="lessonList"> 
         <div class="col-8 m-2 p-2 b-warning">
           
 
-           {{message.date}}
+           {{ticket.date}}
         </div>
+         <div class='col-2'>
+            <img :src='ticket.ruserimageUrl'  class='avatar  mt-3' >
+          </div>
+
       <div class="d-flex d-inline lessonList">
-       <div class='col-8  bg-primary ' @click='gomessageEdit(message._id)'>
-        <strong>{{message.name}} </strong><br/>
-       {{message.message}}
+       <div class='col-8  bg-primary ' @click='goticketEdit(ticket._id)'>
+        <strong>{{ticket.name}} </strong><br/>
+       {{ticket.message}}
        </div>
         <div class='col-2'>
-            <img :src='message.userimageUrl'  class='avatar  mt-3' >
+          {{ticket.index}}
+            <img :src='ticket.userimageUrl'  class='avatar  mt-3' >
           </div>
       </div>  
       </div> 
@@ -297,7 +267,7 @@
 
          <div class='form-group d-flex d-inline mt-3'> 
 
-          <textarea class="form-control " type='text' v-model='message.message' placeholder='message' id='chat'> </textarea>
+          <textarea class="form-control " type='text' v-model='ticket.message' placeholder='message' id='chat'> </textarea>
 
   <button  @click='submit'> envoyer</button> 
 
@@ -319,14 +289,14 @@ import QrcodeVue from 'qrcode.vue'
 
 import $ from 'jquery'
 
-import  {messageService} from '@/_services'
+import  {ticketService} from '@/_services'
   
 import {accountService} from '@/_services'
   
    
   export default {
   
-  name: 'getUser',
+  name: 'getTicket',
   components: {
 
       QrcodeVue,
@@ -339,7 +309,7 @@ import {accountService} from '@/_services'
       user2countOperation:'',
       usercountOperation:'',
       avertissement:'',
-      messages:[] ,
+      tickets:[] ,
       id:'',
       user:{},
       user2:{},
@@ -347,12 +317,13 @@ import {accountService} from '@/_services'
       deposMill:'',
 
 
-      message:{
+      ticket:{
         message:'',
         name:'',
         userId:'',
         userNumber:'',
         userimageUrl:'',
+        ruserimageUrl:'',
         ruserId:'',
         ruserNumber:'',
         retrait:'',
@@ -421,7 +392,7 @@ else if(this.usercountOperation=='121' && this.user2countOperation=='121' && thi
  this.user.countGMill=new Intl.NumberFormat().format(this.user.countG);
  }
 
-  messageService.addMessage(this.message).catch(error=> {
+  ticketService.addTicket(this.ticket).catch(error=> {
       console.log(error)
     });
 
@@ -439,21 +410,21 @@ else if(this.usercountOperation=='121' && this.user2countOperation=='121' && thi
     },
 
 
-postMessage(){ 
-this.message.ruserId=this.user._id
-this.message.ruserNumber=this.user.number
-this.message.userId=this.user._id
-   messageService.addMessage(this.message).catch(error=> {
+postTicket(){ 
+this.ticket.ruserId=this.user._id
+this.ticket.ruserNumber=this.user.number
+this.ticket.userId=this.user._id
+   ticketService.addTicket(this.ticket).catch(error=> {
       console.log(error)
     })
                 
            
             },
             
- gomessageEdit(uid){
+ goticketEdit(uid){
 
   
-this.$router.push( {name:'messageEdit',params:{id:uid}})
+this.$router.push( {name:'ticketEdit',params:{id:uid}})
 
                      },
 
@@ -475,8 +446,13 @@ await  this.$router.push( '/users');
 
 
 
+// financial transaction
 
-const d = new Date();
+
+  
+
+ // recuperation des parametre
+
 
 this.id = this.$route.params.id
 
@@ -489,9 +465,10 @@ this.deposMill=new Intl.NumberFormat().format(this.user.depos);
 this.countGMill =new Intl.NumberFormat().format(this.user.countG);
 
 
-  this.message.ruserId=this.user._id
-  this.message.ruserNumber=this.user.number
-  this.message.userId=this.user._id
+  this.ticket.ruserId=this.user._id
+  this.ticket.ruserNumber=this.user.number
+  this.ticket.userId=this.user._id
+  this.ticket.ruserimageUrl=this.user.imageUrl
 
 // recuperation de l'utilisateur sur lequel effectuer des operations
 
@@ -530,13 +507,20 @@ accountService.getuser2().then(res=>{
 
 // si l'utilisateur de 141
 
- if(this.usercountOperation=='141'){
+ if(this.usercountOperation=='607'){
 
+// opération financiiére
+
+
+  
+   
+
+    
+//recuperateion du client
 
   accountService.getuser2().then(res=>{
   
   this.user2=res.data
-
   
   });
 
@@ -544,15 +528,29 @@ accountService.getuser2().then(res=>{
 
 
 accountService.getuser(this.id).then(res=>{
+
   
   this.user=res.data
+  this.ticket.ruserimageUrl=this.user.imageUrl
 
-  this.message.ruserId=this.user._id
-  this.message.ruserNumber=this.user.number
-  this.message.userId=this.user._id
-  this.message.message= 'est arrivé le ' + ' ' + d.toUTCString().split(',')[1] + ' '  + 'chez' +' ' +this.user.forename
+  this.ticket.ruserId=this.user._id
+  this.ticket.ruserNumber=this.user.number
+  this.ticket.userId=this.user._id
+  this.ticket.message= 'votre ticket' + ' ' + ' a été généré pour le concert de votre fun ' + ' ' +this.user.forename
 
-  messageService.addMessage(this.message).catch(error=> {
+// facturation
+ 
+
+// recuperation financiere    
+
+
+
+
+ // ajout de ticket
+
+
+
+  ticketService.addTicket(this.ticket).catch(error=> {
       console.log(error)
     })
 
@@ -578,16 +576,11 @@ this.avertissement='Carte  Frauduleuse';
 
  
 }
-
     
-
-
-
-
 // recuperation des messages 
-messageService.getAllMessage().then(res=> {
+ticketService.getAllTickets().then(res=> {
   
-   this.messages=res.data
+   this.tickets=res.data
       
     }).catch(error=> {
 
@@ -651,11 +644,9 @@ $("#wc1").wColorPicker({
 
     updated(){
 
-
-
-messageService.getAllMessage().then(res=> {
+ticketService.getAllTickets().then(res=> {
   console.log(res.data);
-  this.messages=res.data
+  this.tickets=res.data
   this.usercountOperation=this.$route.params.id.split(' ')[2] 
   this.RetraitMill = new Intl.NumberFormat().format(this.user.retrait);
   this.deposMill= new Intl.NumberFormat().format(this.user.depos);

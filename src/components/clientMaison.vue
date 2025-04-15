@@ -2,7 +2,11 @@
 
 <div class="row m-3 p-4" >
    <div class="col">
-      <input class="form-control" id="searchInput" type="text" placeholder="Search..">
+      <input class="form-control" id="searchInput" type="text" placeholder="VILLE">
+   </div>
+
+   <div class="col">
+      <input class="form-control" id="searchInput2" type="text" placeholder="TYPE DE MAISON">
    </div>
 </div>
 
@@ -177,12 +181,22 @@ $(function() {
 
 
        $(document).ready(function(){
+
       $("#searchInput").on("keyup", function() {
          var value = $(this).val().toLowerCase();
          $(".lessonList").filter(function() {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) >-1)
          });
       });
+
+       $("#searchInput2").on("keyup", function() {
+         var value = $(this).val().toLowerCase();
+         $(".lessonList").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) >-1)
+         });
+      });
+
+
    });
                                 
     });

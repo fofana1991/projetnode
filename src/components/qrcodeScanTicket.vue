@@ -1,9 +1,8 @@
 <template>
   <div class="p-3 m-4">
-     <p class="error" v-if='error'> {{update}}</p>
     <p class="error" v-if='error'> {{ error }} </p>
 
-    <p class="decode-result">Last result: <b> <a href="this.result" >{{ result }}</a></b></p>
+    <p class="decode-result">Last result: <b> <a href="this.result" >{{ result }}</a>   </b></p>
 
     <qrcode-stream :camera="camera" @decode="onDecode" @init="onInit" size="size" class='border'/>
 
@@ -16,17 +15,16 @@
 import { QrcodeStream } from 'vue-qrcode-reader/src'
 
 export default {
-   name: 'qrScanUser',
+   name: ' qrScanTicket',
 
   components: { QrcodeStream },
 
   data () {
     return {
 
-      update:'',
+      
       result: '',
       error: '',
-      
 
 
     }
@@ -36,29 +34,14 @@ export default {
     onDecode (result) {
 
       this.result = result
-      this.result.split(' ')[0]
-
-
-
 //window.location.replace(result)
 
       if (isUrl(result)) {
         result='63f15c8d669593706a3a3eb7'
-        this.$router.push( {name:'updateUser',params:{id:result}})
-    } else if(this.result.split(' ')[2]==502 || this.result.split(' ')[2]==607){
-         this.$router.push( {name:'ticket',params:{id:result}})
-    }
-    else if(this.result.split(' ')[2]==212){
-         this.$router.push( {name:'updateUser',params:{id:result}})
-    }
+        this.$router.push( {name:'ticketEdit',params:{id:result}})
+    }else{
 
-
-    else if (Date.now()-Number(20000)<=this.result.split(' ')[1]) {
-
-        this.$router.push( {name:'updateUser',params:{id:result}})
-}
-    else{
-  alert('Mettez votre carte a jour')
+        this.$router.push( {name:'ticketEdit',params:{id:result}})
 }
 
       
