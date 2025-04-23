@@ -42,6 +42,10 @@
 <div class='form-group'>
 <input type='file' @change='onFileUpload' name='file' id="file" required>
 </div>
+<div class='form-group'>
+<input type='file' @change='onFileUpload2' name='file' id="file2" required placeholder='arrière plan'>
+</div>
+
 
 <div class='form-group'>
 <button  type="submit">
@@ -92,9 +96,9 @@ import {accountService} from '@/_services'
                   
                   compagnyName:'',
                   
-                  count:'0', 
+                  count:'2000', 
 
-                  countG:'0', 
+                  countG:'2000', 
 
                   countGMill:'0',
 
@@ -104,11 +108,14 @@ import {accountService} from '@/_services'
 
                   retrait:'0',
 
+                  BgImageUrl:'',
+
 
 
                 },
 
                 FILE:'',
+                FILE2:'',
 
              error:''    
    
@@ -131,6 +138,15 @@ onFileUpload (event) {
         },
 
 
+onFileUpload2 (event) {
+
+
+
+         this.FILE2 = event.target.files[0]
+         
+
+
+        },
 
 
 
@@ -155,9 +171,13 @@ var formData = new FormData();
             const user= JSON.stringify(this.user)
            
             var blob= new Blob([this.FILE,this.FILE.name], {type : "image/PNG"})
+
+            var blob2= new Blob([this.FILE2,this.FILE2.name], {type : "image/PNG"})
+            
         
             formData.append('user',user)
             formData.append('image',blob)
+             formData.append('image',blob2)
             
 
     accountService.signup(formData,{

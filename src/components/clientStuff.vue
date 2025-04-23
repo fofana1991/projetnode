@@ -60,10 +60,13 @@
                <div class="w-50 " >
                 
                      <h5 class="corp ml-3"> <strong ></strong >{{thing.title}}</h5>
-
-                      <p class=""><strong ></strong >{{thing.description}}</p>
+                     
                       <p class="corp"><strong ></strong >{{thing.profession}}</p>
+                      <p class=""><strong ></strong >{{thing.description}}</p>
+
+                      
                       <p class=""><strong ></strong >{{thing.sexe}}</p>
+                      <p class=""><strong ></strong >{{thing.city}}</p>
                       <p class="corp"><strong></strong ><mark>{{thing.price}} FCFA</mark></p>
                       <p class="corp" v-if="thing.normalPrice"><strong > </strong><mark><s>{{thing.normalPrice}} FCFA</s></mark></p>
 

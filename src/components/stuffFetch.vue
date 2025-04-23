@@ -38,10 +38,11 @@
                <div class="" >
                 
                      <h5 class="corp"> <strong >Nom:</strong >{{thing.title}}</h5>
-
+                     <p class="corp"><strong >Description:</strong >{{thing.profession}}</p>
+                      
                       <p class=""><strong >Prenom:</strong >{{thing.description}}</p>
-                      <p class="corp"><strong >Description:</strong >{{thing.profession}}</p>
                       <p class=""><strong >Sexe:</strong >{{thing.sexe}}</p>
+                      <p class="" v-if='thing.city' ><strong >Ville:</strong >{{thing.city}}</p>
                       <p class="corp"><strong >Prix promo:</strong ><mark>{{thing.price}}</mark></p>
                        <p class="corp " ><strong >Prix Normal:</strong><s><mark>{{thing.normalPrice}}</mark></s></p>
      

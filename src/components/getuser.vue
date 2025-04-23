@@ -161,6 +161,9 @@
 <input type='texte' v-model='user.imageUrl' name='file' id="file">
 </div>
 
+<div class='form-group'>
+<input type='texte' v-model='user.BgImageUrl' name='file' id="file" placeholder='arrière plan'>
+</div>
 
 <div v-if="user2._id !=user._id">
 <div class='form-group p-3'>
@@ -251,6 +254,10 @@
 
 <div class='form-group'>
 <input type='texte' v-model='user.imageUrl' name='file' id="file">
+</div>
+
+<div class='form-group'>
+<input type='texte' v-model='user.BgImageUrl' name='file' id="file" placeholder='arrière plan'>
 </div>
 
 <div class='form-group d-block py-3'>

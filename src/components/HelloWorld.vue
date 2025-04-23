@@ -134,6 +134,8 @@ thing:{
       sexe:'',
 
       normalPrice:'',
+
+      city:'',
     
 
        },

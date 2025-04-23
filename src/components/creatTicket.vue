@@ -54,36 +54,7 @@
 
 
 
-                <img :src="user.imageUrl" class="card-img-top avatar mx-auto" rounded="circle " alt="carte" height='250' width='300'/>
-                 <div class=" py-4" >
-                     <h5 class=""> <strong >Nom:</strong >{{user.name}}</h5>
-                      <p class=""><strong >Prenom:</strong >{{user.forename}}</p>
-                      <p class=""><strong >Né(e) le:</strong >{{user.birthday}}</p>
-
-
-                        <p class=""><strong >Profession:</strong >{{user.role}}</p>
-                        <p class=""><strong >Numéro:</strong >{{user.number}}</p>
-                        <p class=""><strong >compte:</strong >{{user.countG}}</p>
-
-                       <p class=""><strong >compteG:</strong >{{countGMill}}</p>
-                         
-
-                        
-                         <p class=""><strong >Entreprise:</strong >{{user.compagnyName}}</p>
-
-                         <p class="card-text">
-
-                           
-
-                                    <qrcode-vue  :value="user._id" :size="size" level="H" />
-
-                                     <input class="form-control form-control-lg" type='text' v-model='user._id' hidden="true">
-
-
-                        
-
-
-                      </p>
+                <img :src="user.imageUrl" class="card-img-top avatar mx-auto" rounded="circle " alt="carte" height='250' width='300'/> 
                          
                                                               
             
@@ -104,7 +75,7 @@
   <path d="M7 9H2v5h5V9Zm-4 1h3v3H3v-3Zm8-6h1v1h-1V4Z"/>
   <path d="M9 2h5v5H9V2Zm1 1v3h3V3h-3ZM8 8v2h1v1H8v1h2v-2h1v2h1v-1h2v-1h-3V8H8Zm2 2H9V9h1v1Zm4 2h-1v1h-2v1h3v-2Zm-4 2v-1H8v1h2Z"/>
   <path d="M12 9h2V8h-2v1Z"/>
-</svg> SCANNER UN PRODUIT </router-link>
+</svg>VERIFIER UN TICKET</router-link>
   </li>
 
     </ul>
@@ -112,133 +83,15 @@
 
 
 
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="row py-4" v-if="user2.role==='Owner'">
-
-<div class="col">
-<form  @submit.prevent='modifyUser' class="m-auto p-auto" >
-
- <div v-if='error' class="hello bg-danger  m-2 p-3 text-center">
-{{error}}
-  </div>
-
-<div class="form-group m-auto">
-
-<input type="email" v-model='user.email' class="m-2" placeholder='Email'><br>
-</div >
-<div class="form-group m-auto">
-<input type="text" v-model='user.name' class=" m-2 " placeholder='Nom'><br>
-</div>
-
-<div class="form-group m-auto">
-<input type="text" v-model='user.forename' class=" m-2 " placeholder='Prenom'><br>
-</div>
-
-<div class="form-group m-auto">
-<input type="text" v-model='user.role' class=" m-2 " placeholder='Poste occupé'><br>
-</div>
-
-<div class="form-group m-auto">
-<input type="text" v-model='user.infoToken' class=" m-2 " placeholder='infoToken'><br>
-</div>
-
-<div class="form-group m-auto">
-<input type="text" v-model='user.compagnyName' class=" m-2 " placeholder='nom de la compagny'><br>
-</div>
-
-
-<div class="form-group m-auto">
-<input type="texte" v-model='user.birthday' class=" m-2 " placeholder='Date de naissance'><label for='image'>Naissance</label><br>
-</div>
-
-
-<div class="form-group m-auto">
-<input type="text" v-model='user.city' class=" m-2 " placeholder='Domicile'><br>
-</div>
-
-<div class="form-group m-auto">
-<input type="number" v-model='user.number' class=" m-2 " placeholder='telephone'><br>
-</div>
-
-<div class='form-group'>
-<input type='texte' v-model='user.imageUrl' name='file' id="file">
-</div>
-
-
-<div v-if="user2._id !=user._id">
-<div class='form-group p-3'>
-
-<select  v-model="user2countOperation">
-  <option value="121" selected>retrait</option>
-  <option value="212">depos</option>
-  <option value="141">Pointage au service</option>
-
-  </select>
-</div>
-
-
-      <div class='form-group py-3' v-if="user2countOperation=='212'">
-
-                <div  v-if="user.depos" class='form-group py-3' style="background-color:white" width='900px'>
-                          {{deposMill}}
-                </div>
-
-
-         <input class="" type='texte' v-model='user.depos' placeholder="depos" style="color:white">
-
-
-
-      </div>
-
-      <div class='form-group py-3' v-if="user2countOperation=='121'">
-
-                  <div v-if='user.retrait' class='form-group py-3' style="background-color: whitesmoke;width: auto;"> 
-                  {{RetraitMill}}
-
-                  </div>
-    
-
-          <input class="" type='Number' v-model='user.retrait' placeholder="retrait" style="color:white;">
-          
-      </div>
-</div>
-
-<div class='form-group d-block py-3'>
-
-<button  type="submit"> Modifier</button>
-
-<svg @click='deleteUser()'  xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-  <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-</svg>
-</div>
-</form>
-</div>
-</div>
-
-
-
-    <div class='row d-flex d-block m-3 pb-4 message ' v-for='(ticket) in tickets' :key='ticket._id'>
+    <div class='row d-flex d-block m-3 pb-4 message ' v-for='(ticket,index) in tickets' :key='ticket._id'>
       <div class="lessonList"> 
         <div class="col-8 m-2 p-2 b-warning">
           
-
+      
            {{ticket.date}}
         </div>
          <div class='col-2'>
+          {{index+1}} 
             <img :src='ticket.ruserimageUrl'  class='avatar  mt-3' >
           </div>
 
@@ -285,7 +138,7 @@
 </template>
 
 <script>
-import QrcodeVue from 'qrcode.vue'
+
 
 import $ from 'jquery'
 
@@ -299,7 +152,7 @@ import {accountService} from '@/_services'
   name: 'getTicket',
   components: {
 
-      QrcodeVue,
+      
 
               },
 
@@ -324,6 +177,7 @@ import {accountService} from '@/_services'
         userNumber:'',
         userimageUrl:'',
         ruserimageUrl:'',
+        ruserBgImageUrl:'',
         ruserId:'',
         ruserNumber:'',
         retrait:'',
@@ -337,89 +191,9 @@ import {accountService} from '@/_services'
   
 methods:{
 
-modifyUser(){
-
-  this.countGMill=new Intl.NumberFormat().format(this.user.countG);
-  this.RetraitMill =new Intl.NumberFormat().format(this.user.retrait);
-  this.deposMill=new Intl.NumberFormat().format(this.user.depos);
-  this.message.ruserId=this.user._id
-  this.message.ruserNumber=this.user.number
-  this.message.userId=this.user._id
- 
-  const depos=Number(this.user.depos)
-  const count=Number(this.user.count)
- const count2=Number(this.user2.count)  
- const retrait=Number(this.user.retrait) 
-
- if (this.user2countOperation=='212' && this.user2.countG >=this.user.depos && this.user.depos>=5 ) {
-  
-    this.user.countG= depos + count;
-    this.user2.countG= count2 - depos;
-    this.message.message='vous avez recu un depos de' + ' ' + this.deposMill + ' ' + 'FCFA' + ' ' + 'par' + ' ' + this.user2.name
-    
- }else if (this.user2countOperation=='212' && this.user.depos>= this.user2.countG) {
-  
-   alert('votre compte es en dessous du solde minimum');
-  
- }
-
-else if(this.usercountOperation=='121' && this.user2countOperation=='121' && this.user.countG>=this.user.retrait && this.user.retrait>=5 ){
-   this.user.countG= count - retrait;
- this.user2.countG= count2 + retrait
- this.message.message='votre compte a été debité de'+ ' ' + '-'+ this.RetraitMill +  ' ' + 'FCFA' + ' ' + 'par' + ' ' + this.user2.name
-    }
-    
-   else if(this.usercountOperation=='121' &&  this.user2countOperation=='121' && this.user.retrait>= this.user.countG){
-   alert('le solde du client en en dessous du solde minimum')
-    }
-
-    else if(
-  // this.usercountOperation != this.user2countOperation
-   this.usercountOperation !='121' &&  this.user2countOperation=='121' || this.usercountOperation=='121' &&  this.user2countOperation !='121' ||  this.usercountOperation !='141' &&  this.user2countOperation=='141' ||  this.usercountOperation =='141' &&  this.user2countOperation !='141'){
-   alert('Votre opération ne coresponds pas a celle demandé par le client')
-    }
-// retrait ou depos inferieur a 5fcfa
-    else if(
-  // this.usercountOperation != this.user2countOperation
-   this.usercountOperation=='121' && this.user2countOperation=='121' && this.user.countG>=this.user.retrait && this.user.retrait<=5 || this.user2countOperation=='212' && this.user2.countG >=this.user.depos && this.user.depos<=5){
-   alert('le montant doit être supérieur ou égal à 5 FCFA')
-    }
-
-  else{
-  this.user.countG=this.user.count;
- this.user2.countG=this.user2.count
- this.user2.countGMill=new Intl.NumberFormat().format(this.user.countG);
- this.user.countGMill=new Intl.NumberFormat().format(this.user.countG);
- }
-
-  ticketService.addTicket(this.ticket).catch(error=> {
-      console.log(error)
-    });
 
 
-
- accountService.modifyUser(this.user).then(
- // this.$router.push( '/services')
-
- ).catch(err=>(console.log(err)));
- 
-
-   accountService.modifyUser(this.user2).catch(err=>(console.log(err)));
-
-
-    },
-
-
-postTicket(){ 
-this.ticket.ruserId=this.user._id
-this.ticket.ruserNumber=this.user.number
-this.ticket.userId=this.user._id
-   ticketService.addTicket(this.ticket).catch(error=> {
-      console.log(error)
-    })
-                
-           
-            },
+      
             
  goticketEdit(uid){
 
@@ -428,22 +202,29 @@ this.$router.push( {name:'ticketEdit',params:{id:uid}})
 
                      },
 
-async deleteUser(){
-
-await accountService.deleteUser(this.user);
 
 
-await  this.$router.push( '/users');
-
-
-  },      
+showNotification(title, body) {
+  if ("Notification" in window && Notification.permission === "granted") {
+    new Notification(title, {
+      body: body,
+      icon: require("@/assets/logo4.png") // remplace par une icône plus adaptée si tu veux
+    });
+  }
+}
 
         
 
 },
 //recuperation de l'element dans le parametre de l'url 
     mounted() {
+// notification
 
+if ("Notification" in window && Notification.permission !== "granted") {
+  Notification.requestPermission().then(permission => {
+    console.log("Notification permission:", permission);
+  });
+}
 
 
 // financial transaction
@@ -469,6 +250,16 @@ this.countGMill =new Intl.NumberFormat().format(this.user.countG);
   this.ticket.ruserNumber=this.user.number
   this.ticket.userId=this.user._id
   this.ticket.ruserimageUrl=this.user.imageUrl
+  this.ticket.ruserBgImageUrl=this.user.BgImageUrl
+  // const depos=Number(10000)
+  
+
+
+
+ // const retrait=Number(10000) 
+
+
+
 
 // recuperation de l'utilisateur sur lequel effectuer des operations
 
@@ -492,9 +283,9 @@ this.avertissement='Carte  Frauduleuse';
   }
 });
 
-// recupération du démandeur use
+ // recupération du démandeur use
 
-accountService.getuser2().then(res=>{
+  accountService.getuser2().then(res=>{
   
   this.user2=res.data
 
@@ -507,20 +298,137 @@ accountService.getuser2().then(res=>{
 
 // si l'utilisateur de 141
 
- if(this.usercountOperation=='607'){
+ if(this.usercountOperation=='607' && confirm("Votre compte sera debité de 10.000f pour votre achat de ticket") == true){
+
 
 // opération financiiére
-
-
-  
-   
-
-    
+       
 //recuperateion du client
 
-  accountService.getuser2().then(res=>{
+  accountService.getuser2().then(res=>{  
   
   this.user2=res.data
+
+  if (this.user2.count < 10000) {
+      alert("Votre compte est insuffisant, veuillez recharger votre compte d'au moins 10.000fcfa.");
+      return; // Stop ici si solde insuffisant
+    }else{
+
+  this.user2.countG= this.user2.count - 10000
+
+  accountService.modifyUser(this.user2).catch(err=>(console.log(err))); 
+
+
+accountService.getuser(this.id).then(res=>{
+
+  
+  this.user=res.data
+
+  this.user.countG= this.user.count + 10000
+  this.ticket.ruserimageUrl=this.user.imageUrl
+  this.ticket.ruserBgImageUrl=this.user.BgImageUrl
+
+
+
+  this.ticket.ruserId=this.user._id
+  this.ticket.ruserNumber=this.user.number
+  this.ticket.userId=this.user._id
+  this.ticket.message= 'votre ticket' + ' ' + ' a été généré pour le concert de votre fun ' + ' ' +this.user.forename
+
+// facturation
+ 
+ accountService.modifyUser(this.user).then(
+ // this.$router.push( '/services')
+
+ ).catch(err=>(console.log(err)));
+
+
+ ticketService.addTicket(this.ticket).then(() => {
+  this.showNotification("Nouveau ticket", "Un ticket vient d’être généré !");
+}).catch(error=> {
+      console.log(error)
+    })
+// recuperation financiere    
+ 
+  if(this.user==null) {
+
+this.avertissement='Carte  Frauduleuse';
+
+
+}
+
+}).catch(err=>{
+  console.log(err)
+  if(err.response.status==404){
+    
+    this.avertissement='Produit Frauduleux';
+  
+  }
+});
+
+
+
+
+ // ajout de ticket
+
+
+
+  
+
+
+}
+})}else if(this.usercountOperation=='502' && confirm("Votre compte sera debité de 10.000f pour votre achat de ticket") == true){
+
+ accountService.getuser(this.id).then(res=>{
+
+  
+  this.user=res.data  
+
+
+
+if (this.user.count < 10000) {
+      alert("Votre compte est insuffisant, veuillez recharger votre compte d'au moins 10.000fcfa.");
+      return; // Stop ici si solde insuffisant
+    }else{
+
+    this.ticket.ruserNumber=this.user.number   
+
+   this.user.countG= this.user.count - 10000
+
+  accountService.modifyUser(this.user).then(
+ // this.$router.push( '/services')
+
+ ).catch(err=>(console.log(err)));
+
+//recuperateion du client
+
+  accountService.getuser2().then(res=>{  
+  
+  this.user2=res.data
+
+   this.ticket.ruserimageUrl=this.user2.imageUrl
+
+   this.ticket.ruserBgImageUrl=this.user2.BgImageUrl
+
+
+
+  this.ticket.ruserId=this.user2._id
+  this.ticket.userId=this.user2._id
+  this.ticket.message= 'votre ticket' + ' ' + ' a été généré pour le concert de votre fun ' + ' ' +this.user2.forename
+
+
+  this.user2.countG= this.user2.count + 10000
+
+  accountService.modifyUser(this.user2).catch(err=>(console.log(err))); 
+
+  ticketService.addTicket(this.ticket).then(() => {
+  this.showNotification("Nouveau ticket", "Un ticket vient d’être généré !");
+}).catch(error=> {
+      console.log(error)
+    })
+
+
+  
   
   });
 
@@ -531,30 +439,17 @@ accountService.getuser(this.id).then(res=>{
 
   
   this.user=res.data
-  this.ticket.ruserimageUrl=this.user.imageUrl
-
-  this.ticket.ruserId=this.user._id
-  this.ticket.ruserNumber=this.user.number
-  this.ticket.userId=this.user._id
-  this.ticket.message= 'votre ticket' + ' ' + ' a été généré pour le concert de votre fun ' + ' ' +this.user.forename
 
 // facturation
- 
-
 // recuperation financiere    
+  this.user.countG= this.user.count - 10000
+
+  accountService.modifyUser(this.user).then(
+ // this.$router.push( '/services')
+
+ ).catch(err=>(console.log(err)));
 
 
-
-
- // ajout de ticket
-
-
-
-  ticketService.addTicket(this.ticket).catch(error=> {
-      console.log(error)
-    })
-
-  
   
   if(this.user==null) {
 
@@ -574,10 +469,14 @@ this.avertissement='Carte  Frauduleuse';
 
 
 
- 
-}
-    
-// recuperation des messages 
+ // ajout de ticket
+
+
+
+
+}})} 
+
+
 ticketService.getAllTickets().then(res=> {
   
    this.tickets=res.data
@@ -588,8 +487,10 @@ console.log(error)
 
     });
 
-    
 
+   
+
+   
 // si la connection est établis
 
  if(accountService.isLogged()==true){
@@ -640,6 +541,7 @@ $("#wc1").wColorPicker({
     
     })
 },
+
 
 
     updated(){

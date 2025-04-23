@@ -1,7 +1,7 @@
-<template class="bg-secondary">
+<template class="bg-secondary" >
 
 
- <div class="container my-5 p-4 border rounded shadow-lg bg-white" id="ticket">
+ <div class="container my-5 p-4 border rounded shadow-lg  bg-white" id="ticket"  :style="{ backgroundImage: 'url(' + ticket.ruserBgImageUrl + ')', backgroundSize: 'cover', backgroundPosition: 'center' }">
 
 
      <div v-if='avertissement' class='bg-danger m-4 p-3' width="500" height='500' >
@@ -25,41 +25,69 @@
     <!-- QR Code en haut -->
     <div class="text-center mb-3">
 
-       <p class="card-text">
+       
+      <!-- <img :src="qrCodeUrl" alt="QR Code" style="width: 120px; height: 120px;"> -->
+    </div>
+
+    
+    <!-- Corps du ticket -->
+
+
+
+
+    <div class="row" >
+
+
+    
+
+       <p class="m-3 p-3" >
 
                            
 
-             <qrcode-vue  :value="ticket._id" :size="size" level="H" />
+             <qrcode-vue  :value="ticket._id" :size="size" level="H" class='border' />
 
               <input class="form-control form-control-lg" type='text' v-model='ticket._id' hidden="true">
 
 
-            </p>
-      <!-- <img :src="qrCodeUrl" alt="QR Code" style="width: 120px; height: 120px;"> -->
+        </p>
+
+      
+     
+    </div>
+   
+
+    
+  
+</div>
+
+
+
+  <!-- Ticket body -->
+  <div class="d-flex flex-column flex-md-row align-items-center justify-content-between text-center">
+    
+    <!-- Image utilisateur (gauche) -->
+    <div class="p-2 ">
+      <img :src="ticket.userimageUrl" alt="Image gauche" class="img-fluid rounded avatar" style="max-height: 200px;" />
     </div>
 
-    <!-- Corps du ticket -->
-    <div class="row">
-      <!-- Image gauche -->
-      <div class="col-md-3 d-flex align-items-center justify-content-center">
-        <img :src="ticket.ruserimageUrl" alt="Image gauche" class="img-fluid rounded" style="max-height: 200px;">
-      </div>
+    <!-- Infos ticket -->
+    <div class="p-2 flex-grow-1">
+      <p class="mb-0 information">{{ ticket.name }} 0{{ ticket.ruserNumber }}</p>
+    </div>
 
-      <!-- Infos ticket -->
-      <div class="col-md-6 text-center d-flex flex-column justify-content-center">
-        <h2 class="fw-bold mb-1">{{ticket.message}}</h2>
-        <p class="mb-0">{{ticket.name}}</p>
-       
-      </div>
-
-      <!-- Image droite -->
-      <div class="col-md-3 d-flex align-items-center justify-content-center">
-        <img :src="ticket.userimageUrl" alt="Image droite" class="img-fluid rounded" style="max-height: 200px;">
-      </div>
+    <!-- Image destinataire (droite) -->
+    <div class="p-2">
+      <img :src="ticket.ruserimageUrl" alt="Image droite" class="img-fluid rounded avatar" style="max-height: 200px;" />
     </div>
   </div>
-
 </div>
+  
+
+
+
+
+
+
 
 
 
@@ -74,7 +102,7 @@
 
           <div>
 
-            <button  @click='deleteMessage()'>deleteTicket</button>
+            <button  @click='deleteTicket()'>deleteTicket</button>
             <svg onclick="window.print()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-printer-fill" viewBox="0 0 16 16">
                <path d="M5 1a2 2 0 0 0-2 2v1h10V3a2 2 0 0 0-2-2H5zm6 8H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1z"/>
                 <path d="M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2V7zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
@@ -151,7 +179,7 @@ methods:{
 
   async deleteTicket(){
 
- await ticketService.deleteMessage(this.ticket);
+ await ticketService.deleteTicket(this.ticket);
 
 
 await  this.$router.push( '/ticket/'+this.ticket.userId);
@@ -226,11 +254,14 @@ $("#wc1").wColorPicker({
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped >
 
+.information{
+color: white
 
+}
 .avatar {
   vertical-align: middle;
-  width: 70px;
-  height: 70px;
+  width: 200px;
+  height: 350px;
   border-radius: 50%;
 }
 

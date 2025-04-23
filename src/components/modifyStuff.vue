@@ -64,10 +64,15 @@
 <label for='description'>sexe:</label><select v-model=thing.sexe>
     <option value="feminin">F</option>
     <option value="masculin">M</option>
+    <option value="Tous les sexe">Tous</option>
 </select>
 
 </div>
 
+<div class='form-group py-3'>
+
+<label for='city'>Ville:</label><input id='ville' class="form-control form-control-lg" type='texte' v-model="thing.city" placeholder="VILLE">
+</div>
 
 
 <div class='form-group py-3'>

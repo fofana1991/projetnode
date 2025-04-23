@@ -62,6 +62,7 @@
                       <p class=""><strong >Description: </strong >{{thing.description}}</p>
                       <p class=""><strong >Rôle: </strong >{{thing.profession}}</p>
                       <p class=""><strong >Sexe: </strong >{{thing.sexe}}</p>
+                       <p class=""><strong >Ville: </strong >{{thing.city}}</p>
                       <p class=""><strong >Prix promo: </strong ><mark>{{thing.price}} FCFA</mark></p>
                       <p class="" v-if="thing.normalPrice"><strong >Prix Normal:</strong><s><mark>                           {{thing.normalPrice}} FCFA</mark></s></p>
 
