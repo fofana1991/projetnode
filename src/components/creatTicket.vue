@@ -35,8 +35,10 @@
               {{avertissement}}
 
          </div>
+         <div>
 
-
+          <audio id="notifSound" src="../assets/scan.mp3" preload="auto"></audio>
+          </div>
 
          <div class='row' v-if='user'>
 
@@ -181,7 +183,8 @@ import {accountService} from '@/_services'
         ruserId:'',
         ruserNumber:'',
         retrait:'',
-        depos:''
+        depos:'',
+        ruserCachetUrl:''
       },
 
       voyant:''
@@ -210,6 +213,10 @@ showNotification(title, body) {
       body: body,
       icon: require("@/assets/logo4.png") // remplace par une icône plus adaptée si tu veux
     });
+
+    // Joue le son
+    const sound = document.getElementById('notifSound');
+    if (sound) sound.play();
   }
 }
 
@@ -327,6 +334,7 @@ accountService.getuser(this.id).then(res=>{
   this.user.countG= this.user.count + 10000
   this.ticket.ruserimageUrl=this.user.imageUrl
   this.ticket.ruserBgImageUrl=this.user.BgImageUrl
+  this.ticket.ruserCachetUrl=this.user.cachetUrl
 
 
 
@@ -391,6 +399,8 @@ if (this.user.count < 10000) {
       return; // Stop ici si solde insuffisant
     }else{
 
+     this.ticket.ruserimageUrl=this.user.imageUrl 
+
     this.ticket.ruserNumber=this.user.number   
 
    this.user.countG= this.user.count - 10000
@@ -406,7 +416,7 @@ if (this.user.count < 10000) {
   
   this.user2=res.data
 
-   this.ticket.ruserimageUrl=this.user2.imageUrl
+   
 
    this.ticket.ruserBgImageUrl=this.user2.BgImageUrl
 

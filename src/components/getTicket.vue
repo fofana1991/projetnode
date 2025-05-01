@@ -1,10 +1,8 @@
-<template class="bg-secondary" >
+<template class="bg-secondary " >
 
 
- <div class="container my-5 p-4 border rounded shadow-lg  bg-white" id="ticket"  :style="{ backgroundImage: 'url(' + ticket.ruserBgImageUrl + ')', backgroundSize: 'cover', backgroundPosition: 'center' }">
 
-
-     <div v-if='avertissement' class='bg-danger m-4 p-3' width="500" height='500' >
+   <div v-if='avertissement' class='row bg-danger m-4 p-3' width="500" height='500' >
 
           <audio preload="auto" id="son" autoplay>
     
@@ -20,69 +18,59 @@
 
 
 
-
-<div v-if='ticket'>
-    <!-- QR Code en haut -->
-    <div class="text-center mb-3">
-
-       
-      <!-- <img :src="qrCodeUrl" alt="QR Code" style="width: 120px; height: 120px;"> -->
-    </div>
-
-    
-    <!-- Corps du ticket -->
+ <div v-if="ticket" class="container my-5 p-5 border rounded shadow-lg  bg-white" id="ticket"  :style="{ backgroundImage: 'url(' + ticket.ruserBgImageUrl + ')', backgroundSize: 'cover', backgroundPosition: 'center' }">
 
 
 
+  <div v-if="ticket" >
+    <div class="row my-4">
+  
 
-    <div class="row" >
-
-
-    
-
-       <p class="m-3 p-3" >
-
-                           
-
-             <qrcode-vue  :value="ticket._id" :size="size" level="H" class='border' />
-
-              <input class="form-control form-control-lg" type='text' v-model='ticket._id' hidden="true">
-
-
-        </p>
-
-      
-     
-    </div>
    
 
-    
+  </div>
   
-</div>
-
-
-
-  <!-- Ticket body -->
-  <div class="d-flex flex-column flex-md-row align-items-center justify-content-between text-center">
-    
-    <!-- Image utilisateur (gauche) -->
-    <div class="p-2 ">
-      <img :src="ticket.userimageUrl" alt="Image gauche" class="img-fluid rounded avatar" style="max-height: 200px;" />
+  <!-- Haut : QR code + Cachet -->
+  <div class="row mb-3" >
+    <div class="col-6 d-flex justify-content-start">
+      <div style= "padding: 8px;">
+        <qrcode-vue :value="ticket._id" :size="size" level="H" class="border" style="max-height: 150px;"/>
+      </div>
     </div>
-
-    <!-- Infos ticket -->
-    <div class="p-2 flex-grow-1">
-      <p class="mb-0 information">{{ ticket.name }} 0{{ ticket.ruserNumber }}</p>
-    </div>
-
-    <!-- Image destinataire (droite) -->
-    <div class="p-2">
-      <img :src="ticket.ruserimageUrl" alt="Image droite" class="img-fluid rounded avatar" style="max-height: 200px;" />
+    <div class="col-6 d-flex justify-content-end " style= "padding: 8px;">
+      <img :src="ticket.ruserCachetUrl" alt="Cachet" class="img-fluid" style="max-height: 150px;">
     </div>
   </div>
-</div>
+
+  <!-- Nom / texte au centre -->
+   <div class="text-center mb-3">
+    <p class="mb-0 font-weight-bold" style= "color: white;">{{ ticket.name }} 0{{ ticket.userNumber }}</p>
+  </div>
+   
+  <!-- Bas : deux images alignées sur la même ligne -->
+  <div class="row">
+    <div class="col-6 d-flex justify-content-start" style= "padding: 8px;">
+      <img :src="ticket.userimageUrl" alt="Utilisateur" class="img-fluid rounded " style="max-height: 100px;">
+    </div>
+    <div class="col-6 d-flex justify-content-end " style= "padding: 8px;" >
+      <img :src="ticket.ruserimageUrl" alt="Receveur" class="img-fluid rounded" style="max-height: 150px;">
+    </div>
+
+   
+
+  </div>
+   <div class="row my-3">
   
 
+   
+
+  </div>
+</div>
+
+ 
+
+  
+</div>
 
 
 
@@ -99,8 +87,7 @@
 
 
 
-
-          <div>
+        <div>
 
             <button  @click='deleteTicket()'>deleteTicket</button>
             <svg onclick="window.print()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-printer-fill" viewBox="0 0 16 16">
@@ -110,6 +97,8 @@
 
                 
            </div>
+
+         
 
 
 </template>
@@ -260,8 +249,8 @@ color: white
 }
 .avatar {
   vertical-align: middle;
-  width: 200px;
-  height: 350px;
+  width:100px;
+  height:180px;
   border-radius: 50%;
 }
 
@@ -285,7 +274,7 @@ a {
 
 @media print {
   body * {
-    visibility: hidden;
+    visibility:visible;
   }
   #ticket, #ticket * {
     visibility: visible;

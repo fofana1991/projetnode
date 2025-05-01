@@ -50,6 +50,9 @@ export default {
     }
     else if(this.result.split(' ')[2]==212){
          this.$router.push( {name:'updateUser',params:{id:result}})
+         
+    }else if(this.result.split(' ')[2]==503){
+         this.$router.push( {name:'updateUser',params:{id:result}})
     }
 
 

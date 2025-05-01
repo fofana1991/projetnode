@@ -165,6 +165,9 @@
 <input type='texte' v-model='user.BgImageUrl' name='file' id="file" placeholder='arrière plan'>
 </div>
 
+<div class='form-group'>
+<input type='texte' v-model='user.cachetUrl' name='file' id="file" placeholder='Cachet'>
+</div>
 <div v-if="user2._id !=user._id">
 <div class='form-group p-3'>
 
@@ -373,6 +376,39 @@ import {accountService} from '@/_services'
   
 methods:{
 
+ async fetchMessages() {
+    try {
+      const res = await messageService.getAllMessage();
+      const newMessages = res.data;
+
+      // Nouveau message détecté
+      if (this.messages.length < newMessages.length) {
+        const latest = newMessages[newMessages.length - 1];
+
+        // Affiche une notification système
+        if (Notification.permission === "granted") {
+        const notification=new Notification(`Nouveau message de ${latest.name}`, {
+            body: latest.message,
+            icon:require('@/assets/logo4.png') // Optionnel
+          });
+
+
+       notification.onclick = () => {
+    // Fait passer le focus à ton site ou l’ouvre
+    window.focus();
+    window.location.href = `/updateUser/${this.id} `; // Change selon ta route
+  };
+
+        }
+      }
+
+      this.messages = newMessages;
+    } catch (error) {
+      console.error(error);
+    }
+  },
+
+
 modifyUser(){
 
   this.countGMill=new Intl.NumberFormat().format(this.user.countG);
@@ -481,6 +517,18 @@ await  this.$router.push( '/users');
     mounted() {
 
 
+ if ("Notification" in window && Notification.permission !== "granted") {
+    Notification.requestPermission();
+  }
+
+  this.fetchMessages();
+  setInterval(() => {
+    this.fetchMessages();
+  }, 10000);
+
+
+
+
 
 
 const d = new Date();
@@ -558,6 +606,53 @@ accountService.getuser(this.id).then(res=>{
   this.message.ruserNumber=this.user.number
   this.message.userId=this.user._id
   this.message.message= 'est arrivé le ' + ' ' + d.toUTCString().split(',')[1] + ' '  + 'chez' +' ' +this.user.forename
+
+  messageService.addMessage(this.message).catch(error=> {
+      console.log(error)
+    })
+
+  
+  
+  if(this.user==null) {
+
+this.avertissement='Carte  Frauduleuse';
+
+
+}
+
+}).catch(err=>{
+  console.log(err)
+  if(err.response.status==404){
+    
+    this.avertissement='Produit Frauduleux';
+  
+  }
+});
+
+
+
+ 
+}else if(this.usercountOperation=='503'){
+
+
+  accountService.getuser2().then(res=>{
+  
+  this.user2=res.data
+
+  
+  });
+
+  // recuperation de l'utilisateur sur lequel effectuer des operations
+
+
+accountService.getuser(this.id).then(res=>{
+  
+  this.user=res.data
+
+  this.message.ruserId=this.user._id
+  this.message.ruserNumber=this.user.number
+  this.message.userId=this.user._id
+  this.message.message= 'était present le ' + ' ' + d.toUTCString().split(',')[1] + ' '  + 'chez' +' ' +this.user.forename
 
   messageService.addMessage(this.message).catch(error=> {
       console.log(error)

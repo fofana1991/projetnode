@@ -66,7 +66,7 @@
 
                       
                       <p class=""><strong ></strong >{{thing.sexe}}</p>
-                      <p class=""><strong ></strong >{{thing.city}}</p>
+                      <p class=""><strong ></strong ><mark>{{thing.city}}</mark></p>
                       <p class="corp"><strong></strong ><mark>{{thing.price}} FCFA</mark></p>
                       <p class="corp" v-if="thing.normalPrice"><strong > </strong><mark><s>{{thing.normalPrice}} FCFA</s></mark></p>
 

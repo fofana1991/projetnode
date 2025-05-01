@@ -40,11 +40,9 @@
 <input type="number" v-model='user.number' class=" m-2 " placeholder='telephone' required><br>
 </div>
 <div class='form-group'>
-<input type='file' @change='onFileUpload' name='file' id="file" required>
+<input type='file' @change='onFileUpload' name='file' id="file" placeholder="Photo de profile" required>
 </div>
-<div class='form-group'>
-<input type='file' @change='onFileUpload2' name='file' id="file2" required placeholder='arrière plan'>
-</div>
+
 
 
 <div class='form-group'>
@@ -96,9 +94,9 @@ import {accountService} from '@/_services'
                   
                   compagnyName:'',
                   
-                  count:'2000', 
+                  count:'0', 
 
-                  countG:'2000', 
+                  countG:'0', 
 
                   countGMill:'0',
 
@@ -110,12 +108,14 @@ import {accountService} from '@/_services'
 
                   BgImageUrl:'',
 
+                  cachetUrl:'',
+
 
 
                 },
 
                 FILE:'',
-                FILE2:'',
+               
 
              error:''    
    
@@ -138,15 +138,7 @@ onFileUpload (event) {
         },
 
 
-onFileUpload2 (event) {
 
-
-
-         this.FILE2 = event.target.files[0]
-         
-
-
-        },
 
 
 
@@ -172,12 +164,10 @@ var formData = new FormData();
            
             var blob= new Blob([this.FILE,this.FILE.name], {type : "image/PNG"})
 
-            var blob2= new Blob([this.FILE2,this.FILE2.name], {type : "image/PNG"})
-            
         
             formData.append('user',user)
             formData.append('image',blob)
-             formData.append('image',blob2)
+             
             
 
     accountService.signup(formData,{
@@ -186,15 +176,15 @@ var formData = new FormData();
  this.$router.push( '/users' )
     }).catch(error=> {
     
-
- if (error.response.data.error.message === 'User validation failed: email: Error, expected `email` to be unique. Value: `m@gmail.com`') {
-          this.error = "ERROR: Cet utilisateur existe deja"
-        }else if (error.response.data.error.message === "User validation failed: email: Path `email` is required.") {
-          this.error = "ERROR:Addresse email obligatoire"
-        } else {
-          this.error = `verifier si tous les champs sont bien remplis`;
-          console.log(this.error)
-        }
+this.error=error.response.data.error.message
+ // if (error.response.data.error.message === 'User validation failed: email: Error, expected `email` to be unique. Value: `m@gmail.com`') {
+ //          this.error = "ERROR: Cet utilisateur existe deja"
+ //        }else if (error.response.data.error.message === "User validation failed: email: Path `email` is required.") {
+ //          this.error = "ERROR:Addresse email obligatoire"
+ //        }else {
+ //          this.error = `verifier si tous les champs sont bien remplis`;
+ //          console.log(this.error)
+ //        }
 
 
 
