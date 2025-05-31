@@ -30,11 +30,15 @@
     
       <div class=' col-sm-1 col-md-2 col-lg-3  p-3 m-auto m-lg-4 overflow-y-hidden d-flex d-block switch' v-for='(thing) in things ' :key=thing._id id='draggable'>
                         
-            <div class=" border bg-light lessonList m-auto" style="width: 18rem;">
-                
-                
+            <div class=" border bg-light lessonList m-auto" style="width: 18rem;"> 
+            
+
+
              <img :src="thing.imageUrl" class="card-img-top avatar" rounded="circle "  @click='goEdit(thing._id)' alt="carte" height='250' width='300'>
                 
+
+
+
                <div class="" >
                 
                      <h5 class="corp"> <strong >Nom:</strong >{{thing.title}}</h5>
@@ -110,6 +114,11 @@ import {accountService} from '@/_services'
 
               },
 
+
+
+
+
+ 
 
    methods:{
 

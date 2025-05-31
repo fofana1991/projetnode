@@ -79,7 +79,28 @@
 
 <label for='imageUrl'>imageUrl:</label><input id='imageUrl' class="form-control form-control-lg" type='texte' v-model="thing.imageUrl" placeholder="Inconnu">
 </div>
+<div class='form-group py-3'>
 
+<label for='imageUrl1'>imageUrl1:</label><input  class="form-control form-control-lg" type='texte' v-model="thing.imageUrl1" placeholder="Image1">
+</div>
+
+<div class='form-group py-3'>
+
+<label for='imageUrl2'>imageUrl2:</label><input  class="form-control form-control-lg" type='texte' v-model="thing.imageUrl2" placeholder="Image 2">
+</div>
+<div class='form-group py-3'>
+
+<label for='imageUrl3'>imageUrl3:</label><input  class="form-control form-control-lg" type='texte' v-model="thing.imageUrl3" placeholder="Image 3">
+</div>
+<div class='form-group py-3'>
+
+<label for='imageUrl4'>imageUrl4:</label><input  class="form-control form-control-lg" type='texte' v-model="thing.imageUrl4" placeholder="Image 4">
+</div>
+
+<div class='form-group py-3'>
+
+<label for='imageUrl5'>imageUrl5:</label><input  class="form-control form-control-lg" type='texte' v-model="thing.imageUrl5" placeholder="Image 5">
+</div>
 
 <div class='form-group py-3'>
 <input class="form-control form-control-lg" type='hidden' v-model='thing.userId'>

@@ -16,7 +16,7 @@
    
 
 
-  <router-link to="/produits">Produits</router-link>|
+  <router-link to="/produits">Boutique</router-link>|
 
        
       

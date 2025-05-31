@@ -30,27 +30,21 @@
 
 <div  class="col-lg-12  p-auto d-block fixed-right "  id="fatou cache" >
   
-        <div class='row p-auto m-auto  carousel slide carousel-fade' id="carouselExampleFade" >
-             <div class="carousel-inner">
-                   <div class="carousel-item active py-4">
-                         <img :src="thing.imageUrl"  class="avatar w-100 m-auto " height="350" rounded="circle" alt="carte" />   
-                    </div>
-                    <div class="carousel-item ">
-                          <img src="https://images.bfmtv.com/8Vm06p25a2eRp8QyhfCMWoxgA18=/6x69:1254x771/1248x0/images/Cette-montre-a-moins-de-50-est-tres-design-et-elle-fait-de-l-ombre-a-la-concurrence-1662262.jpg" class="d-block w-100" alt="...">
-                     </div>
+       <div class="row p-auto m-auto carousel slide carousel-fade" id="carouselExampleFade" data-bs-ride="carousel" data-bs-interval="3000">
+  <div class="carousel-inner">
+    <div class="carousel-item " :class="{ active: index === 0 }" v-for="(url, index) in imageUrls" :key="index">
+      <img :src="url" class="d-block w-100 m-auto" height="350" style="max-width: 600px" alt="carte" />
+    </div>
+  </div>
 
-               </div>
-
-                   <button class="carousel-control-prev" type="button" data-bs-target="  #carouselExampleFade" data-bs-slide="prev">
-                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Previous</span>
-                   </button>
-                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                       <span class="visually-hidden">Next</span>
-                  </button>
-
-
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 
           </div>
 
@@ -61,7 +55,7 @@
                      <h5 class=""> <strong >Nom du Produit: </strong >{{thing.title}}</h5>
                       <p class=""><strong >Description: </strong >{{thing.description}}</p>
                       <p class=""><strong >Rôle: </strong >{{thing.profession}}</p>
-                      <p class=""><strong >Sexe: </strong >{{thing.sexe}}</p>
+                     
                        <p class=""><strong >Ville: </strong >{{thing.city}}</p>
                       <p class=""><strong >Prix promo: </strong ><mark>{{thing.price}} FCFA</mark></p>
                       <p class="" v-if="thing.normalPrice"><strong >Prix Normal:</strong><s><mark>                           {{thing.normalPrice}} FCFA</mark></s></p>
@@ -106,6 +100,23 @@ import $ from 'jquery'
       avertissement:'',
     }
   },
+
+
+  computed: {
+  imageUrls() {
+    return [
+      this.thing.imageUrl,
+      this.thing.imageUrl1,
+      this.thing.imageUrl2,
+      this.thing.imageUrl3,
+      this.thing.imageUrl4,
+      this.thing.imageUrl5,
+    ].filter(Boolean); // Supprime les valeurs nulles ou undefined
+  }
+},
+
+
+
 
   
 methods:{
@@ -241,7 +252,7 @@ a {
 img{
 
   border-style: solid;
-  border-width:25px ;
+  border-width:10px ;
   transition:border-width 2s;
 /*  animation:img_animation 20000ms 200ms alternate infinite ease-in-out ;*/
 
