@@ -25,7 +25,13 @@
              <p class="mt-4 bg-info"><strong >Publié le:</strong >{{recu.date}}</p><br/>
             <div class="corp border bg-light w-100" style="width: 18rem;" >
 
-                <p class=""><strong >Numero </strong >{{index+1}}</p>
+                <p class=""><strong >Numero </strong >{{index+1}} </p>
+                 
+                  <div v-if="recu.geolocation">
+                      <img src="https://cdn-icons-png.flaticon.com/512/4875/4875006.png" class="avatar" rounded="circle "  @click='goEdit(recu._id)' alt="carte" height='40' >               
+                      </div>
+
+
                  <div class="d-flex d-inline" >
 
                       <div>
@@ -34,12 +40,14 @@
 
                       <div>
 
-                      <p class=""><strong >Type de maison:</strong >{{recu.type}}</p>
-                      <p class=""><strong >Nombre de chambre:</strong >{{recu.nombreDeChambre}}</p>
-                      <p class=""><strong >Loyer:</strong >{{recu.loyer}}</p>
-                      <p class=""><strong >Caution:</strong >{{recu.caution}}</p>
-                      <p class=""><strong >Ville:</strong >{{recu.ville}}</p>
-                      <p class=""><strong >Quartier:</strong >{{recu.quartier}}</p>
+                      <p class="" v-if="recu.type"><strong >Type de maison: </strong >{{recu.type}}</p>
+                      <p class="" v-if="recu.nombreDeChambre"><strong >Nombre de chambre: </strong >{{recu.nombreDeChambre}}</p>
+                      <p class="" v-if="recu.loyer"><strong >Loyer: </strong >{{recu.loyer.toLocaleString('fr-FR')}} FCFA</p>
+                       <p class="" v-if="recu.prix"><strong >Prix: </strong >{{recu.prix.toLocaleString('fr-FR')}} FCFA</p>
+                        <p class="" v-if="recu.description"><strong >Description: </strong >{{recu.description}}</p>
+                      <p class="" v-if="recu.caution"><strong >Caution: </strong >{{recu.caution.toLocaleString('fr-FR')}} FCFA</p>
+                      <p class="" v-if=" recu.ville "><strong >Ville: </strong >{{recu.ville}}</p>
+                      <p class="" v-if="recu.quartier"><strong >Quartier: </strong >{{recu.quartier}}</p>
         
                      
                      </div>

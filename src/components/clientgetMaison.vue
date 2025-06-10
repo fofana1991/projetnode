@@ -57,12 +57,14 @@
                 
                  <div class="" >
                      <h5 class=""><strong >Type de maison:</strong >{{recu.type}} </h5>
-                      <p class=""><strong >Nombre de chambre:</strong >{{recu.nombreDeChambre}}</p>
-                      <p class=""><strong >Loyer:</strong >{{recu.loyer}}</p>
-                      <p class=""><strong >Caution:</strong >{{recu.caution}}</p>
-                      <p class=""><strong >Ville:</strong >{{recu.ville}}</p>
-                      <p class=""><strong >Quartier:</strong >{{recu.quartier}}</p>
-                      <p class=""><strong >Numero:</strong >0{{recu.numero}}</p>
+                      <p class="" v-if="recu.nombreDeChambre"><strong >Nombre de chambre:</strong >{{recu.nombreDeChambre}}</p>
+                      <p class=""  v-if="recu.loyer"><strong >Loyer:</strong >{{recu.loyer.price}}</p>
+                       <p class=""  v-if="recu.prix"><strong >Prix:</strong >{{recu.prix}}</p>
+                      <p class="" v-if="recu.caution"><strong >Caution:</strong >{{recu.caution}}</p>
+                      <p class="" v-if="recu.ville"><strong >Ville:</strong >{{recu.ville}}</p>
+                       <p class=""  v-if="recu.description"><strong >Description:</strong >{{recu.description}}</p>
+                      <p class=""  v-if="recu.quartier"><strong >Quartier:</strong >{{recu.quartier}}</p>
+                      <p class="" v-if="recu.numero"><strong >Numero:</strong >0{{recu.numero}}</p>
 
           
                     </div>

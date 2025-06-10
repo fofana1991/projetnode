@@ -18,21 +18,32 @@
 
 
       <div class='form-group p-3 m-3'>
-          <input class="form-control form-control-lg"  type='number'  v-model='recu.nombreDeChambre' placeholder="Nombre de chambre" required>
+          <input class="form-control form-control-lg"  type='number'  v-model='recu.nombreDeChambre' placeholder="Nombre de chambre">
       </div>
 
      <div class='form-group p-3 m-3'>
-          <input class="form-control form-control-lg"  type='number'  v-model='recu.loyer' placeholder="Loyer" required>
+          <input class="form-control form-control-lg"  type='number'  v-model='recu.loyer' placeholder="Loyer" >
+      </div>
+
+       <div class='form-group p-3 m-3'>
+          <input class="form-control form-control-lg"  type='number'  v-model='recu.prix' placeholder="Prix" >
       </div>
 
 
 
  <div class='form-group p-3 m-3'>
-          <input class="form-control form-control-lg"  type='number'  v-model='recu.caution' placeholder="caution" required>
+          <input class="form-control form-control-lg"  type='number'  v-model='recu.caution' placeholder="caution" >
       </div>
 
-  <div class='form-group p-3 m-3'>
+      <div class='form-group p-3 m-3'>
           <input class="form-control form-control-lg"  type='texte'  v-model='recu.ville' placeholder="Ville" required>
+      </div>
+
+      <div class='form-group p-3 m-3'>
+        
+         <textarea class="form-control form-control-lg"  type='texte'  v-model='recu.description' placeholder="Description" required></textarea>>
+
+        
       </div>
 
 <div class='form-group p-3 m-3'>
@@ -57,7 +68,7 @@
 
     
 
- <div class='form-group p-3 m-3'>
+     <div class='form-group p-3 m-3'>
           <input class="form-control form-control-lg"  type='number'  v-model='recu.numero' placeholder="Numero" required>
       </div>
 
@@ -99,8 +110,10 @@ recu:{
   type:"",
   nombreDeChambre: "",
   loyer:"",
+  prix:"",
   caution:"",
   ville:"",
+  description:"",
   quartier:"",
   geolocation:"",
   imageUrl:"",

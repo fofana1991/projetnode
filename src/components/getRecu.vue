@@ -21,11 +21,14 @@
 
 <div class='row d-flex d-inline-sm  d-block-lg p-auto ' v-if='recu'>
 
-  <audio preload="auto" id="son" autoplay>
+    <audio preload="auto" id="son" autoplay>
+
     
           <source src="../assets/scan.mp3" type="audio/mp3">
           <source src="../assets/scan.ogg" type="audio/ogg">
-      </audio>
+
+
+    </audio>
 
 
 <div  class="col-lg-12  p-auto d-block fixed-right "  id="fatou cache" >
@@ -48,13 +51,13 @@
                      <h5 class=""><strong >Type de maison:</strong >{{recu.type}} </h5>
                       <p class=""><strong >Nombre de chambre:</strong >{{recu.nombreDeChambre}}</p>
                       <p class=""><strong >Loyer:</strong >{{recu.loyer}}</p>
+                       <p class=""><strong >Prix:</strong >{{recu.prix}}</p>
                       <p class=""><strong >Caution:</strong >{{recu.caution}}</p>
                       <p class=""><strong >Ville:</strong >{{recu.ville}}</p>
+                      <p class=""><strong >description:</strong >{{recu.description}}</p>
                       <p class=""><strong >Quartier:</strong >{{recu.quartier}}</p>
-                      <p class=""><strong >Numero:</strong >0{{recu.numero}}</p>
-
-          
-                    </div>
+                      <p class=""><strong >Numero:</strong >0{{recu.numero}}</p>         
+                   </div>
               </div>
 
 
@@ -93,28 +96,38 @@
 
 
       <div class='form-group p-3 m-3'>
-          <input class="form-control form-control-lg"  type='number'  v-model='recu.nombreDeChambre' placeholder="Nombre de chambre" required>
+          <input class="form-control form-control-lg"  type='number'  v-model='recu.nombreDeChambre' placeholder="Nombre de chambre">
       </div>
 
      <div class='form-group p-3 m-3'>
-          <input class="form-control form-control-lg"  type='number'  v-model='recu.loyer' placeholder="Loyer" required>
+          <input class="form-control form-control-lg"  type='number'  v-model='recu.loyer' placeholder="Loyer" >
+      </div>
+
+      <div class='form-group p-3 m-3'>
+          <input class="form-control form-control-lg"  type='number'  v-model='recu.prix' placeholder="Prix">
       </div>
 
 
 
- <div class='form-group p-3 m-3'>
-          <input class="form-control form-control-lg"  type='number'  v-model='recu.caution' placeholder="caution" required>
+      <div class='form-group p-3 m-3'>
+          <input class="form-control form-control-lg"  type='number'  v-model='recu.caution' placeholder="caution" >
       </div>
 
-  <div class='form-group p-3 m-3'>
+
+     <div class='form-group p-3 m-3'>
           <input class="form-control form-control-lg"  type='texte'  v-model='recu.ville' placeholder="Ville" required>
       </div>
 
-<div class='form-group p-3 m-3'>
+       <div class='form-group p-3 m-3'>
+         <textarea class="form-control form-control-lg"  type='texte'  v-model='recu.description' placeholder="Description"></textarea>
+      </div>
+
+
+      <div class='form-group p-3 m-3'>
           <input class="form-control form-control-lg"  type='texte'  v-model='recu.quartier' placeholder="quartier" required>
       </div>
 
-<div class='form-group p-3 m-3'>
+     <div class='form-group p-3 m-3'>
           <input class="form-control form-control-lg"  type='texte'  v-model='recu.geolocation' placeholder="Géolocation" >
       </div>
 
@@ -129,7 +142,7 @@
        
 
 
- <div class='form-group p-3 m-3'>
+     <div class='form-group p-3 m-3'>
           <input class="form-control form-control-lg"  type='number'  v-model='recu.numero' placeholder="Numero" required>
       </div>
 

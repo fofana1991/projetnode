@@ -40,6 +40,7 @@
                       <p class=""><strong >Type de maison:</strong >{{recu.type}}</p>
                       <p class=""><strong >Nombre de chambre:</strong >{{recu.nombreDeChambre}}</p>
                       <p class=""><strong >Loyer:</strong >{{recu.loyer}}</p>
+                      <p class=""><strong >Prix:</strong >{{recu.prix}}</p>
                       <p class=""><strong >Caution:</strong >{{recu.caution}}</p>
                       <p class=""><strong >Ville:</strong >{{recu.ville}}</p>
                       <p class=""><strong >Quartier:</strong >{{recu.quartier}}</p>
