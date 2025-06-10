@@ -5,7 +5,7 @@
 
 <div class='row d-flex d-inline m-3 p-3 '>
        <div class='col-8 lessonList bg-primary '>
-        <strong>{{message.name}}</strong><br/>
+        <strong>{{message.name}} numero 0{{message.userNumber}} </strong><br/>
        {{message.message}}
        </div>
         <div class='col-2'>

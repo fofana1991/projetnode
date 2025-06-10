@@ -285,7 +285,7 @@
         </div>
       <div class="d-flex d-inline lessonList">
        <div class='col-8  bg-primary ' @click='gomessageEdit(message._id)'>
-        <strong>{{message.name}} </strong><br/>
+        <strong>{{message.name}}  numero 0{{message.userNumber}} </strong><br/>
        {{message.message}}
        </div>
         <div class='col-2'>
