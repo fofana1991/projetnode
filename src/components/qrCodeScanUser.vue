@@ -1,5 +1,27 @@
 <template>
+
+<div class='form-group p-3'>
+
+  <span>
+CHOISISSEZ UNE OPTION
+  </span>
+
+ 
+
+<select  v-model="this.operation" placeholder='Operation' >
+ 
+   <option value="00 709">entrée</option>
+   <option value="00 711">sortie</option>
+   <option value="00 212">Depos</option>
+
+</select>
+</div>
+
+    <br/>
+
+
   <div class="p-3 m-4">
+
      <p class="error" v-if='error'> {{update}}</p>
     <p class="error" v-if='error'> {{ error }} </p>
 
@@ -26,6 +48,8 @@ export default {
       update:'',
       result: '',
       error: '',
+      operation:'',
+      result2:'',
       
 
 
@@ -35,10 +59,8 @@ export default {
   methods: {
     onDecode (result) {
 
-      this.result = result
+      this.result = result + ' ' + this.operation
       this.result.split(' ')[0]
-
-
 
 //window.location.replace(result)
 
@@ -51,8 +73,8 @@ export default {
     else if(this.result.split(' ')[2]==212){
          this.$router.push( {name:'updateUser',params:{id:result}})
          
-    }else if(this.result.split(' ')[2]==503){
-         this.$router.push( {name:'updateUser',params:{id:result}})
+    }else if(this.result.split(' ')[2]==503 || this.result.split(' ')[2]==709 || this.result.split(' ')[2]==711){
+         this.$router.push( {name:'updateUser',params:{id:this.result}})
     }
 
 

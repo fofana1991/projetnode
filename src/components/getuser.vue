@@ -285,12 +285,29 @@
         </div>
       <div class="d-flex d-inline lessonList">
        <div class='col-8  bg-primary ' @click='gomessageEdit(message._id)'>
+      
+      <div v-if='message.usercountOperation !="709" && message.usercountOperation !="711"'>
         <strong>{{message.name}}  numero 0{{message.userNumber}} </strong><br/>
-       {{message.message}}
+
+      </div>  
+
+      <div v-if='message.usercountOperation=="709" || message.usercountOperation =="711"'>
+        <strong>{{message.rusername}}  numero 0{{message.ruserNumber}} </strong><br/>
+
+      </div>  
+       {{message.message}} <span v-if='message.usercountOperation=="709" || message.usercountOperation =="711"'>{{message.name}}</span>
+
+      
+
+
        </div>
-        <div class='col-2'>
+        <div class='col-2' v-if='message.usercountOperation !="709" && message.usercountOperation !="711"'>
             <img :src='message.userimageUrl'  class='avatar  mt-3' >
-          </div>
+        </div>
+
+        <div class='col-2' v-if='message.usercountOperation =="709" || message.usercountOperation =="711"'>
+            <img :src='message.ruserimageUrl'  class='avatar  mt-3' >
+        </div>
       </div>  
       </div> 
      </div>
@@ -360,13 +377,18 @@ import {accountService} from '@/_services'
       message:{
         message:'',
         name:'',
+        rusername:'',
         userId:'',
         userNumber:'',
         userimageUrl:'',
+        ruserimageUrl:'',
         ruserId:'',
         ruserNumber:'',
         retrait:'',
-        depos:''
+        depos:'',
+        usercountOperation:'',
+        ruserEmail:'',
+        
       },
 
       voyant:''
@@ -605,6 +627,7 @@ accountService.getuser(this.id).then(res=>{
   this.message.ruserId=this.user._id
   this.message.ruserNumber=this.user.number
   this.message.userId=this.user._id
+
   this.message.message= 'est arrivé le ' + ' ' + d.toUTCString().split(',')[1] + ' '  + 'chez' +' ' +this.user.forename
 
   messageService.addMessage(this.message).catch(error=> {
@@ -679,7 +702,117 @@ this.avertissement='Carte  Frauduleuse';
 
 
  
+}else if(this.usercountOperation=='709'){
+
+
+  accountService.getuser2().then(res=>{
+  
+  this.user2=res.data
+
+  this.message.ruserId=this.user2._id
+  
+
+  });
+
+  // recuperation de l'utilisateur sur lequel effectuer des operations
+
+
+accountService.getuser(this.id).then(res=>{
+  
+  this.user=res.data  
+  
+  this.message.ruserId=this.user._id
+  this.message.ruserNumber=this.user.number
+  this.message.ruserId=this.user._id
+  this.message.ruserimageUrl=this.user.imageUrl
+  this.message.usercountOperation='709'
+  this.message.rusername=this.user.name
+  this.message.ruserEmail=this.user.email
+  this.message.message= 'était present le ' + ' ' + d.toUTCString().split(',')[1] + ' '  + 'chez' +' '
+
+  messageService.addMessage(this.message).catch(error=> {
+      console.log(error)
+    })
+
+  
+  
+  if(this.user==null) {
+
+this.avertissement='Carte  Frauduleuse';
+
+
 }
+
+}).catch(err=>{
+  console.log(err)
+  if(err.response.status==404){
+    
+    this.avertissement='Produit Frauduleux';
+  
+  }
+});
+
+
+
+ 
+}else if(this.usercountOperation=='711'){
+
+
+  accountService.getuser2().then(res=>{
+  
+  this.user2=res.data
+
+  this.message.ruserId=this.user2._id
+  
+
+  });
+
+  // recuperation de l'utilisateur sur lequel effectuer des operations
+
+
+accountService.getuser(this.id).then(res=>{
+  
+  this.user=res.data  
+  
+  this.message.ruserId=this.user._id
+  this.message.ruserNumber=this.user.number
+  this.message.ruserId=this.user._id
+  this.message.ruserimageUrl=this.user.imageUrl
+  this.message.usercountOperation='709'
+  this.message.rusername=this.user.name
+  this.message.ruserEmail=this.user.email
+  this.message.message= 'est sortir  le' + ' ' + d.toUTCString().split(',')[1] + ' '  + ' de chez' +' '
+
+  messageService.addMessage(this.message).catch(error=> {
+      console.log(error)
+    })
+
+  
+  
+  if(this.user==null) {
+
+this.avertissement='Carte  Frauduleuse';
+
+
+}
+
+}).catch(err=>{
+  console.log(err)
+  if(err.response.status==404){
+    
+    this.avertissement='Produit Frauduleux';
+  
+  }
+});
+
+
+
+ 
+}
+
+
+    
+
 
     
 

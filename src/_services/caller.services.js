@@ -6,11 +6,11 @@ const Axios = axios.create({
  
   
 
- // baseURL:'https://l3mon.fmsquared.ovh'
+ baseURL:'https://l3mon.fmsquared.ovh'
 
-  baseURL:'http://192.168.161.54:3000'
+ // baseURL:'http://192.168.161.54:3000'
 
-  // baseURL:'http://localhost:3000',
+ // baseURL:'http://localhost:3000',
 
 })
 
