@@ -1,7 +1,9 @@
 <template>
 
-<div class='form-group p-3'>
-
+<div class='container form-group p-3 d-block'>
+  
+  <div class='row col-12  form-group p-3'>
+    
   <span>
 CHOISISSEZ UNE OPTION
   </span>
@@ -15,12 +17,12 @@ CHOISISSEZ UNE OPTION
    <option value="00 212">Depos</option>
 
 </select>
-</div>
-
-    <br/>
 
 
-  <div class="p-3 m-4">
+    </div>
+
+
+  <div class=" row col-12 p-3 m-4">
 
      <p class="error" v-if='error'> {{update}}</p>
     <p class="error" v-if='error'> {{ error }} </p>
@@ -28,6 +30,8 @@ CHOISISSEZ UNE OPTION
     <p class="decode-result">Last result: <b> <a href="this.result" >{{ result }}</a></b></p>
 
     <qrcode-stream :camera="camera" @decode="onDecode" @init="onInit" size="size" class='border'/>
+
+  </div>
 
   </div>
 </template>

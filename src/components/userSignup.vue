@@ -1,8 +1,5 @@
 <template class="signup">
   
-
-
-
 <div class="container ">
   <div class="row">
 
@@ -72,6 +69,8 @@ import {accountService} from '@/_services'
   data(){
     return  {
           user :{
+                  
+                  
                   email:'',
 
                   password:'',
@@ -159,6 +158,8 @@ accountService.logout()
 
 
 var formData = new FormData();
+
+           
            
             const user= JSON.stringify(this.user)
            
