@@ -6,7 +6,7 @@ const Axios = axios.create({
  
   
 
- baseURL:'https://l3mon.fmsquared.ovh'
+ baseURL:'https://l3mon.overdose.cloud'
 
  // baseURL:'http://192.168.161.54:3000'
 
